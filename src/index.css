@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@600;700&family=Poppins:wght@600;700&display=swap');
+
+:root {
+	--color-institutional-purple: #5b2ea6;
+	--color-dark-purple: #3b1f66;
+	--color-lavender: #a98de0;
+  --color-lavender-light: #d6c7f5;
+	--color-white: #ffffff;
+	--color-text: #6b6b7a;
+	--color-border: #e6e6ef;
+	--color-gradient: linear-gradient(135deg, #5b2ea6, #a98de0);
+	--font-heading: 'Poppins', 'Montserrat', sans-serif;
+	--font-body: 'Inter', 'Roboto', sans-serif;
+}
+
+body {
+	font-family: var(--font-body);
+	color: var(--color-text);
+	background: var(--color-white);
+  color: rgba(205, 105, 252, 0.38),rgba(247, 105, 252, 0.38), rgba(149, 41, 236, 0.384);
+}
+
+h1,
+h2,
+h3 {
+	font-family: var(--font-heading);
+	color: var(--color-dark-purple);
+}
