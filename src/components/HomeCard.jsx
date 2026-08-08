@@ -57,12 +57,14 @@ export default HomeCard;
 
 const HomeCardStyled = styled.section`
     width: 100%;
+    max-width: 100%;
     display: block;
-    
+    box-sizing: border-box;
     
     .home-card {
         width: 100%;
-        max-width: 320px;
+        max-width: min(100%, 320px);
+        box-sizing: border-box;
         height: 100%;
         margin: 0 auto;
         display: flex;

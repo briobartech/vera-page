@@ -56,8 +56,10 @@ export default Home;
 const HomeStyled = styled.div`
   width: min(80%, 1440px);
   margin: 0 auto;
+  box-sizing: border-box;
 
   @media (max-width: 900px) {
-    width: min(94%, 1440px);
+    width: min(100%, 1440px);
+    padding: 0 0.8rem;
   }
 `;

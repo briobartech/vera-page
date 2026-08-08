@@ -27,11 +27,15 @@ export default Banner;
 
 const BannerStyled = styled.section`
     width: 100%;
+    max-width: 100%;
     margin-top: 2rem;
+    box-sizing: border-box;
 
     .banner-section {
         position: relative;
         min-height: 440px;
+        width: 100%;
+        max-width: 100%;
         margin: 0 auto;
         border-radius: 2rem;
         overflow: hidden;
@@ -150,25 +154,32 @@ const BannerStyled = styled.section`
     }
 
     @media (max-width: 768px) {
-        padding: 0.6rem 1rem 1.2rem;
+        padding: 0;
 
         .banner-section {
-            min-height: 340px;
+            min-height: 320px;
             border-radius: 1.35rem;
-            background-size: 100% 100%, 100% 100%, 84% auto;
-            background-position: left top, left top, right -16% bottom -2%;
+            background-size: cover, cover, 95% auto;
+            background-position: center, center, right center;
         }
 
         .banner-content {
-            padding: 1.4rem 1rem 1.05rem;
+            width: 100%;
+            padding: 1.25rem 1rem 1rem;
+            box-sizing: border-box;
+        }
+
+        .banner-title {
+            font-size: clamp(1.4rem, 1.1rem + 2vw, 2.1rem);
         }
 
         .banner-subtitle {
-            max-width: 94%;
+            max-width: 100%;
+            font-size: 0.98rem;
         }
 
         .banner-button {
-            width: 250px;
+            width: min(100%, 250px);
             padding: 0.85rem 1rem;
         }
     }

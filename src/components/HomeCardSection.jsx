@@ -48,8 +48,10 @@ export default HomeCardSection;
 
 const HomeCardSectionStyled = styled.section`
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     align-items: start;
     gap: 1.5rem;
     padding: 2rem 0;

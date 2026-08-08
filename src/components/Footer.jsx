@@ -16,6 +16,8 @@ const FooterStyled = styled.footer`
 	--qa-purple-c: 126, 62, 176;
 
 	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
 	margin: 1.6rem 0 2rem;
 	border-radius: 1.35rem;
 	padding: 1rem 1.2rem;
@@ -67,5 +69,17 @@ const FooterStyled = styled.footer`
 		line-height: 1.35;
 		color: #5c35b4;
 		font-weight: 500;
+		max-width: 100%;
+		overflow-wrap: anywhere;
+	}
+
+	@media (max-width: 768px) {
+		margin: 1.2rem 0 1.4rem;
+		padding: 0.95rem 0.9rem;
+		border-radius: 1rem;
+
+		p {
+			font-size: 0.88rem;
+		}
 	}
 `;
