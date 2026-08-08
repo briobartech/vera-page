@@ -6,7 +6,7 @@ import {
     faBookOpen,
     faCalendarDays,
     faLaptop,
-    faNewspaper,faPenToSquare,faLaptopFile,faDisplay
+    faNewspaper,faPenToSquare,faLaptopFile,faDisplay,faRobot
 } from '@fortawesome/free-solid-svg-icons';
 import profesoradoArtesVisuales from '../assets/img/icons/profesorado-de-arte.svg';
 import educacionPrimaria from '../assets/img/icons/educación-primaria.svg';
@@ -18,7 +18,7 @@ import desarrolloSoftware from '../assets/img/icons/desarrollo-software.svg';
 import redesCiberseguridad from '../assets/img/icons/redes-y-ciberseguridad.svg';
 import agronomia from '../assets/img/icons/agronomia.svg';
 import recursosHumanos from '../assets/img/icons/recursos-humanos.svg';
-const icons = {faDisplay,
+const icons = {faDisplay,faRobot,
     fingerPrintIcon,
     tramaIcon,
     faArrowUpRightFromSquare,

@@ -160,7 +160,7 @@ const BannerStyled = styled.section`
             min-height: 320px;
             border-radius: 1.35rem;
             background-size: cover, cover, 95% auto;
-            background-position: center, center, right center;
+            background-position: center, center , 100% 200%;
         }
 
         .banner-content {
