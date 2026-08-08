@@ -1,0 +1,115 @@
+{
+    "careers": {
+        "TSRYC": {
+            "title": "Tecnicatura en Software",
+            "description": "La Tecnicatura en Software es una carrera de nivel superior que te brinda los conocimientos y habilidades necesarios para desarrollar aplicaciones, sistemas y soluciones digitales. A lo largo de la carrera, aprenderás a programar, diseñar interfaces de usuario, gestionar bases de datos y trabajar en equipo para crear productos tecnológicos innovadores.",
+            "image": "https://example.com/images/software.jpg",
+            "sections": [
+                {
+                    "type": "banner",
+                    "content": [
+                        {
+                            "title": "Tecnicatura superior en Desarrollode software",
+                            "subtitle": "Formate para crear aplicaciones, sistemas y soluciones digitales",
+                            "buttonText": "Inscribite ahora",
+                            "image": "https://example.com/images/software-banner.jpg"
+                        }
+                    ]
+                },
+                {
+                    "type": "info-cards",
+                    "quantity": 4,
+                    "content": [
+                        {
+                            "icon": "clock",
+                            "title": "Duración",
+                            "description": "3 años"
+                        },
+                        {
+                            "icon": "checkmark",
+                            "title": "Modalidad",
+                            "description": "Presencial / a distancia"
+                        },
+                        {
+                            "icon": "sand-clock",
+                            "title": "Turno",
+                            "description": "Vespertino"
+                        },
+                        {
+                            "icon": "card",
+                            "title": "Título",
+                            "description": "Técnico Superior en desarrollo de software"
+                        }
+                    ]
+                },
+                {
+                    "type": "about",
+                    "content": {
+                        "title": "Acerca de la carrera",
+                        "description": "La Tecnicatura en Software es una carrera de nivel superior que te brinda los conocimientos y habilidades necesarios para desarrollar aplicaciones, sistemas y soluciones digitales. A lo largo de la carrera, aprenderás a programar, diseñar interfaces de usuario, gestionar bases de datos y trabajar en equipo para crear productos tecnológicos innovadores.",
+                        "image": "https://example.com/images/software-about.jpg"
+                    }
+                },
+                
+                {
+                    "type": "contents",
+                    "content": {
+                        "title": "Contenidos de la carrera",
+                        "description": [
+                            [
+                                "Fundamentos de Redes",
+                                "Sistemas Operativos",
+                                "Introducción a Ciberseguridad",
+                                "Protocolos de Comunicación",
+                                "Administración de Sistemas"
+                            ],
+                            [
+                                "Seguridad en Redes",
+                                "Criptografía",
+                                "Análisis de Vulnerabilidades",
+                                "Firewall y Control de Acceso",
+                                "Administración de Bases de Datos"
+                            ],
+                            [
+                                "Auditoría de Seguridad",
+                                "Respuesta a Incidentes",
+                                "Cumplimiento Normativo",
+                                "Seguridad en la Nube",
+                                "Proyecto Final"
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "type": "profile",
+                    "content": {
+                        "title": "Perfil del egresado",
+                        "description": "El egresado de la Tecnicatura en Software estará capacitado para diseñar, desarrollar y mantener aplicaciones y sistemas informáticos. Tendrá habilidades en programación, análisis de requerimientos, diseño de interfaces, gestión de bases de datos y trabajo en equipo. Además, estará preparado para adaptarse a las nuevas tecnologías y tendencias del desarrollo de software."
+                    }
+                },
+                {
+                    "type": "about",
+                    "content": {
+                        "title": "Salida laboral",
+                        "description": "El egresado de la Tecnicatura en Software tiene diversas oportunidades laborales en el campo de la tecnología y el desarrollo de software. Puede desempeñarse como desarrollador de aplicaciones, programador web, analista de sistemas, diseñador de interfaces, administrador de bases de datos, entre otros roles relacionados con la creación y mantenimiento de soluciones digitales. Además, puede trabajar en empresas de tecnología, startups, consultoras o incluso emprender su propio proyecto.",
+                        "image": "https://images.ctfassets.net/pdf29us7flmy/1xIWV7IeCPx8D2lEjUq11e/bcb6d6b45eb3d68491f9445d9a63c1fa/GettyImages-473983321.jpg?w=720&q=100&fm=jpg"
+                    }
+                },
+                
+                {
+                    "type": "faq",
+                    "questions": [
+                        "¿Es presencial o a distancia?",
+                        "¿Cuánto dura la carrera?",
+                        "¿Qué salidas laborales tiene?"
+                    ],
+                    "answers": [
+                        "La carrera se ofrece en modalidad presencial y a distancia, brindando flexibilidad para adaptarse a las necesidades de los estudiantes.",
+                        "La duración de la carrera es de 3 años, durante los cuales se adquieren los conocimientos y habilidades necesarios para desarrollarse en el campo del software.",
+                        "El egresado de la Tecnicatura en Software tiene diversas oportunidades laborales, incluyendo roles como desarrollador de aplicaciones, programador web, analista de sistemas, diseñador de interfaces y administrador de bases de datos. Puede trabajar en empresas de tecnología, startups, consultoras o emprender su propio proyecto."
+                    ]
+                }
+            ]
+        }
+    }
+}

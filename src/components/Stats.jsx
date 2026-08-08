@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { getTotalCareersCount } from './CareersSection';
+import { getTotalCareersCount } from '../data/careersCatalog';
 
 const COUNT_DURATION_MS = 3000;
 

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 
 const localImages = import.meta.glob('../assets/img/**/*.{png,jpg,jpeg,webp,avif,svg}', {
@@ -82,29 +82,89 @@ const testimonials = [
 ];
 
 function Recommendations() {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [isMobileView, setIsMobileView] = useState(false);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(max-width: 980px)');
+
+        const handleChange = () => setIsMobileView(mediaQuery.matches);
+        handleChange();
+
+        mediaQuery.addEventListener('change', handleChange);
+
+        return () => mediaQuery.removeEventListener('change', handleChange);
+    }, []);
+
+    useEffect(() => {
+        if (!isMobileView) {
+            return undefined;
+        }
+
+        const intervalId = window.setInterval(() => {
+            setActiveIndex((currentIndex) => (currentIndex + 1) % testimonials.length);
+        }, 5000);
+
+        return () => window.clearInterval(intervalId);
+    }, [isMobileView]);
+
+    const activeTestimonial = testimonials[activeIndex];
+
     return (
         <RecommendationsStyled>
             <h2>¿Que dicen nuestros estudiantes?</h2>
 
-            <div className="recommendations-grid">
-                {testimonials.map((testimonial) => (
-                    <article className="recommendation-card" key={testimonial.name}>
-                        <p className="quote">{testimonial.quote}</p>
+            <div className={`recommendations-grid${isMobileView ? ' is-mobile-carousel' : ''}`}>
+                {isMobileView ? (
+                    <article className="recommendation-card active" key={activeTestimonial.name}>
+                        <p className="quote">{activeTestimonial.quote}</p>
 
                         <div className="author-row">
                             <Avatar
-                                name={testimonial.name}
-                                imagePath={testimonial.imagePath}
-                                initials={testimonial.initials}
+                                name={activeTestimonial.name}
+                                imagePath={activeTestimonial.imagePath}
+                                initials={activeTestimonial.initials}
                             />
                             <div className="author-info">
-                                <strong>{testimonial.name}</strong>
-                                <span>{testimonial.location}</span>
+                                <strong>{activeTestimonial.name}</strong>
+                                <span>{activeTestimonial.location}</span>
                             </div>
                         </div>
                     </article>
-                ))}
+                ) : (
+                    testimonials.map((testimonial) => (
+                        <article className="recommendation-card" key={testimonial.name}>
+                            <p className="quote">{testimonial.quote}</p>
+
+                            <div className="author-row">
+                                <Avatar
+                                    name={testimonial.name}
+                                    imagePath={testimonial.imagePath}
+                                    initials={testimonial.initials}
+                                />
+                                <div className="author-info">
+                                    <strong>{testimonial.name}</strong>
+                                    <span>{testimonial.location}</span>
+                                </div>
+                            </div>
+                        </article>
+                    ))
+                )}
             </div>
+
+            {isMobileView && (
+                <div className="carousel-dots" aria-label="Selector de testimonios">
+                    {testimonials.map((testimonial, index) => (
+                        <button
+                            key={testimonial.name}
+                            type="button"
+                            className={`carousel-dot${index === activeIndex ? ' active' : ''}`}
+                            onClick={() => setActiveIndex(index)}
+                            aria-label={`Ver testimonio ${index + 1}`}
+                        />
+                    ))}
+                </div>
+            )}
         </RecommendationsStyled>
     );
 }
@@ -181,6 +241,36 @@ const RecommendationsStyled = styled.section`
         );
     }
 
+    .carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 0.95rem;
+    }
+
+    .carousel-dot {
+        width: 0.7rem;
+        height: 0.7rem;
+        border: none;
+        border-radius: 999px;
+        background-color: rgba(92, 53, 180, 0.28);
+        padding: 0;
+        cursor: pointer;
+        transition: transform 180ms ease, background-color 180ms ease;
+    }
+
+    .carousel-dot:hover,
+    .carousel-dot:focus-visible {
+        transform: scale(1.08);
+        background-color: rgba(92, 53, 180, 0.6);
+        outline: none;
+    }
+
+    .carousel-dot.active {
+        background-color: var(--color-institutional-purple);
+        transform: scale(1.12);
+    }
+
     .quote {
         margin: 0;
         font-family: var(--font-heading);
@@ -252,7 +342,11 @@ const RecommendationsStyled = styled.section`
 
     @media (max-width: 980px) {
         .recommendations-grid {
-            grid-template-columns: minmax(0, 1fr);
+            display: block;
+        }
+
+        .recommendations-grid.is-mobile-carousel {
+            display: block;
         }
 
         .recommendation-card {

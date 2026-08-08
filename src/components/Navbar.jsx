@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
-import logoVera from '../assets/img/logo-png.png';
+import images from '../data/images.js';
 
 const byPrefixAndName = {
   fas: {
@@ -78,7 +78,7 @@ function NavBar() {
             </button>
 
             <a href="#" className="logo-card" aria-label="Inicio Vera">
-                <img src={logoVera} alt="Rosario Vera Peñaloza" className="logo-image" />
+                <img src={images.logoVera} alt="Rosario Vera Peñaloza" className="logo-image" />
             </a>
 
             <div className="menu-shell" role="navigation" aria-label="Menu principal">

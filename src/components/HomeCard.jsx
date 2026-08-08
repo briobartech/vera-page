@@ -1,73 +1,58 @@
 import styled from 'styled-components';
-import {
-        faArrowUpRightFromSquare,
-        faBookOpen,
-        faCalendarDays,
-        faLaptop,
-        faNewspaper,
-} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import bannerImage from '../assets/img/banner/banner.png';
 import adornoImage from '../assets/img/adorno.png';
 
-function HomeCard() {
+function HomeCard({
+    icon = null,
+    title = 'Últimas noticias',
+    description = 'Mantente informado con las últimas novedades y eventos del instituto.',
+    imageSrc = null,
+    imageAlt = '',
+    buttonLabel = '➝ Leer más',
+    buttonType = 'button',
+    onClick,
+    className,
+}) {
+    const hasIcon = Boolean(icon);
+    const hasTitle = Boolean(title);
+    const hasDescription = Boolean(description);
+    const hasImage = Boolean(imageSrc);
+    const hasButton = Boolean(buttonLabel);
+
     return (
-        <HomeCardStyled>
+        <HomeCardStyled className={className}>
             <section className="home-card">
                 <img src={adornoImage} alt="" className="home-card-adorno" aria-hidden="true" />
-                               {/*  <span className="top-accent" aria-hidden="true" /> */}
 
-                                <div className="icon-card" aria-hidden="true">
-                                        <FontAwesomeIcon icon={faNewspaper} />
+                {hasIcon && (
+                    <div className="icon-card" aria-hidden="true">
+                        <FontAwesomeIcon icon={icon} />
+                    </div>
+                )}
+
+                <div className="home-card-content">
+                    {hasTitle && <h3 className="home-card-title">{title}</h3>}
+                    {hasDescription && <p className="home-card-description">{description}</p>}
+
+                    {hasImage && (
+                        <figure className="home-card-media">
+                            <img src={imageSrc} alt={imageAlt || title || 'Imagen de la tarjeta'} />
+                        </figure>
+                    )}
+
+                    {hasButton && (
+                        <div className="home-card-actions">
+                            <button className="home-card-button" type={buttonType} onClick={onClick}>
+                                {buttonLabel}
+                            </button>
+                        </div>
+                    )}
                 </div>
-
-                                <div className="home-card-content">
-                                        <h3 className="home-card-title">Ultimas noticias</h3>
-                                        <p className="home-card-description">
-                                                Mantente informado con las ultimas novedades y eventos del instituto.
-                                        </p>
-
-                                        <figure className="home-card-media">
-                                                <img src={bannerImage} alt="Novedades institucionales" />
-                                        </figure>
-
-                                        <div className="home-card-actions">
-                                                <button className="home-card-button" type="button">
-                                                        ➝Leer mas
-                                                </button>
-                                        </div>
-
-                                        {/* <ul className="home-card-shortcuts" aria-label="Accesos rapidos">
-                                                <li>
-                                                        <a href="#">
-                                                                <span className="shortcut-icon">
-                                                                        <FontAwesomeIcon icon={faBookOpen} />
-                                                                </span>
-                                                                <span>Materiales de estudio</span>
-                                                        </a>
-                                                </li>
-                                                <li>
-                                                        <a href="#">
-                                                                <span className="shortcut-icon">
-                                                                        <FontAwesomeIcon icon={faLaptop} />
-                                                                </span>
-                                                                <span>Actividades Online</span>
-                                                        </a>
-                                                </li>
-                                                <li>
-                                                        <a href="#">
-                                                                <span className="shortcut-icon is-green">
-                                                                        <FontAwesomeIcon icon={faCalendarDays} />
-                                                                </span>
-                                                                <span>Calendario academico</span>
-                                                        </a>
-                                                </li>
-                                        </ul> */}
-                                </div>
             </section>
         </HomeCardStyled>
     );
 }
+
 export default HomeCard;
 
 const HomeCardStyled = styled.section`
@@ -78,7 +63,10 @@ const HomeCardStyled = styled.section`
     .home-card {
         width: 100%;
         max-width: 320px;
+        height: 100%;
         margin: 0 auto;
+        display: flex;
+        flex-direction: column;
         position: relative;
         border-radius: 2.1rem;
         padding: 0.5rem 0.5rem 1rem;
@@ -159,40 +147,53 @@ const HomeCardStyled = styled.section`
     }
 
     .home-card-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
         padding: 0 0.85rem 0.6rem;
     }
 
     .home-card-title {
         margin: 0;
+        min-height: 3.1rem;
+        display: flex;
+        align-items: flex-start;
         font-family: var(--font-heading);
         font-weight: 500;
-        font-size: clamp(1.5rem, 1.3rem + 0.38vw, 2rem);
+        font-size: clamp(1.4rem, 1.2rem + 0.38vw, 1.5rem);
         line-height: 1.1;
         color: var(--color-dark-purple);
     }
 
     .home-card-description {
-        margin: 1.15rem 0 1.45rem;
+        margin: 0 0 1rem;
+        min-height: 4.2rem;
         font-family: var(--font-body);
-        font-size: 1.08rem;
+        font-size: 1rem;
         line-height: 1.35;
         font-weight: 500;
         color: var(--color-dark-purple);
         max-width: 95%;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
     }
 
     .home-card-media {
-        margin: 0;
+        margin: 0 0 1rem;
         width: 100%;
+        min-height: 190px;
+        max-height: 190px;
         border-radius: 1.2rem;
         overflow: hidden;
         background: #f2ecff;
-        /* box-shadow: 0 14px 24px rgba(59, 31, 102, 0.12); */
     }
 
     .home-card-media img {
         width: 100%;
-        height: 190px;
+        height: 100%;
+        min-height: 190px;
         object-fit: cover;
         display: block;
     }
@@ -201,7 +202,7 @@ const HomeCardStyled = styled.section`
         display: flex;
         align-items: center;
         gap: 0.9rem;
-        margin-top: 1.35rem;
+        margin-top: auto;
     }
 
     .home-card-button {

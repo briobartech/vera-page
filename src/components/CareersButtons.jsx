@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 function CareersButtons({
     name,
     icon,
-    href = "/careers/apply",
+    to = '/oferta-educativa',
     reflectionColor = "rgba(186, 142, 166, 0.72)",
 }) {
 
@@ -11,7 +12,7 @@ function CareersButtons({
 
     return (
         <CareersButtonsStyled className="careers-buttons" $reflectionColor={reflectionColor}>
-            <a href={href} className="careers-button">
+            <Link to={to} className="careers-button">
                 <span className="careers-icon-shell" aria-hidden="true">
                     <img src={icon} alt={name} className="careers-icon" />
                 </span>
@@ -19,7 +20,7 @@ function CareersButtons({
                 <span className="careers-label-shell">
                     <span>{name}</span>
                 </span>
-            </a>
+            </Link>
         </CareersButtonsStyled>
     );
 }
@@ -31,7 +32,7 @@ const CareersButtonsStyled = styled.div`
 }
    .careers-buttons{
 
-    max-width: 320px;
+    max-width: 100%;
 }
 
 .careers-button{
@@ -39,12 +40,14 @@ const CareersButtonsStyled = styled.div`
     display:flex;
     align-items:center;
     gap:16px;
+    width:100%;
+    min-width:0;
 }
     .careers-icon-shell{
-    width:64px;
-    height:64px;
-    min-width:64px;
-    min-height:64px;
+    width:56px;
+    height:56px;
+    min-width:56px;
+    min-height:56px;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -63,13 +66,15 @@ const CareersButtonsStyled = styled.div`
         .careers-label-shell{
     position:relative;
 
-    min-width:120px;
-    height:64px;
-
+    flex:1;
+    min-width:0;
+    min-height:32px;
+    height:auto;
+    max-height:32px;
     display:flex;
     align-items:center;
 
-    padding:0 56px;
+    padding:0.7rem 0.85rem;
 
     background:#312B36;
 
@@ -122,7 +127,7 @@ const CareersButtonsStyled = styled.div`
 
     color:white;
 
-    font-size:1.2em;
+    font-size:0.9rem;
 
     font-weight:600;
 
@@ -131,6 +136,8 @@ const CareersButtonsStyled = styled.div`
     text-transform:uppercase;
 
     letter-spacing:-1px;
+    white-space:normal;
+    word-break:break-word;
 }
     .careers-icon{
 

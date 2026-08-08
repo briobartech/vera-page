@@ -1,13 +1,45 @@
 import HomeCard from './HomeCard';
 import styled from 'styled-components';
+import icons from '../data/icons.js';
+import bannerImage from '../assets/img/banner/banner.png';
+import images from '../data/images.js';
+const defaultCards = [
+    {
+        icon: icons.faNewspaper,
+        title: 'Últimas noticias',
+        description: 'Mantente informado con las últimas novedades y eventos del instituto.',
+        imageSrc: images.ultimasNoticias,
+        buttonLabel: '➝ Leer más',
+    },
+    {
+        icon: icons.faPenToSquare,
+        title: 'Inscripciones abiertas',
+        description: '¡No pierdas la oportunidad de formar parte de nuestra comunidad educativa!',
+        imageSrc: images.inscripcion,
+        buttonLabel: '➝ Inscribirse',
+    },
+    {
+        icon: icons.faDisplay,
+        title: 'Campus virtual',
+        description: 'Campus virtual, recursos en línea para estudiantes y docentes. Accede a materiales de estudio, clases grabadas y más.',
+        imageSrc: images.campusVirtual,
+        buttonLabel: '➝ Ingresar',
+    },
+    {
+        icon: icons.faLaptopFile,
+        title: 'Trámite online',
+        description: 'Realiza tus trámites en línea de manera rápida y segura.',
+        imageSrc: images.tramite,
+        buttonLabel: '➝ Acceder',
+    },
+];
 
-function HomeCardSection() {
+function HomeCardSection({ cards = defaultCards }) {
     return (
         <HomeCardSectionStyled>
-            <HomeCard />
-            <HomeCard />
-            <HomeCard />
-            <HomeCard />
+            {cards.map((card, index) => (
+                <HomeCard key={`${card.title}-${index}`} {...card} />
+            ))}
         </HomeCardSectionStyled>
     );
 }

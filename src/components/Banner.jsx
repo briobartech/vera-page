@@ -1,20 +1,22 @@
 import styled from 'styled-components';
 import bannerImage from '../assets/img/banner/banner.png';
 
-function Banner() {
+function Banner({ titulo = '',
+    subtitulo = '',
+    subititile,
+    textoBoton = 'Inscribite ahora',
+    imagenFondoPath = '', }) {
     return (
         <BannerStyled>
             <section className="banner-section">
                 <div className="banner-content">
                     <h1 className="banner-title">
-                        Instituto de Educacion Superior
-                        <br />
-                        Rosario Vera Penaloza
+                       {titulo}
                     </h1>
                     <h2 className="banner-subtitle">
-                        Comprometidos con la educacion y el desarrollo profesional en nuestra comunidad
+                        {subtitulo}
                     </h2>
-                    <button className="banner-button">Conoce las ofertas academicas</button>
+                    <button className="banner-button">{textoBoton}</button>
                 </div>
             </section>
         </BannerStyled>
@@ -95,9 +97,9 @@ const BannerStyled = styled.section`
         margin: 0;
         color: var(--color-institutional-purple);
         font-family: var(--font-heading);
-        font-weight: 700;
+        font-weight: 200;
         line-height: 1.08;
-        font-size: clamp(2rem, 1.3rem + 2.2vw, 3.8rem);
+        font-size: clamp(1rem, 1rem + 1.9vw, 3.5rem);
     }
 
     .banner-subtitle {
