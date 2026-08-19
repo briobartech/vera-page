@@ -430,6 +430,12 @@ const NavBarStyled = styled.nav`
   @media (max-width: 1160px) and (min-width: 901px) {
     overflow-x: auto;
     padding-right: 1rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     .menu-shell {
       min-width: max-content;
@@ -490,6 +496,12 @@ const NavBarStyled = styled.nav`
       transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
       max-height: 72vh;
       overflow-y: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .mobile-panel::-webkit-scrollbar {
+      display: none;
     }
 
     .mobile-panel.open {

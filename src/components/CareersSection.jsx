@@ -161,7 +161,12 @@ const CareersSectionStyled = styled.section`
       max-height: min(62vh, 34rem);
       overflow-y: auto;
       padding-right: 0.25rem;
-      scrollbar-width: thin;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .mobile-careers-panel::-webkit-scrollbar {
+      display: none;
     }
 
     .careers-group {

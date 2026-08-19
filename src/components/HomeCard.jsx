@@ -281,6 +281,12 @@ const HomeCardStyled = styled.section`
         color: #00a67e;
     }
 
+    @media (max-width: 700px) {
+        .home-card {
+            max-width: 100%;
+        }
+    }
+
     @media (max-width: 480px) {
         .home-card {
             border-radius: 1.75rem;

@@ -30,3 +30,25 @@ h3 {
 a {
 	text-decoration: none;
 }
+
+*,
+*::before,
+*::after {
+	-webkit-tap-highlight-color: transparent;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+	outline: none;
+}
+
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible),
+select:focus:not(:focus-visible) {
+	outline: none;
+}

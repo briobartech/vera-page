@@ -752,13 +752,45 @@ const SectionStyled = styled.div`
       grid-template-columns: minmax(0, 1fr);
     }
 
+    .info-description-wrap.has-contact .info-description {
+      overflow: visible;
+    }
+
+    .info-description-wrap.has-contact .info-description-text {
+      display: none;
+    }
+
+    .info-description-wrap.has-contact .info-description-contact-text {
+      position: static;
+      opacity: 1;
+      transform: none;
+    }
+
+    .info-description-wrap.has-contact .contact-bubble {
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: none;
+      margin-top: 0.5rem;
+    }
+
+    .info-description-wrap.has-contact {
+      padding-bottom: 0;
+    }
+
     .info-cards-mobile-selector {
       display: flex;
       gap: 0.5rem;
       margin: 0.8rem -1.25rem 0;
       padding: 1.25rem 1.25rem;
       overflow-x: auto;
-      scrollbar-width: thin;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .info-cards-mobile-selector::-webkit-scrollbar {
+      display: none;
     }
 
     .info-selector-pill {
@@ -825,7 +857,12 @@ const SectionStyled = styled.div`
       margin: 0.8rem -1.25rem 0;
       padding: 1.25rem 1.25rem;
       overflow-x: auto;
-      scrollbar-width: thin;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .contents-mobile-selector::-webkit-scrollbar {
+      display: none;
     }
 
     .contents-selector-pill {
