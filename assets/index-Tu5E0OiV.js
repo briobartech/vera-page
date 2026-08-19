@@ -1714,6 +1714,12 @@ If it declares any Font Awesome CSS pseudo-elements, they will not be rendered a
   @media (max-width: 1160px) and (min-width: 901px) {
     overflow-x: auto;
     padding-right: 1rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     .menu-shell {
       min-width: max-content;
@@ -1774,6 +1780,12 @@ If it declares any Font Awesome CSS pseudo-elements, they will not be rendered a
       transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
       max-height: 72vh;
       overflow-y: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .mobile-panel::-webkit-scrollbar {
+      display: none;
     }
 
     .mobile-panel.open {
@@ -2072,6 +2084,12 @@ If it declares any Font Awesome CSS pseudo-elements, they will not be rendered a
         color: #00a67e;
     }
 
+    @media (max-width: 700px) {
+        .home-card {
+            max-width: 100%;
+        }
+    }
+
     @media (max-width: 480px) {
         .home-card {
             border-radius: 1.75rem;
@@ -2351,7 +2369,12 @@ If it declares any Font Awesome CSS pseudo-elements, they will not be rendered a
       max-height: min(62vh, 34rem);
       overflow-y: auto;
       padding-right: 0.25rem;
-      scrollbar-width: thin;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .mobile-careers-panel::-webkit-scrollbar {
+      display: none;
     }
 
     .careers-group {
@@ -3781,13 +3804,45 @@ If it declares any Font Awesome CSS pseudo-elements, they will not be rendered a
       grid-template-columns: minmax(0, 1fr);
     }
 
+    .info-description-wrap.has-contact .info-description {
+      overflow: visible;
+    }
+
+    .info-description-wrap.has-contact .info-description-text {
+      display: none;
+    }
+
+    .info-description-wrap.has-contact .info-description-contact-text {
+      position: static;
+      opacity: 1;
+      transform: none;
+    }
+
+    .info-description-wrap.has-contact .contact-bubble {
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: none;
+      margin-top: 0.5rem;
+    }
+
+    .info-description-wrap.has-contact {
+      padding-bottom: 0;
+    }
+
     .info-cards-mobile-selector {
       display: flex;
       gap: 0.5rem;
       margin: 0.8rem -1.25rem 0;
       padding: 1.25rem 1.25rem;
       overflow-x: auto;
-      scrollbar-width: thin;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .info-cards-mobile-selector::-webkit-scrollbar {
+      display: none;
     }
 
     .info-selector-pill {
@@ -3854,7 +3909,12 @@ If it declares any Font Awesome CSS pseudo-elements, they will not be rendered a
       margin: 0.8rem -1.25rem 0;
       padding: 1.25rem 1.25rem;
       overflow-x: auto;
-      scrollbar-width: thin;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .contents-mobile-selector::-webkit-scrollbar {
+      display: none;
     }
 
     .contents-selector-pill {
