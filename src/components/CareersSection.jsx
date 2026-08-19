@@ -66,6 +66,8 @@ function CareersSection({ category }) {
         </div>
       )}
 
+      {isMobileSelector && categoriesToRender.map((categoryKey) => renderCareerCategory(categoryKey))}
+
       {!isMobileSelector && categoriesToRender.map((categoryKey) => renderCareerCategory(categoryKey))}
     </CareersSectionStyled>
   );

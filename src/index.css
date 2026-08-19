@@ -9,8 +9,8 @@
 	--color-text: #6b6b7a;
 	--color-border: #e6e6ef;
 	--color-gradient: linear-gradient(135deg, #5b2ea6, #a98de0);
-	--font-heading: 'Poppins', 'Montserrat', sans-serif;
-	--font-body: 'Inter', 'Roboto', sans-serif;
+	--font-heading: 'Montserrat', sans-serif;
+	--font-body: 'Montserrat', sans-serif;
 }
 
 body {
@@ -25,4 +25,8 @@ h2,
 h3 {
 	font-family: var(--font-heading);
 	color: var(--color-dark-purple);
+}
+
+a {
+	text-decoration: none;
 }

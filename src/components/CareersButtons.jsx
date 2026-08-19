@@ -5,13 +5,16 @@ function CareersButtons({
     name,
     icon,
     to = '/oferta-educativa',
-    reflectionColor = "rgba(186, 142, 166, 0.72)",
+    reflectionColor = "rgba(186, 142, 166, 0.52)",
+    intensity = 0.45,
+    backgroundOpacity = .8,
+    backdropBlur = 16,
 }) {
 
     
 
     return (
-        <CareersButtonsStyled className="careers-buttons" $reflectionColor={reflectionColor}>
+        <CareersButtonsStyled className="careers-buttons" $reflectionColor={reflectionColor} $intensity={intensity} $backgroundOpacity={backgroundOpacity} $backdropBlur={backdropBlur}>
             <Link to={to} className="careers-button">
                 <span className="careers-icon-shell" aria-hidden="true">
                     <img src={icon} alt={name} className="careers-icon" />
@@ -27,9 +30,6 @@ function CareersButtons({
 export default CareersButtons;
 
 const CareersButtonsStyled = styled.div`
-.careers-icon-shell,.careers-label-shell{
-    border:5px solid #312B36;
-}
    .careers-buttons{
 
     max-width: 100%;
@@ -42,90 +42,135 @@ const CareersButtonsStyled = styled.div`
     gap:16px;
     width:100%;
     min-width:0;
+    
 }
     .careers-icon-shell{
-    width:56px;
-    height:56px;
-    min-width:56px;
-    min-height:56px;
+    width:64px;
+    height:64px;
+    min-width:64px;
+    min-height:64px;
+    box-sizing:border-box;
     display:flex;
     align-items:center;
     justify-content:center;
 
-    background:#312B36;
+    background:color-mix(in srgb, color-mix(in srgb, ${(props) => props.$reflectionColor} 50%, white) ${(props) => props.$backgroundOpacity * 100}%, transparent);
+
+    backdrop-filter:blur(${(props) => props.$backdropBlur}px);
+    -webkit-backdrop-filter:blur(${(props) => props.$backdropBlur}px);
 
     border-radius:20px;
 
     position:relative;
+    isolation:isolate;
     overflow:hidden;
 
     box-shadow:
-        0 14px 28px rgba(0,0,0,.30),
-        inset 0 1px 0 rgba(255,255,255,.03);
+       -8px 8px 8px -4px rgba(0,0,0,0.25)
+}
+
+    .careers-icon-shell::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+
+    background:linear-gradient(
+        90deg,
+        transparent 0%,
+        transparent 22%,
+        color-mix(in srgb, ${(props) => props.$reflectionColor} 60%, transparent) 55%,
+        ${(props) => props.$reflectionColor} 100%
+    );
+
+    opacity:${(props) => props.$intensity};
+    filter:blur(9px) saturate(1.15);
+}
+
+    .careers-icon-shell::after,
+    .careers-label-shell::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+    z-index:2;
+    padding:1.5px;
+    border-radius:inherit;
+    pointer-events:none;
+
+    background:linear-gradient(
+        135deg,
+        rgba(255,255,255,.9) 0%,
+        ${(props) => props.$reflectionColor} 48%,
+        rgba(255,255,255,.2) 100%
+    );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
 }
         .careers-label-shell{
     position:relative;
+    isolation:isolate;
 
     flex:1;
     min-width:0;
-    min-height:32px;
-    height:auto;
-    max-height:32px;
+    height:64px;
+    min-height:64px;
+    max-height:64px;
+    box-sizing:border-box;
     display:flex;
     align-items:center;
 
     padding:0.7rem 0.85rem;
 
-    background:#312B36;
+    background:color-mix(in srgb, color-mix(in srgb, ${(props) => props.$reflectionColor} 50%, white) ${(props) => props.$backgroundOpacity * 100}%, transparent);
+
+    backdrop-filter:blur(${(props) => props.$backdropBlur}px);
+    -webkit-backdrop-filter:blur(${(props) => props.$backdropBlur}px);
 
     border-radius:20px;
 
     overflow:hidden;
 
     box-shadow:
-        0 14px 28px rgba(0,0,0,.30),
-        inset 0 1px 0 rgba(255,255,255,.03);
+        -8px 8px 8px -4px rgba(0,0,0,0.25)
 }
-        .careers-icon-shell::after,
-.careers-label-shell::after{
+
+    .careers-label-shell::before{
     content:"";
 
     position:absolute;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
 
-                    left:28%;
-                    right:-18%;
+    background:linear-gradient(
+        90deg,
+        transparent 0%,
+        transparent 18%,
+        color-mix(in srgb, ${(props) => props.$reflectionColor} 60%, transparent) 34%,
+        ${(props) => props.$reflectionColor} 42%,
+        ${(props) => props.$reflectionColor} 58%,
+        color-mix(in srgb, ${(props) => props.$reflectionColor} 60%, transparent) 66%,
+        transparent 82%,
+        transparent 100%
+    );
 
-                    bottom:-34%;
-
-                    height:66%;
-
-    background:
-                radial-gradient(
-                    92% 140% at 86% 96%,
-                    ${(props) => props.$reflectionColor} 0%,
-                    rgba(255,255,255,.12) 34%,
-                    rgba(255,255,255,0) 78%
-                ),
-        linear-gradient(
-            95deg,
-            transparent 0%,
-                            rgba(255,255,255,.02) 20%,
-                            ${(props) => props.$reflectionColor} 68%,
-                            rgba(255,255,255,.1) 88%,
-            transparent 100%
-        );
-
-    border-radius:50%;
-
-                    filter:blur(12px);
-
-                    transform:rotate(-1deg);
-
-            opacity:.92;
+    opacity:${(props) => props.$intensity};
+    filter:blur(9px) saturate(1.15);
 }
     .careers-label-shell span{
+    position:relative;
+    z-index:1;
 
-    color:white;
+    color:#312B36;
+
+    font-family: var(--font-heading);
 
     font-size:0.9rem;
 
@@ -140,10 +185,14 @@ const CareersButtonsStyled = styled.div`
     word-break:break-word;
 }
     .careers-icon{
+    position:relative;
+    z-index:1;
 
-    width:48px;
-    height:48px;
+    width:38px;
+    height:38px;
 
     object-fit:contain;
+
+    filter:brightness(0) saturate(100%) invert(14%) sepia(9%) saturate(1200%) hue-rotate(230deg) brightness(95%) contrast(92%);
 }
 `;

@@ -1,7 +1,1270 @@
 {
     "careers": {
+        "PAV": {
+            "title": "Profesorado de Artes visuales",
+            "resolution": "056-DGE-2025.",
+            "description": "Formate en el Profesorado de Artes Visuales para ejercer la docencia en el área de las artes visuales, con validez nacional.",
+            "image": "https://example.com/images/artes-visuales.jpg",
+            "sections": [
+                {
+                    "type": "banner",
+                    "content": [
+                        {
+                            "title": "Profesorado de Artes visuales",
+                            "subtitle": "Formate para ejercer la docencia en el área de las artes visuales",
+                            "buttonText": "Inscribite ahora",
+                            "image": "https://example.com/images/artes-visuales-banner.jpg"
+                        }
+                    ]
+                },
+                {
+                    "type": "info-cards",
+                    "content": [
+                        {
+                            "icon": "clock",
+                            "title": "Duración",
+                            "description": "4 (cuatro) años"
+                        },
+                        {
+                            "icon": "sand-clock",
+                            "title": "Turno",
+                            "description": "Matutino",
+                            "horario": "Presencial",
+                            "content": {
+                                "days": "Lunes a viernes",
+                                "time": "de 8:00 hs a 13:10 hs."
+                            }
+                        },
+                        {
+                            "icon": "card",
+                            "title": "Título",
+                            "description": "con validez nacional",
+                            "content": {
+                                "name": "Profesorado de Artes Visuales"
+                            }
+                        },
+                        {
+                            "icon": "contact",
+                            "title": "Coordinación",
+                            "description": "Prof. Andrea Mazzini.",
+                            "content": {
+                                "email": "amazzini@mendoza.edu.ar"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "about",
+                    "content": {
+                        "title": "Acerca de la carrera",
+                        "description": "En este profesorado se forman futuros docentes de Artes Visuales para los niveles Inicial, Primario y Secundario en todas las modalidades del Sistema Educativo Obligatorio. También incluye la formación específica en Arte dentro de instituciones de educación artística y organizaciones afines. La propuesta combina la formación pedagógica y artística en diversas disciplinas visuales, tanto tradicionales (pintura, escultura, grabado, cerámica y dibujo) como contemporáneas (fotografía, instalación, performance y videoarte, entre otras). Esto se logra mediante la investigación y la realización de obras para contribuir a la generación y el sostenimiento de la cultura y el arte de la región.",
+                        "image": "https://example.com/images/agronomia-about.jpg"
+                    }
+                },
+                {
+                    "type": "contents",
+                    "content": {
+                        "title": "Contenidos de la carrera",
+                        "description": [
+                            [
+                                "Dibujo I",
+                                "Bidimensión I",
+                                "Tridimensión I",
+                                "Lenguaje de las Artes Visuales I",
+                                "Historia de las Artes Visuales I",
+                                "Pedagogía",
+                                "Comprensión y Producción de Textos Académicos",
+                                "Formación Práctica Profesional I"
+                            ],
+                            [
+                                "Dibujo II",
+                                "Bidimensión II",
+                                "Tridimensión II",
+                                "Lenguaje de las Artes Visuales II",
+                                "Historia de las Artes Visuales II",
+                                "Didáctica General",
+                                "Sujeto de la Educación I",
+                                "Didáctica de las Artes Visuales",
+                                "Pensamiento Filosófico",
+                                "Sistema Educativo",
+                                "Formación Práctica Profesional II"
+                            ],
+                            [
+                                "Dibujo III",
+                                "Producción Artística I (Bidimensión: Grabado-Pintura)",
+                                "Producción Artística I (Tridimensión: Escultura-Cerámica)",
+                                "Lenguaje de las Artes Visuales III",
+                                "Historia de las Artes Visuales III",
+                                "Educación para la Diversidad",
+                                "Didáctica de las Artes Visuales II",
+                                "Sujeto de la Educación II",
+                                "Gestión y Evaluación de los Aprendizajes",
+                                "Psicología de la Educación",
+                                "Formación Práctica Profesional III"
+                            ],
+                            [
+                                "Producción Artística II (Cerámica-Escultura-Grabado o Dibujo)",
+                                "Artes Visuales y Producción Audiovisual",
+                                "Historia de las Artes Visuales IV",
+                                "Teoría del Arte",
+                                "Producción Artística Contemporánea",
+                                "Formación Complementaria Específica",
+                                "Educación y Tecnologías Digitales",
+                                "ESI",
+                                "Formación Práctica Profesional IV"
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "type": "profile",
+                    "content": {
+                        "title": "Perfil del egresado",
+                        "description": "El profesorado apunta a la formación de un profesional docente con las siguientes capacidades:\nDesempeñar la docencia en la disciplina Artes Visuales en los niveles Inicial, Primario y Secundario, abarcando todas las modalidades del Sistema Educativo Obligatorio y la formación específica en Arte.\nDesarrollar prácticas pedagógico-artísticas que permitan un acceso más justo a los recursos materiales y simbólicos de la cultura, configurando subjetividades y sentido de pertenencia.\nDiseñar, gestionar y evaluar proyectos culturales sociocomunitarios.\nConformar equipos de trabajo multidisciplinarios que permitan participar en la elaboración y concreción de proyectos que integren diversos lenguajes artísticos.\n"
+                    }
+                },
+                {
+                    "type": "about",
+                    "content": {
+                        "title": "Salida laboral",
+                        "description": "Educación formal en primaria y secundaria. Escuelas artísticas y talleres vocacionales de artes visuales. Centros culturales y gestión cultural. Aulas de tiempo libre y ámbito privado.",
+                        "image": "https://images.ctfassets.net/pdf29us7flmy/1xIWV7IeCPx8D2lEjUq11e/bcb6d6b45eb3d68491f9445d9a63c1fa/GettyImages-473983321.jpg?w=720&q=100&fm=jpg"
+                    }
+                },
+                {
+                    "type": "faq",
+                    "questions": [
+                        "¿Es presencial o a distancia?",
+                        "¿Cuánto dura la carrera?",
+                        "¿Qué salidas laborales tiene?"
+                    ],
+                    "answers": []
+                }
+            ]
+        },
+        "PEI": {
+            "title": "Profesora de Educación Inicial",
+            "resolution": "6867-DGE-2023.",
+            "description": "Profesorado de Educación Inicial, con validez nacional, que forma profesionales docentes para desempeñarse en el nivel inicial de la educación, brindando conocimientos y habilidades pedagógicas y didácticas para trabajar con niños y niñas en sus primeros años de vida.",
+            "image": "https://example.com/images/eduacion-inicial.jpg",
+            "sections": [
+                {
+                    "type": "banner",
+                    "content": [
+                        {
+                            "title": "Profesora de Educación Inicial",
+                            "subtitle": "Formación docente para el nivel inicial",
+                            "buttonText": "Inscribite ahora",
+                            "image": "https://example.com/images/eduacion-inicial-banner.jpg"
+                        }
+                    ]
+                },
+                {
+                    "type": "info-cards",
+                    "content": [
+                        {
+                            "icon": "clock",
+                            "title": "Duración",
+                            "description": "4 (cuatro) años"
+                        },
+                        {
+                            "icon": "sand-clock",
+                            "title": "Turno",
+                            "description": "Vespertino",
+                            "horario": "Presencial",
+                            "content": {
+                                "days": "Lunes a viernes",
+                                "time": "desde las 18:30 hs"
+                            }
+                        },
+                        {
+                            "icon": "card",
+                            "title": "Título",
+                            "description": "con validez nacional",
+                            "content": {
+                                "name": "Profesor de Eduación Inicial"
+                            }
+                        },
+                        {
+                            "icon": "contact",
+                            "title": "Coordinación",
+                            "description": "Prof. Jimena Molina.",
+                            "content": {
+                                "email": "mjmena_molina@elvera9010.edu.ar"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "about",
+                    "content": {
+                        "title": "Acerca de la carrera",
+                        "description": "El profesorado ofrece distintos campos de formación para desarrollar habilidades y capacidades orientadas al ejercicio docente ético y reflexivo. Brinda sólidos fundamentos y herramientas expresivas, lúdicas, artísticas y comunicativas. Incluye la formación de la motricidad y el trabajo interinstitucional, promoviendo el reconocimiento y la valoración de la diversidad cultural y social de los niños, las niñas y sus familias. La docente de Educación Inicial construye su rol como \"acompañante afectiva, figura de sostén\" y \"mediadora cultural\". Trabajar en este nivel supone ofrecer disponibilidad corporal, propiciar momentos de juego y acompañar con la palabra, entre otras formas específicas de enseñar a las primeras infancias.",
+                        "image": "https://example.com/images/agronomia-about.jpg"
+                    }
+                },
+                {
+                    "type": "contents",
+                    "content": {
+                        "title": "Contenidos de la carrera",
+                        "description": [
+                            [
+                                "Pensamiento Filosófico",
+                                "Sistema Educativo",
+                                "Comprensión y Producción de Textos Académicos",
+                                "Pedagogía",
+                                "Centralidad del Juego",
+                                "Juego y Producción de Objetos Lúdicos",
+                                "Lenguajes Artísticos Expresivos (Teatro)",
+                                "Lenguajes Artísticos Expresivos (Música)",
+                                "Práctica Profesional Docente."
+                            ],
+                            [
+                                "Didáctica",
+                                "Instituciones Educativas",
+                                "Psicología Educacional",
+                                "Educación y Atención Temprana al Desarrollo Infantil",
+                                "Didáctica del Jardín Maternal",
+                                "Prácticas Lingüísticas en Educación Inicial",
+                                "Lenguajes Artísticos Expresivos (Artes Visuales)",
+                                "Educación Matemática Temprana e Inicial I",
+                                "Sujeto de la Educación",
+                                "Práctica Profesional Docente."
+                            ],
+                            [
+                                "Gestión y Evaluación de los Aprendizajes",
+                                "Proyectos de Intervención Socioeducativa",
+                                "Educación en la Diversidad",
+                                "Literatura Infantil",
+                                "Didáctica del Jardín de Infantes",
+                                "Educación Matemática Inicial II",
+                                "Alfabetización Temprana e Inicial",
+                                "Didáctica del Ambiente Natural",
+                                "Didáctica del Ambiente Social",
+                                "Motricidad en Jardín Maternal y en Jardín de Infantes",
+                                "Práctica Profesional Docente."
+                            ],
+                            [
+                                "Educación Sexual Integral (ESI)",
+                                "Educación y Tecnologías Digitales",
+                                "Historia y Patrimonio Cultural de Mendoza",
+                                "Formación Complementaria General",
+                                "Problemáticas de la Educación Inicial",
+                                "Salud y Cultura del Cuidado",
+                                "Formación Ética y Ciudadana y su Didáctica",
+                                "Formación Complementaria Específica",
+                                "Práctica Profesional Docente IV."
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "type": "profile",
+                    "content": {
+                        "title": "Perfil del egresado",
+                        "description": "Atendiendo a las características propias del nivel inicial y a las particularidades de las infancias, la profesora de Educación Inicial podrá:\nConstruir propuestas de enseñanza globalizadas.\nComprender las capacidades de los niños y las niñas para aprender en forma individual y grupal dentro de las instituciones maternales y escolares.\nResolver problemas típicos de la profesión en diversas situaciones en los jardines maternales y de infantes.\nIntervenir de manera respetuosa, constante y pertinente.\nDesarrollar estrategias de comunicación variadas con las familias, asumiendo que acompañar el desarrollo integral requiere un trabajo conjunto para garantizar el derecho a la educación."
+                    }
+                },
+                {
+                    "type": "about",
+                    "content": {
+                        "title": "Salida laboral",
+                        "description": "Educación formal en jardines maternales y jardines de infantes. Ludotecas y otros espacios de atención a la primera infancia.",
+                        "image": "https://images.ctfassets.net/pdf29us7flmy/1xIWV7IeCPx8D2lEjUq11e/bcb6d6b45eb3d68491f9445d9a63c1fa/GettyImages-473983321.jpg?w=720&q=100&fm=jpg"
+                    }
+                },
+                {
+                    "type": "faq",
+                    "questions": [
+                        "¿Es presencial o a distancia?",
+                        "¿Cuánto dura la carrera?",
+                        "¿Qué salidas laborales tiene?"
+                    ],
+                    "answers": []
+                }
+            ]
+        },
+        "PEP": {
+            "title": "Profesorado de Educación Primaria",
+            "resolution": "7969-DGE-2023.",
+            "description": "Formate en el Profesorad de Eduación Primaria para ejercer la docencia en el nivel primario, con validez nacional, brindando conocimientos y habilidades pedagógicas y didácticas para trabajar con niños y niñas en la etapa de la educación primaria.",
+            "image": "https://example.com/images/educacion-primaria.jpg",
+            "sections": [
+                {
+                    "type": "banner",
+                    "content": [
+                        {
+                            "title": "Profesorado de Educación Primaria",
+                            "subtitle": "Formate en el Profesorad de Eduación Primaria para trabajar con niños y niñas en la etapa de la educación primaria.",
+                            "buttonText": "Inscribite ahora",
+                            "image": "https://example.com/images/educacion-primaria-banner.jpg"
+                        }
+                    ]
+                },
+                {
+                    "type": "info-cards",
+                    "content": [
+                        {
+                            "icon": "clock",
+                            "title": "Duración",
+                            "description": "4 (cuatro) años"
+                        },
+                        {
+                            "icon": "sand-clock",
+                            "title": "Turno",
+                            "description": "Matutino",
+                            "horario": "Presencial",
+                            "content": {
+                                "days": "Lunes a viernes",
+                                "time": "desde las 8:00 hs."
+                            }
+                        },
+                        {
+                            "icon": "card",
+                            "title": "Título",
+                            "description": "con validez nacional",
+                            "content": {
+                                "name": "Profesor de Eduación Primaria"
+                            }
+                        },
+                        {
+                            "icon": "contact",
+                            "title": "Coordinación",
+                            "description": "Prof. Karina Dascalaky.",
+                            "content": {
+                                "email": "karina_dascalaky@elvera9010.edu.ar"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "about",
+                    "content": {
+                        "title": "Acerca de la carrera",
+                        "description": "Quien se desempeña como docente en el nivel primario asume la responsabilidad de ofrecer propuestas educativas para un desarrollo integral de la infancia. Esto garantiza el acceso a saberes comunes que permiten a los estudiantes participar plenamente en la vida familiar, escolar y comunitaria. El profesorado ofrece distintos campos de formación para desarrollar habilidades orientadas a un ejercicio docente ético, racional, reflexivo, crítico y eficiente. Brinda sólidos fundamentos y prácticas en contextos reales para promover aprendizajes en áreas como alfabetización, lengua, matemática, ciencias sociales y ciencias naturales.",
+                        "image": "https://example.com/images/educacion-primaria-about.jpg"
+                    }
+                },
+                {
+                    "type": "contents",
+                    "content": {
+                        "title": "Contenidos de la carrera",
+                        "description": [
+                            [
+                                "Pensamiento Filosófico",
+                                "Comprensión y Producción de Textos Académicos",
+                                "Sistema Educativo",
+                                "Pedagogía",
+                                "Numeración",
+                                "Lengua y Literatura Infantil y Juvenil",
+                                "Educación Artística",
+                                "Práctica Profesional Docente I."
+                            ],
+                            [
+                                "Didáctica",
+                                "Psicología Educacional",
+                                "Instituciones Educativas",
+                                "Sujetos de la Educación",
+                                "Números Racionales y su Didáctica",
+                                "Ciencias Sociales y su Didáctica I",
+                                "Ciencias Naturales y su Didáctica I",
+                                "Lengua y su Didáctica",
+                                "Literatura Infantil y Juvenil y su Didáctica",
+                                "Espacio, Geometría y su Didáctica",
+                                "Práctica Profesional Docente II."
+                            ],
+                            [
+                                "Gestión y Evaluación de los Aprendizajes",
+                                "Proyectos de Intervención Estratégicas",
+                                "Educación en la Diversidad",
+                                "Educación Tecnológica",
+                                "Medida y su Didáctica",
+                                "Ciencias Naturales y su Didáctica II",
+                                "Ciencias Sociales y su Didáctica II",
+                                "Alfabetización",
+                                "Formación Ética y Ciudadana y su Didáctica",
+                                "Álgebra",
+                                "Funciones y su Didáctica",
+                                "Práctica Profesional Docente III."
+                            ],
+                            [
+                                "Educación Sexual Integral",
+                                "Educación y Tecnologías Digitales",
+                                "Historia y Patrimonio Cultural de Mendoza",
+                                "Formación Complementaria General",
+                                "Didáctica de la Lengua y de la Literatura Infantil y Juvenil",
+                                "Didáctica de la Matemática",
+                                "Didáctica de las Ciencias Sociales",
+                                "Didáctica de las Ciencias Naturales",
+                                "Formación Complementaria II",
+                                "Práctica Profesional Docente IV."
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "type": "profile",
+                    "content": {
+                        "title": "Perfil del egresado",
+                        "description": "El profesor o la profesora de Educación Primaria será capaz de: Intervenir eficazmente en situaciones educativas del nivel primario. Tomar decisiones en la práctica docente con fundamentos didácticos, pedagógicos y disciplinares. Planificar, organizar y gestionar situaciones de aprendizaje en diversos contextos. Involucrar activamente a los alumnos en sus aprendizajes."
+                    }
+                },
+                {
+                    "type": "about",
+                    "content": {
+                        "title": "Salida laboral",
+                        "description": "Nivel primario en escuelas de gestión estatal y privada. Modalidades domiciliaria, hospitalaria, educación de jóvenes y adultos, y contextos de encierro. Cargos administrativos en el ámbito educativo (con formación posterior).",
+                        "image": "https://images.ctfassets.net/pdf29us7flmy/1xIWV7IeCPx8D2lEjUq11e/bcb6d6b45eb3d68491f9445d9a63c1fa/GettyImages-473983321.jpg?w=720&q=100&fm=jpg"
+                    }
+                },
+                {
+                    "type": "faq",
+                    "questions": [
+                        "¿Es presencial o a distancia?",
+                        "¿Cuánto dura la carrera?",
+                        "¿Qué salidas laborales tiene?"
+                    ],
+                    "answers": []
+                }
+            ]
+        },
+        "PI": {
+            "title": "Profesorado de Inglés",
+            "resolution": "6871-DGE-2023.",
+            "description": "El Profesorado de Inglés forma docentes capacitados para la enseñanza del idioma inglés en diversos niveles educativos, con un enfoque en la práctica pedagógica y el desarrollo de competencias lingüísticas.",
+            "image": "https://example.com/images/ingles.jpg",
+            "sections": [
+                {
+                    "type": "banner",
+                    "content": [
+                        {
+                            "title": "Profesorado de Inglés",
+                            "subtitle": "Formación docente en el idioma inglés",
+                            "buttonText": "Inscribite ahora",
+                            "image": "https://example.com/images/ingles-banner.jpg"
+                        }
+                    ]
+                },
+                {
+                    "type": "info-cards",
+                    "content": [
+                        {
+                            "icon": "clock",
+                            "title": "Duración",
+                            "description": "4 (cuatro) años"
+                        },
+                        {
+                            "icon": "sand-clock",
+                            "title": "Turno",
+                            "description": "Tarde",
+                            "horario": "Combinada (70% presencial y 30% virtual) / Presencial",
+                            "content": {
+                                "days": "Lunes a viernes",
+                                "time": "de 14:00 hs a 18:20 hs."
+                            }
+                        },
+                        {
+                            "icon": "card",
+                            "title": "Título",
+                            "description": "con validez nacional",
+                            "content": {
+                                "name": "Profesor de Inglés"
+                            }
+                        },
+                        {
+                            "icon": "contact",
+                            "title": "Coordinación",
+                            "description": "Prof. Olga Neila.",
+                            "content": {
+                                "email": "profesoradodeingles.vera@gmail.com"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "about",
+                    "content": {
+                        "title": "Acerca de la carrera",
+                        "description": "El Profesorado de Inglés tiene como objetivo central formar profesionales docentes preparados para la enseñanza de la lengua inglesa en todos los niveles, abarcando tanto la educación formal como la no formal.",
+                        "image": "https://example.com/images/ingles-about.jpg"
+                    }
+                },
+                {
+                    "type": "contents",
+                    "content": {
+                        "title": "Contenidos de la carrera",
+                        "description": [
+                            [
+                                "Lengua Inglesa I",
+                                "Gramática Inglesa I",
+                                "Fonética y Fonología Inglesa I",
+                                "Prácticas de Lengua Inglesa",
+                                "Comprensión y Producción de Textos Académicos",
+                                "Práctica Profesional Docente I",
+                                "Pensamiento Filosófico",
+                                "Sistema Educativo",
+                                "Pedagogía",
+                                "Prácticas de Gramática Inglesa"
+                            ],
+                            [
+                                "Lengua Inglesa II",
+                                "Gramática Inglesa II",
+                                "Fonética y Fonología Inglesa II",
+                                "Didáctica del Inglés I",
+                                "Práctica Profesional Docente II",
+                                "Sujetos de la Educación I",
+                                "Didáctica",
+                                "Instituciones Educativas",
+                                "Psicología Educacional",
+                                "Sujeto de la Educación II",
+                                "Práctica de Fonética y Fonología Inglesa"
+                            ],
+                            [
+                                "Lengua Inglesa III",
+                                "Gramática Inglesa III",
+                                "Fonética y Fonología Inglesa III",
+                                "Didáctica del Inglés II",
+                                "Práctica Profesional Docente III",
+                                "Cultura y Literatura Británica I",
+                                "Gestión y Evaluación de los Aprendizajes",
+                                "Cultura y Literatura Británica II",
+                                "Proyectos de Intervención Socioeducativa",
+                                "Educación en la Diversidad"
+                            ],
+                            [
+                                "Lengua Inglesa IV",
+                                "Fonética y Fonología Inglesa IV",
+                                "Cultura y Literatura Norteamericana",
+                                "Educación Sexual Integral",
+                                "Educación y Tecnologías Digitales",
+                                "Historia y Patrimonio Cultural de Mendoza",
+                                "Formación Complementaria General",
+                                "Formación Complementaria Específica",
+                                "Práctica Profesional Docente IV"
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "type": "profile",
+                    "content": {
+                        "title": "Perfil del egresado",
+                        "description": "El futuro profesor de inglés comprenderá que este idioma ha superado su estatus de lengua nativa de un grupo de estados para consolidarse como la lengua franca en un panorama mundial globalizado. Por lo tanto, reconocerá la necesidad ineludible de dominar el inglés para insertarse en el mundo productivo y entenderá que, para el desempeño profesional, es vital acceder a diversas fuentes de información que garanticen la actualización y la competitividad."
+                    }
+                },
+                {
+                    "type": "about",
+                    "content": {
+                        "title": "Salida laboral",
+                        "description": "Educación formal (inicial, primario y secundario). Educación no formal (institutos privados). Sector empresarial y turístico (bodegas).",
+                        "image": "https://images.ctfassets.net/pdf29us7flmy/1xIWV7IeCPx8D2lEjUq11e/bcb6d6b45eb3d68491f9445d9a63c1fa/GettyImages-473983321.jpg?w=720&q=100&fm=jpg"
+                    }
+                },
+                {
+                    "type": "faq",
+                    "questions": [
+                        "¿Es presencial o a distancia?",
+                        "¿Cuánto dura la carrera?",
+                        "¿Qué salidas laborales tiene?"
+                    ],
+                    "answers": []
+                }
+            ]
+        },
+        "PESLL": {
+            "title": "Profesorado de Educación Secundaria en Lengua y Literatura",
+            "resolution": "6869-DGE-2023.",
+            "description": "El Profesorado de Educación Secundaria en Lengua y Literatura forma profesionales capaces de enseñar lengua y literatura en el nivel secundario, desarrollando competencias pedagógicas y literarias.",
+            "image": "https://example.com/images/educacion-secundaria.jpg",
+            "sections": [
+                {
+                    "type": "banner",
+                    "content": [
+                        {
+                            "title": "Profesorado de Educación Secundaria en Lengua y Literatura",
+                            "subtitle": "",
+                            "buttonText": "Inscribite ahora",
+                            "image": "https://example.com/images/educacion-secundaria-banner.jpg"
+                        }
+                    ]
+                },
+                {
+                    "type": "info-cards",
+                    "content": [
+                        {
+                            "icon": "clock",
+                            "title": "Duración",
+                            "description": "4 (cuatro) años"
+                        },
+                        {
+                            "icon": "sand-clock",
+                            "title": "Turno",
+                            "description": "Tarde",
+                            "horario": "Presencial",
+                            "content": {
+                                "days": "Lunes a viernes",
+                                "time": "de 14:00 hs a 18:20 hs."
+                            }
+                        },
+                        {
+                            "icon": "card",
+                            "title": "Título",
+                            "description": "con validez nacional",
+                            "content": {
+                                "name": "Profesorado de Educación Secundaria en Lengua y Literatura"
+                            }
+                        },
+                        {
+                            "icon": "contact",
+                            "title": "Coordinación",
+                            "description": "Prof. Vanesa Sosa.",
+                            "content": {
+                                "email": "vanesa_sosa@elvera9010.edu.ar"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "about",
+                    "content": {
+                        "title": "Acerca de la carrera",
+                        "description": "La carrera se concibe desde la justicia educativa, enfocándose en una formación centrada en la práctica profesional, el aprendizaje activo, autónomo y la interdisciplina. Su finalidad es preparar profesionales que sean capaces de enseñar, generar, retroalimentar y transponer conocimientos y valores fundamentales para la formación integral de las personas.",
+                        "image": "https://example.com/images/agronomia-about.jpg"
+                    }
+                },
+                {
+                    "type": "contents",
+                    "content": {
+                        "title": "Contenidos de la carrera",
+                        "description": [
+                            [
+                                "Pensamiento Filosófico",
+                                "Sistema Educativo",
+                                "Pedagogía",
+                                "Comprensión y Producción de Textos Académicos",
+                                "Literatura Universal I",
+                                "Morfología y Semántica Léxica",
+                                "Literatura y Cultura Grecolatina",
+                                "Fundamentos de la Lengua",
+                                "Fundamentos de la Literatura",
+                                "Práctica Profesional Docente I."
+                            ],
+                            [
+                                "Instituciones Educativas",
+                                "Didáctica",
+                                "Psicología Educacional",
+                                "Sujetos de la Educación",
+                                "Literatura Española",
+                                "Sintaxis y Semántica Proposicional",
+                                "Lingüística del Texto y Análisis del Discurso I",
+                                "Literatura Universal II",
+                                "Literatura para Jóvenes",
+                                "Fonética",
+                                "Fonología y Grafemática",
+                                "Lingüística del Texto y Análisis del Discurso II",
+                                "Literatura Latinoamericana I",
+                                "Práctica Profesional Docente II."
+                            ],
+                            [
+                                "Gestión y Evaluación de los Aprendizajes",
+                                "Proyecto de Intervención Socioeducativa",
+                                "Educación en la Diversidad",
+                                "Literatura Latinoamericana II",
+                                "Alfabetización",
+                                "Didáctica de la Literatura",
+                                "Práctica Profesional Docente III."
+                            ],
+                            [
+                                "Educación Sexual Integral",
+                                "Educación y Tecnologías Digitales",
+                                "Historia y Patrimonio Cultural de Mendoza",
+                                "Formación Complementaria General",
+                                "Filología",
+                                "Literatura Argentina III",
+                                "Teoría y Crítica Literarias",
+                                "Formación Complementaria Específica",
+                                "Práctica Profesional Docente IV."
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "type": "profile",
+                    "content": {
+                        "title": "Perfil del egresado",
+                        "description": "Quien egrese deberá demostrar el nivel esperado en el desarrollo de las competencias profesionales docentes y contar con solvencia epistemológica al momento de su egreso. Estos avances se acompañarán a través de una evaluación progresiva y continua, utilizando diversos instrumentos y técnicas según la planificación institucional. Este seguimiento consolida una autonomía profesional progresiva, configura los núcleos de pensamiento y habilita al profesional para el desempeño laboral efectivo en el nivel secundario."
+                    }
+                },
+                {
+                    "type": "about",
+                    "content": {
+                        "title": "Salida laboral",
+                        "description": "Educación formal en nivel secundario. Talleres de expresión comunicativa. Redacción de textos y corrección de trabajos.",
+                        "image": "https://images.ctfassets.net/pdf29us7flmy/1xIWV7IeCPx8D2lEjUq11e/bcb6d6b45eb3d68491f9445d9a63c1fa/GettyImages-473983321.jpg?w=720&q=100&fm=jpg"
+                    }
+                },
+                {
+                    "type": "faq",
+                    "questions": [
+                        "¿Es presencial o a distancia?",
+                        "¿Cuánto dura la carrera?",
+                        "¿Qué salidas laborales tiene?"
+                    ],
+                    "answers": []
+                }
+            ]
+        },
+        "PM": {
+            "title": "Profesorado de Música",
+            "resolution": "2026-45-E-GDEMZA-DGE.",
+            "description": "El Profesorado de Música forma profesionales capaces de desempeñarse en la enseñanza musical en diversos contextos educativos, desarrollando competencias pedagógicas y artísticas.",
+            "image": "https://example.com/images/musica.jpg",
+            "sections": [
+                {
+                    "type": "banner",
+                    "content": [
+                        {
+                            "title": "Profesorado de Música",
+                            "subtitle": "Formación integral en música",
+                            "buttonText": "Inscribite ahora",
+                            "image": "https://example.com/images/musica-banner.jpg"
+                        }
+                    ]
+                },
+                {
+                    "type": "info-cards",
+                    "content": [
+                        {
+                            "icon": "clock",
+                            "title": "Duración",
+                            "description": "4 (cuatro) años.",
+                            "content": {
+                                "name": "(Requiere un curso introductorio en el cuatrimestre anterior al inicio.)"
+                            }
+                        },
+                        {
+                            "icon": "sand-clock",
+                            "title": "Turno",
+                            "description": "Matutino",
+                            "horario": "Presencial",
+                            "content": {
+                                "days": "Lunes a viernes",
+                                "time": "de 8:00 hs a 13:00 hs."
+                            }
+                        },
+                        {
+                            "icon": "card",
+                            "title": "Título",
+                            "description": "con validez nacional",
+                            "content": {
+                                "name": "Profesor de educación Música"
+                            }
+                        },
+                        {
+                            "icon": "contact",
+                            "title": "Coordinación",
+                            "description": "Prof. Cristian Gorostiague.",
+                            "content": {
+                                "email": "coordinacion.musica.vera@gmail.com",
+                                "telefono": "2622-414550"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "about",
+                    "content": {
+                        "title": "Acerca de la carrera",
+                        "description": "Este profesorado capacita a los estudiantes para desempeñarse en los niveles inicial, primario y secundario. Ofrece una sólida formación tanto en instrumentos como en la pedagogía específica que demanda la carrera.",
+                        "image": "https://example.com/images/musica-about.jpg"
+                    }
+                },
+                {
+                    "type": "contents",
+                    "content": {
+                        "title": "Contenidos de la carrera",
+                        "description": [
+                            [
+                                "Lenguaje Musical I (4 h)",
+                                "Canto Individual y Grupal I (4 h)",
+                                "Instrumento Individual Armónico I (4 h)",
+                                "Formación Complementaria Específica (2 h)",
+                                "Fundamentos de la Percepción y la Producción Sonora (2 h)",
+                                "Pedagogía (5 h)",
+                                "Comprensión y Producción de Textos Académicos (4 h)",
+                                "Formación Práctica Profesional I (5 h)"
+                            ],
+                            [
+                                "Lenguaje Musical II (4 h)",
+                                "Canto Individual y Grupal II (4 h)",
+                                "Instrumento Individual Armónico II (4 h)",
+                                "Historia de la Música I (3 h)",
+                                "Sujeto del Aprendizaje I (4 h)",
+                                "Didáctica Específica I (5 h)",
+                                "Didáctica General (5 h)",
+                                "Pensamiento Filosófico (4 h)",
+                                "Sistema Educativo (4 h)",
+                                "Formación Práctica Profesional II (6 h)"
+                            ],
+                            [
+                                "Lenguaje Musical III (4 h)",
+                                "Canto y Dirección Coral I (4 h)",
+                                "Instrumento Individual Armónico III (4 h)",
+                                "Didáctica Específica II (4 h)",
+                                "Historia de la Música II (3 h)",
+                                "Arreglos Musicales (3 h)",
+                                "Ensamble I (4 h)",
+                                "Educación para la Diversidad (4 h)",
+                                "Sujeto de Aprendizaje II (4 h)",
+                                "Gestión y Evaluación de los Aprendizajes (4 h)",
+                                "Psicología de la Educación (4 h)",
+                                "Formación Práctica Profesional III (10 h)"
+                            ],
+                            [
+                                "Lenguaje Musical IV (4 h)",
+                                "Canto y Dirección Coral II (4 h)",
+                                "Instrumento Individual Armónico IV (4 h)",
+                                "Ensamble II (2 h)",
+                                "Lenguajes Artísticos (2 h)",
+                                "Educación y Tecnologías Digitales (4 h)",
+                                "ESI (2 h)",
+                                "Formación Práctica Profesional IV (12 h)"
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "type": "profile",
+                    "content": {
+                        "title": "Perfil del egresado",
+                        "description": "El objetivo es formar a un profesional docente capaz de adaptarse activamente, desde su praxis, a las variables y características del contexto sociocultural. Un profesional que transmita y comparta cultura desde su hacer musical. A través del lenguaje musical, podrá difundir lo popular y lo clásico, lo tradicional y lo moderno, así como expresiones alternativas. Estará preparado para incentivar la curiosidad y la creatividad en sus futuros estudiantes."
+                    }
+                },
+                {
+                    "type": "about",
+                    "content": {
+                        "title": "Salida laboral",
+                        "description": "Educación formal (inicial, primaria y secundaria). Escuelas artísticas, talleres vocacionales de música y ámbito privado.",
+                        "image": "https://images.ctfassets.net/pdf29us7flmy/1xIWV7IeCPx8D2lEjUq11e/bcb6d6b45eb3d68491f9445d9a63c1fa/GettyImages-473983321.jpg?w=720&q=100&fm=jpg"
+                    }
+                },
+                {
+                    "type": "faq",
+                    "questions": [
+                        "¿Es presencial o a distancia?",
+                        "¿Cuánto dura la carrera?",
+                        "¿Qué salidas laborales tiene?"
+                    ],
+                    "answers": []
+                }
+            ]
+        },
+        "TSA": {
+            "title": "Tecnicatura Superior en Agronomía",
+            "resolution": "2026-329-E-GDEMZA-DGE.",
+            "description": "La Tecnicatura Superior en Agronomía es una carrera de nivel superior que te brinda los conocimientos y habilidades necesarios para gestionar cultivos y recursos agrícolas de manera eficiente. A lo largo de la carrera, aprenderás sobre agronomía, gestión de cultivos, protección de plantas y sostenibilidad agrícola.",
+            "image": "https://example.com/images/agronomia.jpg",
+            "sections": [
+                {
+                    "type": "banner",
+                    "content": [
+                        {
+                            "title": "Tecnicatura Superior en Agronomía",
+                            "subtitle": "Formate para gestionar cultivos y recursos agrícolas de manera eficiente",
+                            "buttonText": "Inscribite ahora",
+                            "image": "https://example.com/images/agronomia-banner.jpg"
+                        }
+                    ]
+                },
+                {
+                    "type": "info-cards",
+                    "content": [
+                        {
+                            "icon": "clock",
+                            "title": "Duración",
+                            "description": "3 (tres) años"
+                        },
+                        {
+                            "icon": "sand-clock",
+                            "title": "Turno",
+                            "description": "Vespertino",
+                            "horario": "Teórico-práctico",
+                            "content": {
+                                "days": "Lunes a viernes",
+                                "time": "de 17:40 hs a 22:00 hs."
+                            }
+                        },
+                        {
+                            "icon": "card",
+                            "title": "Título",
+                            "description": "con validez nacional",
+                            "content": {
+                                "name": "Técnico Superior en Agronomía"
+                            }
+                        },
+                        {
+                            "icon": "contact",
+                            "title": "Coordinación",
+                            "description": "Prof. Romanela Giusti.",
+                            "content": {
+                                "email": "romanela_giusti@elvera9010.edu.ar."
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "about",
+                    "content": {
+                        "title": "Acerca de la carrera",
+                        "description": "Se trata de una tecnicatura en Agronomía que cuenta con una amplia formación práctica y de campo, con especialización en el área forestal. Presenta un sistema de cursado modular.",
+                        "image": "https://example.com/images/agronomia-about.jpg"
+                    }
+                },
+                {
+                    "type": "contents",
+                    "content": {
+                        "title": "Contenidos de la carrera",
+                        "description": [
+                            [
+                                "Producción Vitícola",
+                                "Producción Forestal",
+                                "Producción Hortícola",
+                                "Producción Porcina",
+                                "Producción Bovina",
+                                "Emprendedorismo",
+                                "Gestión de Instalaciones y Maquinarias Agropecuarias",
+                                "Ecofisiología de los Cultivos",
+                                "Manejo Ecológico del Suelo"
+                            ],
+                            [
+                                "Manejo Nutricional Animal",
+                                "Territorio y Desarrollo",
+                                "Manejo Reproductivo Animal",
+                                "Innovación y Gestión Agropecuaria",
+                                "Manejo Integrado de Plagas y Enfermedades",
+                                "Manejo de Riego y Drenajes",
+                                "Operaciones Silvícolas",
+                                "Manejo Sanitario Animal"
+                            ],
+                            [
+                                "Elaboración de Proyectos Productivos",
+                                "Manejo de Cosecha y Poscosecha",
+                                "Conservas de Frutas y Hortalizas",
+                                "Gestión de Desarrollo Sustentable",
+                                "Gestión de Microemprendimientos",
+                                "Gestión Forestal",
+                                "Operaciones de la Madera"
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "type": "profile",
+                    "content": {
+                        "title": "Perfil del egresado",
+                        "description": "El egresado estará plenamente capacitado para gestionar y ejecutar proyectos relacionados con la producción agrícola y el manejo de recursos naturales. Poseerá sólidos conocimientos en biología, química y ciencias del suelo, acompañados de habilidades prácticas para el uso de tecnologías agrícolas modernas. Aplicará técnicas de producción sustentable, realizará análisis económicos y de mercado, y desarrollará estrategias para la mejora de la productividad. Será competente en la toma de decisiones informadas y éticas, preparado para trabajar en el campo y en entornos de investigación y desarrollo."
+                    }
+                },
+                {
+                    "type": "about",
+                    "content": {
+                        "title": "Salida laboral",
+                        "description": "Actividades agropecuarias de la región (forestación, viticultura, horticultura, producción animal). Actividad privada y organismos estatales.",
+                        "image": "https://images.ctfassets.net/pdf29us7flmy/1xIWV7IeCPx8D2lEjUq11e/bcb6d6b45eb3d68491f9445d9a63c1fa/GettyImages-473983321.jpg?w=720&q=100&fm=jpg"
+                    }
+                },
+                {
+                    "type": "faq",
+                    "questions": [
+                        "¿Es presencial o a distancia?",
+                        "¿Cuánto dura la carrera?",
+                        "¿Qué salidas laborales tiene?"
+                    ],
+                    "answers": [
+                        "La carrera se ofrece en modalidad presencial, brindando el espacio y los recursos necesarios para un aprendizaje práctico y efectivo.",
+                        "La duración de la carrera es de 3 años, durante los cuales se adquieren los conocimientos y habilidades necesarios para desarrollarse en el campo de la producción agrícola y el manejo de recursos naturales.",
+                        "El egresado de la Tecnicatura superior en Agronomía tiene diversas oportunidades laborales, incluyendo roles en actividades agropecuarias de la región (forestación, viticultura, horticultura, producción animal), así como en la actividad privada y organismos estatales."
+                    ]
+                }
+            ]
+        },
         "TSRYC": {
-            "title": "Tecnicatura en Software",
+            "title": "Tecnicatura Superior en Redes y Ciberseguridad",
+            "resolution": "6076-DGE-2024.",
+            "description": "La Tecnicatura Superior en Redes y Ciberseguridad es una carrera de nivel superior que te brinda los conocimientos y habilidades necesarios para gestionar redes y proteger la información en entornos digitales. A lo largo de la carrera, aprenderás sobre administración de redes, seguridad informática, ciberseguridad y gestión de sistemas.",
+            "image": "https://example.com/images/ciberseguridad.jpg",
+            "sections": [
+                {
+                    "type": "banner",
+                    "content": [
+                        {
+                            "title": "Tecnicatura Superior en Redes y Ciberseguridad",
+                            "subtitle": "Formate para gestionar redes y proteger la información de manera eficiente",
+                            "buttonText": "Inscribite ahora",
+                            "image": "https://example.com/images/ciberseguridad-banner.jpg"
+                        }
+                    ]
+                },
+                {
+                    "type": "info-cards",
+                    "content": [
+                        {
+                            "icon": "clock",
+                            "title": "Duración",
+                            "description": "3 (tres) años"
+                        },
+                        {
+                            "icon": "sand-clock",
+                            "title": "Turno",
+                            "description": "Vespertino",
+                            "horario": "Presencial",
+                            "content": {
+                                "days": "Lunes a viernes",
+                                "time": "de 18:30 hs a 22:00 hs."
+                            }
+                        },
+                        {
+                            "icon": "card",
+                            "title": "Título",
+                            "description": "con validez nacional",
+                            "content": {
+                                "name": "Técnico Superior en Redes y Ciberseguridad"
+                            }
+                        },
+                        {
+                            "icon": "contact",
+                            "title": "Coordinación",
+                            "description": "Prof. Miguel Gorrindo.",
+                            "contact": {
+                                "email": "tscyr9010@gmail.com"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "about",
+                    "content": {
+                        "title": "Acerca de la carrera",
+                        "description": "Consiste en una tecnicatura de alta capacitación en informática, orientada firmemente a la seguridad informática y que ofrece actualizaciones complementarias constantes.",
+                        "image": "https://example.com/images/rrhh-about.jpg"
+                    }
+                },
+                {
+                    "type": "contents",
+                    "content": {
+                        "title": "Contenidos de la carrera",
+                        "description": [
+                            [
+                                "Programación I",
+                                "Matemática Aplicada",
+                                "Lógica Computacional",
+                                "Inglés Técnico I",
+                                "Alfabetización Académica",
+                                "Seminario de Nuevas Tecnologías",
+                                "Arquitectura de Dispositivos",
+                                "Sistemas Operativos I",
+                                "Base de Datos I",
+                                "Práctica Profesionalizante I."
+                            ],
+                            [
+                                "Mantenimiento de Instalaciones Informáticas",
+                                "Higiene y Seguridad Informática",
+                                "Matemática Aplicada",
+                                "Administración de Servidores",
+                                "Inglés Técnico II",
+                                "Comunicación y Redes",
+                                "Taller de Instalación y Certificación de Redes",
+                                "Criptografía Aplicada",
+                                "Automatización de Servicios Informáticos",
+                                "Electrónica Aplicada",
+                                "Tecnologías IoT",
+                                "Práctica Profesionalizante II."
+                            ],
+                            [
+                                "Tratamiento de Incidentes de Continuidad de Negocio",
+                                "Videovigilancia y Control de Accesos",
+                                "Ciberseguridad",
+                                "Inglés Técnico III",
+                                "Legislación Informática y Ética Profesional",
+                                "Auditoría de Seguridad Informática",
+                                "Investigación Digital y Cibercrimen",
+                                "Forense Digital",
+                                "Ethical Hacking",
+                                "Práctica Profesionalizante III."
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "type": "profile",
+                    "content": {
+                        "title": "Perfil del egresado",
+                        "description": "El egresado estará preparado para implementar, administrar y mantener sistemas de TI, redes y medidas de seguridad. Contará con habilidades para diagnosticar y resolver incidentes, instalar o adaptar infraestructura tecnológica, evaluar riesgos y asesorar en la adquisición de recursos. Todo esto garantizando la continuidad, accesibilidad y optimización de los servicios."
+                    }
+                },
+                {
+                    "type": "about",
+                    "content": {
+                        "title": "Salida laboral",
+                        "description": "Organizaciones públicas y privadas (gestionando redes, sistemas e infraestructura tecnológica). Administración y seguridad de entornos informáticos, soporte especializado, asesoría en riesgos y proyectos de innovación digital.",
+                        "image": "https://images.ctfassets.net/pdf29us7flmy/1xIWV7IeCPx8D2lEjUq11e/bcb6d6b45eb3d68491f9445d9a63c1fa/GettyImages-473983321.jpg?w=720&q=100&fm=jpg"
+                    }
+                },
+                {
+                    "type": "faq",
+                    "questions": [
+                        "¿Es presencial o a distancia?",
+                        "¿Cuánto dura la carrera?",
+                        "¿Qué salidas laborales tiene?"
+                    ],
+                    "answers": [
+                        "La carrera se ofrece en modalidad presencial, brindando el espacio y los recursos necesarios para un aprendizaje práctico y efectivo.",
+                        "La duración de la carrera es de 3 años, durante los cuales se adquieren los conocimientos y habilidades necesarios para desarrollarse en el campo del la gestión de sistemas informáticos.",
+                        "El egresado de la Tecnicatura en Gestión de Sistemas Informáticos tiene diversas oportunidades laborales, incluyendo roles como administrador de redes, especialista en ciberseguridad, técnico en soporte informático, consultor en infraestructura tecnológica y analista de sistemas. Puede trabajar en empresas de tecnología, instituciones educativas, organismos gubernamentales o emprender su propio proyecto."
+                    ]
+                }
+            ]
+        },
+        "TSRH": {
+            "title": "Tecnicatura Superior en Gestión de Recursos Humanos",
+            "resolution": "6787-DGE-2025.",
+            "description": "La Tecnicatura Superior en Gestión de Recursos Humanos es una carrera de nivel superior que te brinda los conocimientos y habilidades necesarios para gestionar el capital humano en organizaciones. A lo largo de la carrera, aprenderás sobre administración de personal, legislación laboral, desarrollo organizacional y gestión del talento.",
+            "image": "https://example.com/images/rrhh.jpg",
+            "sections": [
+                {
+                    "type": "banner",
+                    "content": [
+                        {
+                            "title": "Tecnicatura Superior en Gestión de Recursos Humanos",
+                            "subtitle": "Formate para gestionar recursos humanos de manera eficiente",
+                            "buttonText": "Inscribite ahora",
+                            "image": "https://example.com/images/rrhh-banner.jpg"
+                        }
+                    ]
+                },
+                {
+                    "type": "info-cards",
+                    "content": [
+                        {
+                            "icon": "clock",
+                            "title": "Duración",
+                            "description": "3 (tres) años"
+                        },
+                        {
+                            "icon": "sand-clock",
+                            "title": "Turno",
+                            "description": "Vespertino",
+                            "horario": "Presencial",
+                            "content": {
+                                "days": "Lunes a viernes",
+                                "time": "de 18:30 hs a 22:00 hs."
+                            }
+                        },
+                        {
+                            "icon": "card",
+                            "title": "Título",
+                            "description": "con validez nacional",
+                            "content": {
+                                "name": "Técnico Superior en Gestión de Recursos Humanos"
+                            }
+                        },
+                        {
+                            "icon": "contact",
+                            "title": "Referente",
+                            "description": "Prof. Janet Scarel.",
+                            "contact": {
+                                "email": "janet_scarel@elvera9010.edu.ar"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "about",
+                    "content": {
+                        "title": "Acerca de la carrera",
+                        "description": "Esta propuesta académica forma profesionales capaces de administrar, desarrollar y coordinar el talento humano en el seno de las organizaciones. A lo largo de la carrera se imparten conocimientos profundos sobre selección, capacitación, evaluación del desempeño, legislación y relaciones laborales.",
+                        "image": "https://example.com/images/rrhh-about.jpg"
+                    }
+                },
+                {
+                    "type": "contents",
+                    "content": {
+                        "title": "Contenidos de la carrera",
+                        "description": [
+                            [
+                                "Introducción a la Administración de los Recursos Humanos",
+                                "Inglés Técnico",
+                                "Comunicación Efectiva",
+                                "Herramientas Digitales para la Gestión",
+                                "Introducción a la Economía",
+                                "Matemática Aplicada",
+                                "Estadística y Análisis de Datos",
+                                "Introducción a la Legislación",
+                                "Desarrollo Regional y Contexto",
+                                "Práctica Profesionalizante I."
+                            ],
+                            [
+                                "Psicología Organizacional",
+                                "Derecho Laboral y de la Seguridad Social",
+                                "Gestión del Talento Humano",
+                                "Administración de Liquidaciones, Compensaciones y Beneficios",
+                                "Relaciones Laborales y Negociación Sindical",
+                                "Seguridad e Higiene Laboral",
+                                "Diseño de Puestos",
+                                "Tecnologías Aplicadas a Recursos Humanos",
+                                "Comunicación y Liderazgo Organizacional",
+                                "Ética y Responsabilidad Social Cooperativa",
+                                "Capacitación y Desarrollo",
+                                "Control de Gestión",
+                                "Práctica Profesionalizante II."
+                            ],
+                            [
+                                "Planeamiento Estratégico y Cultura Organizacional",
+                                "Selección Avanzada y Marca Empleadora (Employer Branding)",
+                                "Gestión del Cambio y Clima Organizacional",
+                                "Analítica de Personas y Toma de Decisiones",
+                                "Sustentabilidad",
+                                "Diversidad e Inclusión",
+                                "Innovación y Transformación Digital en Recursos Humanos",
+                                "Empleabilidad y Vinculación Profesional",
+                                "Práctica Profesionalizante III."
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "type": "profile",
+                    "content": {
+                        "title": "Perfil del egresado",
+                        "description": "El egresado es un profesional capacitado para analizar, diseñar, programar, probar e implementar soluciones informáticas. Estará preparado para el trabajo en equipos interdisciplinarios mediante la aplicación de metodologías ágiles y buenas prácticas de ingeniería de software. Su formación le permite gestionar proyectos, adaptarse a nuevas tecnologías y garantizar la calidad de los sistemas. También contará con las competencias necesarias para emprender de manera independiente en el sector tecnológico."
+                    }
+                },
+                {
+                    "type": "about",
+                    "content": {
+                        "title": "Salida laboral",
+                        "description": "Departamentos de RR. HH. en entidades públicas y privadas. Consultoras especializadas o emprendimientos propios.",
+                        "image": "https://images.ctfassets.net/pdf29us7flmy/1xIWV7IeCPx8D2lEjUq11e/bcb6d6b45eb3d68491f9445d9a63c1fa/GettyImages-473983321.jpg?w=720&q=100&fm=jpg"
+                    }
+                },
+                {
+                    "type": "faq",
+                    "questions": [
+                        "¿Es presencial o a distancia?",
+                        "¿Cuánto dura la carrera?",
+                        "¿Qué salidas laborales tiene?"
+                    ],
+                    "answers": [
+                        "La carrera se ofrece en modalidad presencial y a distancia, brindando flexibilidad para adaptarse a las necesidades de los estudiantes.",
+                        "La duración de la carrera es de 3 años, durante los cuales se adquieren los conocimientos y habilidades necesarios para desarrollarse en el campo del software.",
+                        "El egresado de la Tecnicatura en Software tiene diversas oportunidades laborales, incluyendo roles como desarrollador de aplicaciones, programador web, analista de sistemas, diseñador de interfaces y administrador de bases de datos. Puede trabajar en empresas de tecnología, startups, consultoras o emprender su propio proyecto."
+                    ]
+                }
+            ]
+        },
+        "TSDS": {
+            "title": "Tecnicatura Superior en Desarrollo de Software",
+            "resolution": "6079-DGE-2024",
             "description": "La Tecnicatura en Software es una carrera de nivel superior que te brinda los conocimientos y habilidades necesarios para desarrollar aplicaciones, sistemas y soluciones digitales. A lo largo de la carrera, aprenderás a programar, diseñar interfaces de usuario, gestionar bases de datos y trabajar en equipo para crear productos tecnológicos innovadores.",
             "image": "https://example.com/images/software.jpg",
             "sections": [
@@ -9,7 +1272,7 @@
                     "type": "banner",
                     "content": [
                         {
-                            "title": "Tecnicatura superior en Desarrollode software",
+                            "title": "Tecnicatura superior en Desarrollo de software",
                             "subtitle": "Formate para crear aplicaciones, sistemas y soluciones digitales",
                             "buttonText": "Inscribite ahora",
                             "image": "https://example.com/images/software-banner.jpg"
@@ -18,27 +1281,37 @@
                 },
                 {
                     "type": "info-cards",
-                    "quantity": 4,
                     "content": [
                         {
                             "icon": "clock",
                             "title": "Duración",
-                            "description": "3 años"
-                        },
-                        {
-                            "icon": "checkmark",
-                            "title": "Modalidad",
-                            "description": "Presencial / a distancia"
+                            "description": "3 (tres) años"
                         },
                         {
                             "icon": "sand-clock",
                             "title": "Turno",
-                            "description": "Vespertino"
+                            "description": "Vespertino",
+                            "horario": "Presencial",
+                            "content": {
+                                "days": "Lunes a viernes",
+                                "time": "desde las 18:30 hs."
+                            }
                         },
                         {
                             "icon": "card",
                             "title": "Título",
-                            "description": "Técnico Superior en desarrollo de software"
+                            "description": "con validez nacional",
+                            "content": {
+                                "name": "Técnico Superior en Desarrollo de Software"
+                            }
+                        },
+                        {
+                            "icon": "contact",
+                            "title": "Coordinación",
+                            "description": "Prof. Martín Aristiarán.",
+                            "contact": {
+                                "email": "martin_aristiaran@elvera9010.edu.ar"
+                            }
                         }
                     ]
                 },
@@ -50,32 +1323,46 @@
                         "image": "https://example.com/images/software-about.jpg"
                     }
                 },
-                
                 {
                     "type": "contents",
                     "content": {
                         "title": "Contenidos de la carrera",
                         "description": [
                             [
-                                "Fundamentos de Redes",
+                                "Programación I",
+                                "Matemática Aplicada",
+                                "Lógica Computacional",
+                                "Inglés Técnico I",
+                                "Alfabetización Académica",
+                                "Seminario de Nuevas Tecnologías",
+                                "Arquitectura de Dispositivos",
+                                "Sistemas Operativos I",
+                                "Base de Datos I",
+                                "Práctica Profesionalizante I."
+                            ],
+                            [
+                                "Programación II",
+                                "Matemática Discreta",
+                                "Análisis Matemático",
+                                "Comunicación y Redes",
+                                "Inglés Técnico II",
+                                "Modelado de Software",
                                 "Sistemas Operativos",
-                                "Introducción a Ciberseguridad",
-                                "Protocolos de Comunicación",
-                                "Administración de Sistemas"
+                                "Base de Datos II",
+                                "Práctica Profesionalizante II."
                             ],
                             [
-                                "Seguridad en Redes",
-                                "Criptografía",
-                                "Análisis de Vulnerabilidades",
-                                "Firewall y Control de Acceso",
-                                "Administración de Bases de Datos"
-                            ],
-                            [
-                                "Auditoría de Seguridad",
-                                "Respuesta a Incidentes",
-                                "Cumplimiento Normativo",
-                                "Seguridad en la Nube",
-                                "Proyecto Final"
+                                "Programación III",
+                                "Arquitectura y Diseño de Interfaces (UI y UX)",
+                                "Auditoría y Calidad de Sistemas",
+                                "Ciberseguridad",
+                                "Inglés Técnico III",
+                                "Legislación Informática y Ética Profesional",
+                                "Estadística y Probabilidades para el Desarrollo de Software",
+                                "Gestión de Proyectos de Software",
+                                "Metodologías Ágiles",
+                                "Base de Datos III",
+                                "Práctica Profesionalizante III."
                             ]
                         ]
                     }
@@ -84,18 +1371,17 @@
                     "type": "profile",
                     "content": {
                         "title": "Perfil del egresado",
-                        "description": "El egresado de la Tecnicatura en Software estará capacitado para diseñar, desarrollar y mantener aplicaciones y sistemas informáticos. Tendrá habilidades en programación, análisis de requerimientos, diseño de interfaces, gestión de bases de datos y trabajo en equipo. Además, estará preparado para adaptarse a las nuevas tecnologías y tendencias del desarrollo de software."
+                        "description": "El egresado es un profesional capacitado para analizar, diseñar, programar, probar e implementar soluciones informáticas. Estará preparado para el trabajo en equipos interdisciplinarios mediante la aplicación de metodologías ágiles y buenas prácticas de ingeniería de software. Su formación le permite gestionar proyectos, adaptarse a nuevas tecnologías y garantizar la calidad de los sistemas. También contará con las competencias necesarias para emprender de manera independiente en el sector tecnológico."
                     }
                 },
                 {
                     "type": "about",
                     "content": {
                         "title": "Salida laboral",
-                        "description": "El egresado de la Tecnicatura en Software tiene diversas oportunidades laborales en el campo de la tecnología y el desarrollo de software. Puede desempeñarse como desarrollador de aplicaciones, programador web, analista de sistemas, diseñador de interfaces, administrador de bases de datos, entre otros roles relacionados con la creación y mantenimiento de soluciones digitales. Además, puede trabajar en empresas de tecnología, startups, consultoras o incluso emprender su propio proyecto.",
+                        "description": "Entes públicos (instituciones educativas, municipios, hospitales). Entes privados (empresas tecnológicas, consultoras, startups). Ámbito independiente (asesoramiento en tecnologías, infraestructura, arquitectura y diseño de procesos).",
                         "image": "https://images.ctfassets.net/pdf29us7flmy/1xIWV7IeCPx8D2lEjUq11e/bcb6d6b45eb3d68491f9445d9a63c1fa/GettyImages-473983321.jpg?w=720&q=100&fm=jpg"
                     }
                 },
-                
                 {
                     "type": "faq",
                     "questions": [

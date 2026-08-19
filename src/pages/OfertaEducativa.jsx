@@ -100,6 +100,9 @@ const OfertaEducativaStyled = styled.div`
   }
 
   @media (max-width: 900px) {
-    width: min(94%, 1440px);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
