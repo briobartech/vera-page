@@ -133,11 +133,17 @@ const NavBarStyled = styled.nav`
   display: flex;
   align-items: center;
   gap: 1.6rem;
-  
+
   background: transparent;
   justify-content: flex-start;
   position: relative;
+  isolation: isolate;
   z-index: 60;
+
+  width: 100%;
+  flex: 0 0 auto;
+  align-self: stretch;
+  box-sizing: border-box;
 
   .mobile-toggle,
   .mobile-panel {

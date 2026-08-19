@@ -306,6 +306,8 @@ export function getSectionComponentByType(type) {
 
 const SectionStyled = styled.div`
   width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 
   .career-block {
     box-sizing: border-box;
@@ -387,7 +389,7 @@ const SectionStyled = styled.div`
     grid-template-columns: minmax(0, 1fr) minmax(240px, 34%);
     gap: 1.1rem;
     align-items: stretch;
-    
+    height: max-content;
   }
 
   .about-copy {
@@ -753,8 +755,8 @@ const SectionStyled = styled.div`
     .info-cards-mobile-selector {
       display: flex;
       gap: 0.5rem;
-      margin-top: 0.8rem;
-      padding: 0.3rem;
+      margin: 0.8rem -1.25rem 0;
+      padding: 1.25rem 1.25rem;
       overflow-x: auto;
       scrollbar-width: thin;
     }
@@ -773,8 +775,8 @@ const SectionStyled = styled.div`
       background: rgba(169, 141, 224, 0.16);
       color: var(--color-institutional-purple);
       cursor: pointer;
-      overflow: hidden;
       white-space: nowrap;
+      box-shadow: -8px 8px 8px -4px rgba(0, 0, 0, 0.25);
       transition: background-color 220ms ease, color 220ms ease, padding 220ms ease;
     }
 
@@ -820,8 +822,8 @@ const SectionStyled = styled.div`
     .contents-mobile-selector {
       display: flex;
       gap: 0.5rem;
-      margin-top: 0.8rem;
-      padding: 0.3rem;
+      margin: 0.8rem -1.25rem 0;
+      padding: 1.25rem 1.25rem;
       overflow-x: auto;
       scrollbar-width: thin;
     }
@@ -840,9 +842,9 @@ const SectionStyled = styled.div`
       background: rgba(169, 141, 224, 0.16);
       color: var(--color-institutional-purple);
       cursor: pointer;
-      overflow: hidden;
       white-space: nowrap;
       transition: background-color 220ms ease, color 220ms ease, padding 220ms ease;
+      box-shadow: -8px 8px 8px -4px rgba(0, 0, 0, 0.25);
     }
 
     .contents-selector-pill span {
@@ -888,4 +890,6 @@ const SectionStyled = styled.div`
       
       line-height: 1.2;}
   }
+      .about-media-wrap{
+      display: none;}
 `;

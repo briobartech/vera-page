@@ -56,9 +56,13 @@ export default OfertaEducativa;
 const OfertaEducativaStyled = styled.div`
   width: min(80%, 1440px);
   margin: 0 auto;
+  box-sizing: border-box;
 
   .oferta-main {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    min-width: 0;
     gap: 0.5rem;
   }
 
@@ -100,9 +104,7 @@ const OfertaEducativaStyled = styled.div`
   }
 
   @media (max-width: 900px) {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: min(100%, 1440px);
+    padding: 0 0.8rem;
   }
 `;
