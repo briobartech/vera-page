@@ -3432,8 +3432,8 @@ If it declares any Font Awesome CSS pseudo-elements, they will not be rendered a
     z-index: 1;
     padding: 1.5rem 1.4rem;
   }
-
-  .about-copy h3 {
+   
+  .about-copy h3, .profile-copy h3 {
   font-family: var(--font-heading);
     font-size: clamp(1.7rem, 1.3rem + 1vw, 2.4rem);
   }
