@@ -94,7 +94,7 @@ const NewsBannerStyled = styled.section`
   background-position: center var(--banner-bg-y, 18%);
   background-repeat: no-repeat;
   box-shadow:
-    0 24px 42px rgba(36, 20, 61, 0.22),
+    0 24px 44px rgba(var(--glass-shadow-rgb), 0.16),
     inset 0 1px 0 rgba(255, 255, 255, 0.28);
   backdrop-filter: blur(10px) saturate(120%);
   color: var(--color-white);
@@ -143,7 +143,7 @@ const NewsBannerStyled = styled.section`
     border: 2px solid rgba(255, 255, 255, 0.88);
     background: radial-gradient(130% 130% at 50% 35%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.08) 55%, rgba(255, 255, 255, 0.03) 100%);
     box-shadow:
-      0 12px 20px rgba(0, 0, 0, 0.16),
+      0 12px 22px rgba(var(--glass-shadow-rgb), 0.13),
       inset 0 1px 0 rgba(255, 255, 255, 0.4);
   }
 
@@ -204,7 +204,7 @@ const NewsBannerStyled = styled.section`
       0 0 8px rgba(91, 46, 166, 0.18),
       0 0 16px rgba(91, 46, 166, 0.1);
     box-shadow:
-      0 12px 26px rgba(59, 31, 102, 0.1),
+      0 14px 28px rgba(var(--glass-shadow-rgb), 0.1),
       inset 0 1px 0 rgba(255, 255, 255, 0.92),
       inset 0 -1px 0 rgba(169, 141, 224, 0.16);
     backdrop-filter: blur(8px) saturate(120%);
@@ -231,7 +231,7 @@ const NewsBannerStyled = styled.section`
   .button-news:focus-visible {
     color: var(--color-institutional-purple);
     box-shadow:
-      0 8px 16px rgba(91, 46, 166, 0.12),
+      0 10px 20px rgba(var(--glass-shadow-rgb), 0.1),
       inset 0 1px 0 rgba(255, 255, 255, 0.92);
     transform: translateY(-1px);
   }

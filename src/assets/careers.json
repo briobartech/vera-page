@@ -58,7 +58,7 @@
                     "content": {
                         "title": "Acerca de la carrera",
                         "description": "En este profesorado se forman futuros docentes de Artes Visuales para los niveles Inicial, Primario y Secundario en todas las modalidades del Sistema Educativo Obligatorio. También incluye la formación específica en Arte dentro de instituciones de educación artística y organizaciones afines. La propuesta combina la formación pedagógica y artística en diversas disciplinas visuales, tanto tradicionales (pintura, escultura, grabado, cerámica y dibujo) como contemporáneas (fotografía, instalación, performance y videoarte, entre otras). Esto se logra mediante la investigación y la realización de obras para contribuir a la generación y el sostenimiento de la cultura y el arte de la región.",
-                        "image": "https://example.com/images/agronomia-about.jpg"
+                        "image": "https://i0.wp.com/universidadmundial.edu.mx/wp-content/uploads/2020/02/artes-visuales-portada.jpg"
                     }
                 },
                 {
@@ -170,11 +170,12 @@
                         {
                             "icon": "sand-clock",
                             "title": "Turno",
-                            "description": "Vespertino",
+                            "description": "Matutino",
                             "horario": "Presencial",
                             "content": {
                                 "days": "Lunes a viernes",
-                                "time": "desde las 18:30 hs"
+                                "time": "desde las 18:30 hs" 
+                                
                             }
                         },
                         {

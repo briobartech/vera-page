@@ -44,18 +44,19 @@ const BannerStyled = styled.section`
         align-items: stretch;
         justify-content: space-between;
         background:
-            linear-gradient(102deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 42%, rgba(255, 255, 255, 0.45) 62%, rgba(255, 255, 255, 0.12) 78%, rgba(255, 255, 255, 0) 100%),
-            radial-gradient(120% 190% at 34% -36%, rgba(169, 141, 224, 0.2) 0%, rgba(169, 141, 224, 0.07) 34%, rgba(255, 255, 255, 0.06) 74%),
+            linear-gradient(102deg, rgba(247, 244, 255, 0.78) 0%, rgba(247, 244, 255, 0.6) 42%, rgba(247, 244, 255, 0.22) 62%, rgba(255, 255, 255, 0.06) 78%, rgba(255, 255, 255, 0) 100%),
+            radial-gradient(120% 190% at 34% -36%, rgba(169, 141, 224, 0.32) 0%, rgba(169, 141, 224, 0.1) 34%, rgba(255, 255, 255, 0.04) 74%),
             url(${bannerImage});
         background-repeat: no-repeat;
         background-position: left top, left top, right -2% bottom 70%;
         background-size: 100% 100%, 100% 100%, 90% auto;
-        border: 1px solid rgba(230, 230, 239, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.76);
         box-shadow:
-            0 28px 46px rgba(59, 31, 102, 0.15),
-            inset 0 1px 0 rgba(255, 255, 255, 0.95),
-            inset 0 -1px 0 rgba(169, 141, 224, 0.16);
-        backdrop-filter: blur(8px) saturate(118%);
+            0 28px 46px rgba(var(--glass-shadow-rgb), 0.13),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9),
+            inset 0 -1px 0 rgba(107, 76, 163, 0.16);
+        backdrop-filter: blur(18px) saturate(145%);
+        -webkit-backdrop-filter: blur(18px) saturate(145%);
     }
 
     .banner-section::before {
@@ -130,8 +131,19 @@ const BannerStyled = styled.section`
         line-height: 1.1;
         cursor: pointer;
         box-shadow:
-            0 12px 22px rgba(91, 46, 166, 0.28),
+            0 12px 22px rgba(var(--glass-shadow-rgb), 0.18),
             inset 0 1px 0 rgba(255, 255, 255, 0.42);
+        transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    }
+
+    .banner-button:hover,
+    .banner-button:focus-visible {
+        transform: translateY(-2px);
+        filter: saturate(1.12) brightness(1.06);
+        box-shadow:
+            0 16px 28px rgba(var(--glass-shadow-rgb), 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.6),
+            inset 0 -1px 0 rgba(64, 31, 125, 0.18);
     }
 
     

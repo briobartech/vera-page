@@ -4,9 +4,16 @@ import tramaIcon from '../assets/img/icons/trama-icon.svg';
 import {
     faArrowUpRightFromSquare,
     faBookOpen,
+    faBus,
     faCalendarDays,
+    faDisplay,
+    faFileShield,
+    faIdCardClip,
     faLaptop,
-    faNewspaper,faPenToSquare,faLaptopFile,faDisplay,faRobot
+    faLaptopFile,
+    faNewspaper,
+    faPenToSquare,
+    faRobot, faFilePen
 } from '@fortawesome/free-solid-svg-icons';
 import profesoradoArtesVisuales from '../assets/img/icons/profesorado-de-arte.svg';
 import educacionPrimaria from '../assets/img/icons/educación-primaria.svg';
@@ -18,14 +25,23 @@ import desarrolloSoftware from '../assets/img/icons/desarrollo-software.svg';
 import redesCiberseguridad from '../assets/img/icons/redes-y-ciberseguridad.svg';
 import agronomia from '../assets/img/icons/agronomia.svg';
 import recursosHumanos from '../assets/img/icons/recursos-humanos.svg';
-const icons = {faDisplay,faRobot,
+import personPlusIcon from '../assets/img/icons/person-plus.svg';
+const icons = {
+    faFilePen,
     fingerPrintIcon,
     tramaIcon,
     faArrowUpRightFromSquare,
     faBookOpen,
+    faBus,
     faCalendarDays,
+    faDisplay,
+    faFileShield,
+    faIdCardClip,
     faLaptop,
+    faLaptopFile,
     faNewspaper,
+    faPenToSquare,
+    faRobot,
     profesoradoArtesVisuales,
     educacionPrimaria,
     educacionInicial,
@@ -35,7 +51,7 @@ const icons = {faDisplay,faRobot,
     desarrolloSoftware,
     redesCiberseguridad,
     agronomia,
-    recursosHumanos,faPenToSquare,faLaptopFile
+    recursosHumanos, personPlusIcon
 };
 
 export default icons;

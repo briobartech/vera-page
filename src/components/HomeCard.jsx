@@ -73,16 +73,18 @@ const HomeCardStyled = styled.section`
         border-radius: 2.1rem;
         padding: 0.5rem 0.5rem 1rem;
         background:
-            radial-gradient(140% 185% at 54% 7%, rgba(169, 141, 224, 0.2) 0%, rgba(169, 141, 224, 0.07) 34%, rgba(255, 255, 255, 0.95) 75%),
-            linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.88));
-        border: 1px solid rgba(230, 230, 239, 0.88);
+            radial-gradient(125% 160% at 16% 0%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0) 48%),
+            radial-gradient(110% 145% at 90% 100%, rgba(169, 141, 224, 0.34) 0%, rgba(169, 141, 224, 0) 64%),
+            rgba(245, 242, 255, 0.58);
+        border: 1px solid rgba(255, 255, 255, 0.76);
         box-shadow:
-            0 20px 38px rgba(59, 31, 102, 0.14),
-            inset 0 1px 0 rgba(255, 255, 255, 0.96),
-            inset 0 -1px 0 rgba(169, 141, 224, 0.16);
+            0 20px 40px rgba(var(--glass-shadow-rgb), 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9),
+            inset 0 -1px 0 rgba(107, 76, 163, 0.16);
         overflow: hidden;
         isolation: isolate;
-        backdrop-filter: blur(10px) saturate(120%);
+        backdrop-filter: blur(18px) saturate(145%);
+        -webkit-backdrop-filter: blur(18px) saturate(145%);
     }
 
     .home-card-adorno {
@@ -133,9 +135,9 @@ const HomeCardStyled = styled.section`
         position: relative;
         color: var(--color-institutional-purple);
         background:
-            radial-gradient(130% 160% at 32% 28%, rgba(255, 255, 255, 0.9) 0%, rgba(169, 141, 224, 0.2) 42%, rgba(169, 141, 224, 0.3) 100%),
-            linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(169, 141, 224, 0.25));
-        border: 1px solid rgba(169, 141, 224, 0.48);
+            radial-gradient(130% 160% at 32% 28%, rgba(255, 255, 255, 0.88) 0%, rgba(169, 141, 224, 0.26) 52%, rgba(169, 141, 224, 0.12) 100%),
+            rgba(255, 255, 255, 0.34);
+        border: 1px solid rgba(255, 255, 255, 0.7);
         box-shadow:
             0 8px 16px rgba(154, 112, 221, 0.14),
             0 0 0 5px rgba(183, 158, 231, 0.12),
@@ -189,7 +191,11 @@ const HomeCardStyled = styled.section`
         max-height: 190px;
         border-radius: 1.2rem;
         overflow: hidden;
-        background: #f2ecff;
+        border: 1px solid rgba(255, 255, 255, 0.68);
+        background: rgba(245, 242, 255, 0.42);
+        box-shadow:
+            0 12px 24px rgba(var(--glass-shadow-rgb), 0.09),
+            inset 0 1px 0 rgba(255, 255, 255, 0.78);
     }
 
     .home-card-media img {
@@ -221,8 +227,19 @@ const HomeCardStyled = styled.section`
         line-height: 1.05;
         cursor: pointer;
         box-shadow:
-            0 10px 20px rgba(91, 46, 166, 0.25),
+            0 12px 24px rgba(var(--glass-shadow-rgb), 0.18),
             inset 0 1px 0 rgba(255, 255, 255, 0.35);
+        transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    }
+
+    .home-card-button:hover,
+    .home-card-button:focus-visible {
+        transform: translateY(-2px);
+        filter: saturate(1.12) brightness(1.06);
+        box-shadow:
+            0 16px 30px rgba(var(--glass-shadow-rgb), 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.58),
+            inset 0 -1px 0 rgba(64, 31, 125, 0.18);
     }
 
     .home-card-link {
@@ -237,7 +254,7 @@ const HomeCardStyled = styled.section`
         background:
             radial-gradient(130% 180% at 50% 36%, rgba(169, 141, 224, 0.32) 0%, rgba(169, 141, 224, 0.12) 48%, rgba(255, 255, 255, 0.86) 100%);
         box-shadow:
-            0 7px 14px rgba(59, 31, 102, 0.14),
+            0 8px 16px rgba(var(--glass-shadow-rgb), 0.1),
             inset 0 1px 0 rgba(255, 255, 255, 0.95);
     }
 
@@ -273,7 +290,7 @@ const HomeCardStyled = styled.section`
         color: var(--color-institutional-purple);
         background: radial-gradient(130% 180% at 50% 36%, rgba(169, 141, 224, 0.3) 0%, rgba(169, 141, 224, 0.12) 48%, rgba(255, 255, 255, 0.9) 100%);
         box-shadow:
-            0 6px 12px rgba(59, 31, 102, 0.13),
+            0 7px 14px rgba(var(--glass-shadow-rgb), 0.1),
             inset 0 1px 0 rgba(255, 255, 255, 0.94);
     }
 

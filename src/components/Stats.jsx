@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { getTotalCareersCount } from '../data/careersCatalog';
 
 const COUNT_DURATION_MS = 3000;
 
-function useAnimatedCount(target, durationMs = COUNT_DURATION_MS) {
+function useAnimatedCount(target, shouldStart, durationMs = COUNT_DURATION_MS) {
     const [count, setCount] = useState(0);
 
     useEffect(() => {
@@ -12,7 +12,7 @@ function useAnimatedCount(target, durationMs = COUNT_DURATION_MS) {
 
         setCount(0);
 
-        if (safeTarget === 0) {
+        if (!shouldStart || safeTarget === 0) {
             return;
         }
 
@@ -36,13 +36,13 @@ function useAnimatedCount(target, durationMs = COUNT_DURATION_MS) {
                 window.clearTimeout(timerId);
             }
         };
-    }, [durationMs, target]);
+    }, [durationMs, shouldStart, target]);
 
     return count;
 }
 
-function StatCard({ value, label }) {
-    const animatedValue = useAnimatedCount(value);
+function StatCard({ value, label, shouldStart }) {
+    const animatedValue = useAnimatedCount(value, shouldStart);
 
     return (
         <article className="stat-card">
@@ -54,13 +54,34 @@ function StatCard({ value, label }) {
 
 function Stats() {
     const totalCareers = getTotalCareersCount();
+    const statsRef = useRef(null);
+    const [hasStarted, setHasStarted] = useState(false);
+
+    useEffect(() => {
+        const statsElement = statsRef.current;
+
+        if (!statsElement || hasStarted) {
+            return;
+        }
+
+        const observer = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) {
+                setHasStarted(true);
+                observer.disconnect();
+            }
+        }, { threshold: 0.2 });
+
+        observer.observe(statsElement);
+
+        return () => observer.disconnect();
+    }, [hasStarted]);
 
     return (
-        <StatsStyled>
+        <StatsStyled ref={statsRef}>
             <div className="stats-grid">
-                <StatCard value={totalCareers} label="Carreras" />
-                <StatCard value={280} label="Egresados/as" />
-                <StatCard value={854} label="Estudiantes actuales" />
+                <StatCard value={totalCareers} label="Carreras" shouldStart={hasStarted} />
+                <StatCard value={280} label="Egresados/as" shouldStart={hasStarted} />
+                <StatCard value={854} label="Estudiantes actuales" shouldStart={hasStarted} />
             </div>
         </StatsStyled>
     );
@@ -91,29 +112,20 @@ const StatsStyled = styled.section`
         gap: 0.6rem;
         border-radius: 1.35rem;
         padding: 1.2rem 1rem;
-        border: 1px solid rgba(231, 224, 249, 0.68);
-        background-color: rgba(248, 247, 255, 0.48);
-        background-image:
-            radial-gradient(
-                130% 160% at 50% 52%,
-                rgba(var(--qa-purple-a), 0.16) 0%,
-                rgba(var(--qa-purple-b), 0.1) 34%,
-                rgba(var(--qa-purple-c), 0.06) 56%,
-                rgba(255, 255, 255, 0.24) 100%
-            ),
-            linear-gradient(
-                180deg,
-                rgba(255, 255, 255, 0.28) 0%,
-                rgba(248, 245, 255, 0.17) 48%,
-                rgba(255, 255, 255, 0.28) 100%
-            );
-        backdrop-filter: blur(16px) saturate(132%);
+        border: 1px solid rgba(255, 255, 255, 0.76);
+        background:
+            radial-gradient(125% 160% at 16% 0%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0) 48%),
+            radial-gradient(110% 145% at 90% 100%, rgba(169, 141, 224, 0.34) 0%, rgba(169, 141, 224, 0) 64%),
+            rgba(245, 242, 255, 0.58);
+        backdrop-filter: blur(18px) saturate(145%);
+        -webkit-backdrop-filter: blur(18px) saturate(145%);
         box-shadow:
-            0 14px 32px rgba(98, 63, 155, 0.14),
-            inset 0 1px 0 rgba(255, 255, 255, 0.66),
-            inset 0 -1px 0 rgba(203, 178, 240, 0.32);
+            0 18px 38px rgba(var(--glass-shadow-rgb), 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9),
+            inset 0 -1px 0 rgba(107, 76, 163, 0.16);
         position: relative;
         overflow: hidden;
+        transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
     }
 
     .stat-card::before {
@@ -128,6 +140,16 @@ const StatsStyled = styled.section`
             rgba(255, 255, 255, 0.12) 24%,
             rgba(255, 255, 255, 0) 62%
         );
+    }
+
+    .stat-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(255, 255, 255, 0.92);
+        filter: saturate(1.08) brightness(1.03);
+        box-shadow:
+            0 22px 42px rgba(var(--glass-shadow-rgb), 0.16),
+            inset 0 1px 0 rgba(255, 255, 255, 0.96),
+            inset 0 -1px 0 rgba(107, 76, 163, 0.18);
     }
 
     .stat-value {

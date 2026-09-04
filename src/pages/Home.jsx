@@ -27,24 +27,25 @@ function Home() {
             />
             <HomeCardSection />
             <CareersSection />
-
-            <NewsBanner
+            <Carousel />
+            {/* <NewsBanner
                 icono={icons.fingerPrintIcon}
                 titulo="Tecnicatura Superior en Redes y Ciberseguridad"
                 imagenFondoPath="news-banner.jpg"
                 textoBoton="Nueva carrera ¡Conocela!"
-            />
-            <Faq />
+            /> */}
+            {/* <Faq /> */} {/* TODO: encontrarle hogar */}
             <Stats />
-            <Carousel />
-            <Administrators />
+
             <Recommendations />
+            <Administrators />
+
             <NewsBanner
                 icono={icons.tramaIcon}
                 titulo="TRAMA"
                 subtitulo="Espacio Interdisciplinario de Acompañamiento a las Trayectorias Estudiantiles"
                 imagenFondoPath="trama.jpg"
-                textoBoton="Quiero mas informacion"
+                textoBoton="Quiero mas información"
             />
             <Footer />
         </HomeStyled>

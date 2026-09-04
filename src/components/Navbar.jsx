@@ -132,16 +132,15 @@ export default NavBar;
 const NavBarStyled = styled.nav`
   display: flex;
   align-items: center;
-  gap: 1.6rem;
+  gap: 1.25rem;
 
   background: transparent;
   justify-content: flex-start;
   position: relative;
   isolation: isolate;
   z-index: 60;
-
-  width: 100%;
-  flex: 0 0 auto;
+  min-width: 0;
+  flex: 1 1 auto;
   align-self: stretch;
   box-sizing: border-box;
 
@@ -159,7 +158,7 @@ const NavBarStyled = styled.nav`
       radial-gradient(130% 180% at 50% 36%, rgba(169, 141, 224, 0.3) 0%, rgba(169, 141, 224, 0.14) 48%, rgba(255, 255, 255, 0.9) 100%),
       linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.82));
     box-shadow:
-      0 10px 20px rgba(59, 31, 102, 0.14),
+      0 12px 24px rgba(var(--glass-shadow-rgb), 0.11),
       inset 0 1px 0 rgba(255, 255, 255, 0.95);
     align-items: center;
     justify-content: center;
@@ -175,23 +174,26 @@ const NavBarStyled = styled.nav`
   }
 
   .logo-card {
-    height: 130px;
-    width: 180px;
+    flex: 0 0 auto;
+    height: 110px;
+    width: 150px;
     position: relative;
     isolation: isolate;
     overflow: hidden;
     border-radius: 1.35rem;
     background:
-      radial-gradient(120% 160% at 50% 45%, rgba(169, 141, 224, 0.28) 0%, rgba(169, 141, 224, 0.1) 38%, rgba(255, 255, 255, 0.94) 78%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.86));
+      radial-gradient(125% 160% at 18% 0%, rgba(255, 255, 255, 0.74) 0%, rgba(255, 255, 255, 0) 48%),
+      radial-gradient(110% 145% at 90% 100%, rgba(169, 141, 224, 0.34) 0%, rgba(169, 141, 224, 0) 64%),
+      rgba(245, 242, 255, 0.58);
     display: grid;
     place-items: center;
     box-shadow:
-      0 14px 30px rgba(91, 46, 166, 0.16),
-      inset 0 1px 0 rgba(255, 255, 255, 0.95),
-      inset 0 -1px 0 rgba(169, 141, 224, 0.16);
-    border: 1px solid rgba(230, 230, 239, 0.76);
-    backdrop-filter: blur(10px) saturate(120%);
+      0 18px 36px rgba(var(--glass-shadow-rgb), 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      inset 0 -1px 0 rgba(107, 76, 163, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.76);
+    backdrop-filter: blur(18px) saturate(145%);
+    -webkit-backdrop-filter: blur(18px) saturate(145%);
     padding: 0.55rem;
   }
 
@@ -220,7 +222,7 @@ const NavBarStyled = styled.nav`
   .menu-shell {
     flex: 0 0 auto;
     margin-left: auto;
-    height: 60px;
+    height: 56px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -229,14 +231,16 @@ const NavBarStyled = styled.nav`
     isolation: isolate;
     border-radius: 1.2rem;
     background:
-      radial-gradient(130% 180% at 50% 50%, rgba(169, 141, 224, 0.24) 0%, rgba(169, 141, 224, 0.11) 35%, rgba(255, 255, 255, 0.95) 78%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.84));
-    border: 1px solid rgba(230, 230, 239, 0.75);
+      radial-gradient(130% 180% at 18% 0%, rgba(255, 255, 255, 0.68) 0%, rgba(255, 255, 255, 0) 45%),
+      radial-gradient(110% 150% at 92% 100%, rgba(169, 141, 224, 0.32) 0%, rgba(169, 141, 224, 0) 62%),
+      rgba(245, 242, 255, 0.58);
+    border: 1px solid rgba(255, 255, 255, 0.72);
     box-shadow:
-      0 12px 26px rgba(59, 31, 102, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.92),
-      inset 0 -1px 0 rgba(169, 141, 224, 0.16);
-    backdrop-filter: blur(8px) saturate(120%);
+      0 18px 36px rgba(var(--glass-shadow-rgb), 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.88),
+      inset 0 -1px 0 rgba(107, 76, 163, 0.16);
+    backdrop-filter: blur(18px) saturate(145%);
+    -webkit-backdrop-filter: blur(18px) saturate(145%);
     overflow: visible;
     width: auto;
   }
@@ -262,7 +266,7 @@ const NavBarStyled = styled.nav`
     align-items: stretch;
     list-style: none;
     margin: 0;
-    padding: 0 0.7rem;
+    padding: 0 0.55rem;
   
     width: auto;
   }
@@ -278,18 +282,19 @@ const NavBarStyled = styled.nav`
     align-items: center;
     gap: 0.35rem;
     position: relative;
-    height: 48px;
-    padding: 0 1.1rem;
+    height: 44px;
+    padding: 0 0.9rem;
     color: var(--color-dark-purple);
     text-decoration: none;
     font-family: var(--font-heading);
     font-size: 2rem;
     line-height: 1;
-    font-size: clamp(0.95rem, 0.75rem + 0.35vw, 1.15rem);
+    font-size: clamp(0.9rem, 0.73rem + 0.3vw, 1.05rem);
     font-weight: 600;
     border-radius: 0.85rem;
     background: transparent;
-    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid transparent;
+    transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
     white-space: nowrap;
   }
 
@@ -313,11 +318,16 @@ const NavBarStyled = styled.nav`
   .nav-item:focus-within .nav-link,
   .nav-link:hover,
   .nav-link:focus-visible {
-    background: radial-gradient(130% 180% at 50% 36%, rgba(169, 141, 224, 0.34) 0%, rgba(169, 141, 224, 0.18) 48%, rgba(255, 255, 255, 0.8) 100%);
+    background:
+      radial-gradient(120% 150% at 22% 0%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 52%),
+      radial-gradient(110% 145% at 88% 100%, rgba(169, 141, 224, 0.26) 0%, rgba(169, 141, 224, 0) 68%),
+      rgba(255, 255, 255, 0.32);
+    border-color: rgba(255, 255, 255, 0.7);
     color: var(--color-institutional-purple);
     box-shadow:
-      0 8px 16px rgba(91, 46, 166, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.92);
+      0 10px 20px rgba(var(--glass-shadow-rgb), 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.84),
+      inset 0 -1px 0 rgba(107, 76, 163, 0.12);
   }
 
   .nav-item:hover .nav-link::before,
@@ -334,27 +344,26 @@ const NavBarStyled = styled.nav`
 
   .submenu {
     position: absolute;
-    top: calc(100% + 0.4rem);
+    top: 100%;
     left: -8px;
     isolation: isolate;
     min-width: 18rem;
     padding: 0.55rem;
     list-style: none;
-    margin: 10px 0;
+    margin: 0;
     background:
-      radial-gradient(140% 180% at 50% 32%, rgba(169, 141, 224, 0.26) 0%, rgba(169, 141, 224, 0.1) 35%, rgba(255, 255, 255, 0.95) 82%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.86));
-    border: 1px solid rgba(230, 230, 239, 0.84);
+      radial-gradient(125% 145% at 14% 0%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0) 48%),
+      radial-gradient(110% 140% at 90% 100%, rgba(169, 141, 224, 0.32) 0%, rgba(169, 141, 224, 0) 66%),
+      rgba(245, 242, 255, 0.64);
+    border: 1px solid rgba(255, 255, 255, 0.76);
     border-radius: 1rem;
     box-shadow:
-      0 16px 30px rgba(59, 31, 102, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.92),
-      inset 0 -1px 0 rgba(169, 141, 224, 0.15);
-    backdrop-filter: blur(10px) saturate(120%);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-6px);
-    transition: all 0.2s ease;
+      0 20px 40px rgba(var(--glass-shadow-rgb), 0.14),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      inset 0 -1px 0 rgba(107, 76, 163, 0.16);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    display: none;
     z-index: 20;
   }
 
@@ -382,7 +391,8 @@ const NavBarStyled = styled.nav`
     padding: 0.82rem 1.3rem;
     border-radius: 0.78rem;
     position: relative;
-    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid transparent;
+    transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
     color: var(--color-dark-purple);
     text-decoration: none;
     font-family: var(--font-heading);
@@ -409,11 +419,16 @@ const NavBarStyled = styled.nav`
   }
 
   .submenu a:hover {
-    background: radial-gradient(130% 180% at 50% 36%, rgba(169, 141, 224, 0.34) 0%, rgba(169, 141, 224, 0.18) 48%, rgba(255, 255, 255, 0.8) 100%);
+    background:
+      radial-gradient(120% 150% at 22% 0%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 52%),
+      radial-gradient(110% 145% at 88% 100%, rgba(169, 141, 224, 0.24) 0%, rgba(169, 141, 224, 0) 68%),
+      rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.68);
     color: var(--color-institutional-purple);
     box-shadow:
-      0 8px 16px rgba(91, 46, 166, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.92);
+      0 8px 18px rgba(var(--glass-shadow-rgb), 0.09),
+      inset 0 1px 0 rgba(255, 255, 255, 0.82),
+      inset 0 -1px 0 rgba(107, 76, 163, 0.1);
   }
 
   .submenu a:hover::before {
@@ -422,31 +437,10 @@ const NavBarStyled = styled.nav`
 
   .nav-item:hover .submenu,
   .nav-item:focus-within .submenu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+    display: block;
   }
 
-  @media (max-width: 1160px) and (min-width: 901px) {
-    overflow-x: auto;
-    padding-right: 1rem;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
-    .menu-shell {
-      min-width: max-content;
-    }
-
-    .nav-links {
-      min-width: max-content;
-    }
-  }
-
-  @media (max-width: 900px) {
+  @media (max-width: 1600px) {
     justify-content: center;
     padding: 0.8rem 1rem 0;
     min-height: 92px;
@@ -486,7 +480,7 @@ const NavBarStyled = styled.nav`
         linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.86));
       border: 1px solid rgba(230, 230, 239, 0.84);
       box-shadow:
-        0 16px 30px rgba(59, 31, 102, 0.12),
+        0 18px 34px rgba(var(--glass-shadow-rgb), 0.12),
         inset 0 1px 0 rgba(255, 255, 255, 0.92),
         inset 0 -1px 0 rgba(169, 141, 224, 0.15);
       backdrop-filter: blur(10px) saturate(120%);
@@ -554,7 +548,7 @@ const NavBarStyled = styled.nav`
       background: radial-gradient(130% 180% at 50% 36%, rgba(169, 141, 224, 0.34) 0%, rgba(169, 141, 224, 0.18) 48%, rgba(255, 255, 255, 0.8) 100%);
       color: var(--color-institutional-purple);
       box-shadow:
-        0 8px 16px rgba(91, 46, 166, 0.12),
+        0 10px 20px rgba(var(--glass-shadow-rgb), 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.92);
     }
   }

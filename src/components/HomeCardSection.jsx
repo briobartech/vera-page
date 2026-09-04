@@ -1,5 +1,6 @@
 import HomeCard from './HomeCard';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import icons from '../data/icons.js';
 import bannerImage from '../assets/img/banner/banner.png';
 import images from '../data/images.js';
@@ -14,31 +15,38 @@ const defaultCards = [
     {
         icon: icons.faPenToSquare,
         title: 'Inscripciones abiertas',
-        description: '¡No pierdas la oportunidad de formar parte de nuestra comunidad educativa!',
+        description: '¡No perdás la oportunidad de formar parte de nuestra comunidad educativa!',
         imageSrc: images.inscripcion,
         buttonLabel: '➝ Inscribirse',
     },
-    {
+    /* {
         icon: icons.faDisplay,
         title: 'Campus virtual',
         description: 'Campus virtual, recursos en línea para estudiantes y docentes. Accede a materiales de estudio, clases grabadas y más.',
         imageSrc: images.campusVirtual,
         buttonLabel: '➝ Ingresar',
-    },
+    }, */
     {
         icon: icons.faLaptopFile,
         title: 'Trámite online',
-        description: 'Realiza tus trámites en línea de manera rápida y segura.',
-        imageSrc: images.tramite,
+        description: 'Realizá tus trámites en línea de manera rápida y segura.',
+        imageSrc: images.campusVirtual,
         buttonLabel: '➝ Acceder',
+        to: '/tramites-online',
     },
 ];
 
 function HomeCardSection({ cards = defaultCards }) {
+    const navigate = useNavigate();
+
     return (
         <HomeCardSectionStyled>
             {cards.map((card, index) => (
-                <HomeCard key={`${card.title}-${index}`} {...card} />
+                <HomeCard
+                    key={`${card.title}-${index}`}
+                    {...card}
+                    onClick={card.to ? () => navigate(card.to) : card.onClick}
+                />
             ))}
         </HomeCardSectionStyled>
     );

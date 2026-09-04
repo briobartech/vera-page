@@ -40,7 +40,7 @@ const FooterStyled = styled.footer`
 		);
 	backdrop-filter: blur(16px) saturate(132%);
 	box-shadow:
-		0 14px 32px rgba(98, 63, 155, 0.14),
+		0 18px 38px rgba(var(--glass-shadow-rgb), 0.12),
 		inset 0 1px 0 rgba(255, 255, 255, 0.66),
 		inset 0 -1px 0 rgba(203, 178, 240, 0.32);
 	position: relative;

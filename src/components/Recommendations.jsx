@@ -1,5 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
+import dulce from '../assets/img/testimonials/Dulce.png';
+import jaquelina from '../assets/img/testimonials/Jaquelina.png';
+import lihuen from '../assets/img/testimonials/Lihuen.png';
+import fernando from '../assets/img/testimonials/Fernando.png';
 
 const localImages = import.meta.glob('../assets/img/**/*.{png,jpg,jpeg,webp,avif,svg}', {
     eager: true,
@@ -56,28 +60,28 @@ function Avatar({ name, imagePath, initials }) {
 
 const testimonials = [
     {
-        quote: '"Siempre quise terminar mis estudios, pero la vida me llevo por otro camino. En el Vera, siendo mayor, pude hacerlo realidad y demostrarme que nunca es tarde para aprender."',
-        name: 'Silvia Sosa',
+        quote: '“Los docentes del Vera están pendientes del estudiante, sus necesidades y su formación. Son profesionales de gran nivel que saben acompañar en el trayecto”.',
+        name: 'Jaquelina Videla',
         location: 'San Carlos, Mendoza',
-        imagePath: '',
+        imagePath: jaquelina,
     },
     {
-        quote: '"El ambiente es motivador y participativo. Los docentes te inspiran a seguir aprendiendo y a creer en vos mismo."',
-        name: 'Luis Serrudo',
+        quote: '“En el Vera hay calidad humana, con docentes que están atentos a cada estudiante. La institución mantiene buenas actitudes que generan un sentido de pertenencia y contención”.',
+        name: 'Dulce Bocia',
         location: 'San Carlos, Mendoza',
-        imagePath: '',
+        imagePath: dulce,
     },
     {
-        quote: '"Gracias al Jardin del Vera Penaloza, pude estudiar tranquila mientras mi hijo crecia en un espacio seguro y educativo."',
-        name: 'Laura Micames',
+        quote: '“La cercanía y la calidez son un punto a favor que no hay en otros lugares. Hay acompañamiento, contención e interés para que podamos progresar. Si surge un inconveniente, se busca la manera de solucionarlo”.',
+        name: 'Lihuen Cabello',
         location: 'La Consulta, Mendoza',
-        imagePath: '',
+        imagePath: lihuen,
     },
     {
-        quote: '"Trabajaba durante el dia y estudiaba de noche, en el Vera encontre apoyo y profesores que realmente entendian mi situacion."',
-        name: 'Pablo Morales',
+        quote: '“Hay flexibilidad para las personas que trabajamos; cuando no podemos cursar, los docentes nos acompañan facilitando el proceso para poder seguir. El acompañamiento y las salidas educativas son para destacar”.',
+        name: 'Fernando Olmedo',
         location: 'Tunuyan, Mendoza',
-        imagePath: '',
+        imagePath: fernando,
     },
 ];
 
@@ -202,29 +206,20 @@ const RecommendationsStyled = styled.section`
         gap: 1.25rem;
         border-radius: 1.35rem;
         padding: 1.35rem 1.25rem 1.15rem;
-        border: 1px solid rgba(231, 224, 249, 0.68);
-        background-color: rgba(248, 247, 255, 0.48);
-        background-image:
-            radial-gradient(
-                130% 160% at 50% 52%,
-                rgba(var(--qa-purple-a), 0.16) 0%,
-                rgba(var(--qa-purple-b), 0.1) 34%,
-                rgba(var(--qa-purple-c), 0.06) 56%,
-                rgba(255, 255, 255, 0.24) 100%
-            ),
-            linear-gradient(
-                180deg,
-                rgba(255, 255, 255, 0.28) 0%,
-                rgba(248, 245, 255, 0.17) 48%,
-                rgba(255, 255, 255, 0.28) 100%
-            );
-        backdrop-filter: blur(16px) saturate(132%);
+        border: 1px solid rgba(255, 255, 255, 0.76);
+        background:
+            radial-gradient(125% 160% at 16% 0%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0) 48%),
+            radial-gradient(110% 145% at 90% 100%, rgba(169, 141, 224, 0.34) 0%, rgba(169, 141, 224, 0) 64%),
+            rgba(245, 242, 255, 0.58);
+        backdrop-filter: blur(18px) saturate(145%);
+        -webkit-backdrop-filter: blur(18px) saturate(145%);
         box-shadow:
-            0 14px 32px rgba(98, 63, 155, 0.14),
-            inset 0 1px 0 rgba(255, 255, 255, 0.66),
-            inset 0 -1px 0 rgba(203, 178, 240, 0.32);
+            0 18px 38px rgba(var(--glass-shadow-rgb), 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9),
+            inset 0 -1px 0 rgba(107, 76, 163, 0.16);
         position: relative;
         overflow: hidden;
+        transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
     }
 
     .recommendation-card::before {
@@ -239,6 +234,16 @@ const RecommendationsStyled = styled.section`
             rgba(255, 255, 255, 0.12) 24%,
             rgba(255, 255, 255, 0) 62%
         );
+    }
+
+    .recommendation-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(255, 255, 255, 0.92);
+        filter: saturate(1.08) brightness(1.03);
+        box-shadow:
+            0 22px 42px rgba(var(--glass-shadow-rgb), 0.16),
+            inset 0 1px 0 rgba(255, 255, 255, 0.96),
+            inset 0 -1px 0 rgba(107, 76, 163, 0.18);
     }
 
     .carousel-dots {
@@ -301,11 +306,11 @@ const RecommendationsStyled = styled.section`
         font-size: 0.92rem;
         color: #fefeff;
         background:
-            radial-gradient(130% 180% at 38% 30%, rgba(255, 255, 255, 0.35) 0%, rgba(171, 133, 232, 0.58) 40%, rgba(110, 69, 186, 0.88) 100%);
+            radial-gradient(130% 180% at 38% 30%, rgba(255, 255, 255, 0.7) 0%, rgba(171, 133, 232, 0.42) 46%, rgba(110, 69, 186, 0.68) 100%);
         box-shadow:
-            0 8px 14px rgba(73, 44, 128, 0.22),
-            inset 0 1px 0 rgba(255, 255, 255, 0.42);
-        border: 1px solid rgba(255, 255, 255, 0.55);
+            0 10px 20px rgba(var(--glass-shadow-rgb), 0.16),
+            inset 0 1px 0 rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.72);
     }
 
     .author-info {

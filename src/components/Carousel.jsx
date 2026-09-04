@@ -87,7 +87,7 @@ const CarouselStyled = styled.section`
         linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.86));
     border: 1px solid rgba(230, 230, 239, 0.76);
     box-shadow:
-        0 14px 30px rgba(91, 46, 166, 0.15),
+        0 18px 36px rgba(var(--glass-shadow-rgb), 0.12),
         inset 0 1px 0 rgba(255, 255, 255, 0.95),
         inset 0 -1px 0 rgba(169, 141, 224, 0.16);
     backdrop-filter: blur(10px) saturate(120%);
@@ -111,7 +111,7 @@ const CarouselStyled = styled.section`
     background-position: center;
     background-repeat: no-repeat;
     box-shadow:
-        0 26px 54px rgba(26, 16, 47, 0.28),
+        0 26px 54px rgba(var(--glass-shadow-rgb), 0.16),
         0 10px 24px rgba(255, 255, 255, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.54),
         inset 0 -1px 0 rgba(255, 255, 255, 0.18);
@@ -173,7 +173,7 @@ const CarouselStyled = styled.section`
         cursor: pointer;
         backdrop-filter: blur(8px) saturate(125%);
         box-shadow:
-            0 14px 26px rgba(19, 12, 38, 0.28),
+            0 14px 26px rgba(var(--glass-shadow-rgb), 0.16),
             inset 0 1px 0 rgba(255, 255, 255, 0.65),
             inset 0 -1px 0 rgba(255, 255, 255, 0.2);
         transition: transform 0.18s ease, box-shadow 0.2s ease, background 0.2s ease;
@@ -193,7 +193,7 @@ const CarouselStyled = styled.section`
     .carousel-nav:focus-visible {
         transform: translateY(-50%) scale(1.04);
         box-shadow:
-            0 18px 28px rgba(19, 12, 38, 0.34),
+            0 18px 30px rgba(var(--glass-shadow-rgb), 0.2),
             inset 0 1px 0 rgba(255, 255, 255, 0.72),
             inset 0 -1px 0 rgba(255, 255, 255, 0.24);
     }

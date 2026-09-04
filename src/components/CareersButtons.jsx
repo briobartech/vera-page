@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function CareersButtons({
     name,
@@ -10,14 +11,17 @@ function CareersButtons({
     backgroundOpacity = .8,
     backdropBlur = 16,
 }) {
-
-    
+    const isFontAwesomeIcon = icon && typeof icon === 'object' && 'prefix' in icon && 'iconName' in icon;
 
     return (
         <CareersButtonsStyled className="careers-buttons" $reflectionColor={reflectionColor} $intensity={intensity} $backgroundOpacity={backgroundOpacity} $backdropBlur={backdropBlur}>
             <Link to={to} className="careers-button">
                 <span className="careers-icon-shell" aria-hidden="true">
-                    <img src={icon} alt={name} className="careers-icon" />
+                    {isFontAwesomeIcon ? (
+                        <FontAwesomeIcon icon={icon} className="careers-icon" />
+                    ) : (
+                        <img src={icon} alt={name} className="careers-icon" />
+                    )}
                 </span>
 
                 <span className="careers-label-shell">
@@ -42,7 +46,7 @@ const CareersButtonsStyled = styled.div`
     gap:16px;
     width:100%;
     min-width:0;
-    
+    text-decoration:none;
 }
     .careers-icon-shell{
     width:64px;
@@ -60,13 +64,17 @@ const CareersButtonsStyled = styled.div`
     -webkit-backdrop-filter:blur(${(props) => props.$backdropBlur}px);
 
     border-radius:20px;
+     border:1px solid rgba(255,255,255,0.72);
 
     position:relative;
     isolation:isolate;
     overflow:hidden;
 
     box-shadow:
-       -8px 8px 8px -4px rgba(0,0,0,0.25)
+         0 14px 28px rgba(var(--glass-shadow-rgb),0.12),
+         inset 0 1px 0 rgba(255,255,255,0.88),
+         inset 0 -1px 0 rgba(107,76,163,0.14);
+     transition:transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, filter 0.18s ease;
 }
 
     .careers-icon-shell::before{
@@ -134,11 +142,28 @@ const CareersButtonsStyled = styled.div`
     -webkit-backdrop-filter:blur(${(props) => props.$backdropBlur}px);
 
     border-radius:20px;
+    border:1px solid rgba(255,255,255,0.72);
 
     overflow:hidden;
 
     box-shadow:
-        -8px 8px 8px -4px rgba(0,0,0,0.25)
+        0 14px 28px rgba(var(--glass-shadow-rgb),0.12),
+        inset 0 1px 0 rgba(255,255,255,0.88),
+        inset 0 -1px 0 rgba(107,76,163,0.14);
+    transition:transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, filter 0.18s ease;
+}
+
+    .careers-button:hover .careers-icon-shell,
+    .careers-button:hover .careers-label-shell,
+    .careers-button:focus-visible .careers-icon-shell,
+    .careers-button:focus-visible .careers-label-shell{
+    transform:translateY(-2px);
+    border-color:rgba(255,255,255,0.9);
+    filter:saturate(1.12) brightness(1.05);
+    box-shadow:
+        0 18px 34px rgba(var(--glass-shadow-rgb),0.16),
+        inset 0 1px 0 rgba(255,255,255,0.96),
+        inset 0 -1px 0 rgba(107,76,163,0.16);
 }
 
     .careers-label-shell::before{

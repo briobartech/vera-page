@@ -3,6 +3,7 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
 import OfertaEducativa from './pages/OfertaEducativa';
+import OnlineProcedures from './pages/OnlineProcedures';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -20,6 +21,7 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/tramites-online" element={<OnlineProcedures />} />
         <Route path="/oferta-educativa" element={<OfertaEducativa />} />
         <Route path="/oferta-educativa/:careerCode" element={<OfertaEducativa />} />
         <Route path="*" element={<Navigate to="/" replace />} />

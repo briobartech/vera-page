@@ -27,7 +27,7 @@ const AdministratorsStyled = styled.section`
     max-width: 100%;
     box-sizing: border-box;
     
-    margin: 2rem 0 1rem;
+    margin: 1rem 0 1rem;
     padding: 0.75rem 0.5rem 1.2rem;
     display: flex;
     flex-direction: column;
@@ -36,25 +36,29 @@ const AdministratorsStyled = styled.section`
 
     .directivos-figure {
         width: min(100%, 640px);
-        height: 270px;
+        height: 520px;
         display: grid;
         place-items: center;
         position: relative;
         z-index: 1;
+        overflow: hidden;
     }
 
     .directivos-image {
         width: min(100%, 520px);
         height: auto;
+        max-height: 480;
+        
         object-fit: contain;
         display: block;
         position: relative;
         z-index: 1;
+        align-self: center;
     }
 
     .directivos-card {
         width: min(100%, 760px);
-        margin-top: 64px;
+        margin-top: -72px;
         position: relative;
         z-index: 3;
         display: flex;
@@ -65,27 +69,17 @@ const AdministratorsStyled = styled.section`
         border-radius: 1.35rem;
         padding: 1rem 1.15rem 0.9rem;
         text-align: center;
-        border: 1px solid rgba(231, 224, 249, 0.68);
-        background-color: rgba(248, 247, 255, 0.48);
-        background-image:
-            radial-gradient(
-                130% 160% at 50% 52%,
-                rgba(var(--qa-purple-a), 0.16) 0%,
-                rgba(var(--qa-purple-b), 0.1) 34%,
-                rgba(var(--qa-purple-c), 0.06) 56%,
-                rgba(255, 255, 255, 0.24) 100%
-            ),
-            linear-gradient(
-                180deg,
-                rgba(255, 255, 255, 0.28) 0%,
-                rgba(248, 245, 255, 0.17) 48%,
-                rgba(255, 255, 255, 0.28) 100%
-            );
-        backdrop-filter: blur(16px) saturate(132%);
+        border: 1px solid rgba(255, 255, 255, 0.76);
+        background:
+            radial-gradient(125% 160% at 16% 0%, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0) 48%),
+            radial-gradient(110% 145% at 90% 100%, rgba(169, 141, 224, 0.22) 0%, rgba(169, 141, 224, 0) 64%),
+            rgba(245, 242, 255, 0.28);
+        backdrop-filter: blur(18px) saturate(145%);
+        -webkit-backdrop-filter: blur(18px) saturate(145%);
         box-shadow:
-            0 14px 32px rgba(98, 63, 155, 0.14),
-            inset 0 1px 0 rgba(255, 255, 255, 0.66),
-            inset 0 -1px 0 rgba(203, 178, 240, 0.32);
+            0 18px 38px rgba(var(--glass-shadow-rgb), 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9),
+            inset 0 -1px 0 rgba(107, 76, 163, 0.16);
     }
 
     .directivos-card::before {
@@ -96,8 +90,8 @@ const AdministratorsStyled = styled.section`
         pointer-events: none;
         background: linear-gradient(
             180deg,
-            rgba(255, 255, 255, 0.4) 0%,
-            rgba(255, 255, 255, 0.12) 24%,
+            rgba(255, 255, 255, 0.3) 0%,
+            rgba(255, 255, 255, 0.08) 24%,
             rgba(255, 255, 255, 0) 62%
         );
     }
@@ -143,7 +137,7 @@ const AdministratorsStyled = styled.section`
 
         .directivos-card {
             width: min(100%, 94%);
-            margin-top: 2px;
+            margin-top: -44px;
             border-radius: 1.1rem;
             padding: 0.88rem 0.85rem 0.74rem;
         }

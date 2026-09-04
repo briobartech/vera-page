@@ -27,7 +27,7 @@ const FaqStyled = styled.section`
         linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.86));
     border: 1px solid rgba(230, 230, 239, 0.76);
     box-shadow:
-        0 14px 30px rgba(91, 46, 166, 0.15),
+        0 18px 36px rgba(var(--glass-shadow-rgb), 0.12),
         inset 0 1px 0 rgba(255, 255, 255, 0.95),
         inset 0 -1px 0 rgba(169, 141, 224, 0.16);
     backdrop-filter: blur(10px) saturate(120%);
@@ -49,7 +49,7 @@ const FaqStyled = styled.section`
             radial-gradient(140% 190% at 50% 30%, rgba(186, 158, 233, 0.42) 0%, rgba(169, 141, 224, 0.2) 44%, rgba(255, 255, 255, 0.86) 100%),
             linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.78));
         box-shadow:
-            0 16px 30px rgba(59, 31, 102, 0.18),
+            0 18px 34px rgba(var(--glass-shadow-rgb), 0.14),
             0 0 0 3px rgba(195, 173, 236, 0.22),
             inset 0 1px 0 rgba(255, 255, 255, 0.95),
             inset 0 -1px 0 rgba(132, 87, 199, 0.22);
@@ -91,7 +91,7 @@ const FaqStyled = styled.section`
     .faq-pill:focus-visible {
         transform: translateY(-1px);
         box-shadow:
-            0 18px 34px rgba(59, 31, 102, 0.22),
+            0 20px 38px rgba(var(--glass-shadow-rgb), 0.17),
             0 0 0 4px rgba(195, 173, 236, 0.3),
             inset 0 1px 0 rgba(255, 255, 255, 0.95),
             inset 0 -1px 0 rgba(132, 87, 199, 0.26);

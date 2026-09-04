@@ -123,7 +123,7 @@ const CareersSectionStyled = styled.section`
       border-radius: 1.5rem;
       border: 1px solid rgba(255, 255, 255, 0.5);
       background: rgba(255, 255, 255, 0.24);
-      box-shadow: 0 18px 40px rgba(53, 29, 95, 0.14);
+      box-shadow: 0 20px 42px rgba(var(--glass-shadow-rgb), 0.12);
       backdrop-filter: blur(18px) saturate(140%);
     }
 
@@ -132,13 +132,14 @@ const CareersSectionStyled = styled.section`
       gap: 0.55rem;
       padding: 0.35rem;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.42);
-      border: 1px solid rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.68);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
     }
 
     .selector-pill {
       flex: 1;
-      border: none;
+      border: 1px solid transparent;
       border-radius: 999px;
       padding: 0.75rem 0.8rem;
       font-family: var(--font-heading);
@@ -147,20 +148,27 @@ const CareersSectionStyled = styled.section`
       color: var(--color-dark-purple);
       background: transparent;
       cursor: pointer;
-      transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
+      transition: transform 180ms ease, background 220ms ease, border-color 220ms ease, color 180ms ease, box-shadow 220ms ease;
     }
 
     .selector-pill.active {
       color: #ffffff;
-      background: linear-gradient(135deg, rgba(126, 62, 176, 0.95), rgba(174, 102, 220, 0.95));
-      box-shadow: 0 10px 20px rgba(92, 53, 180, 0.2);
+      border-color: rgba(255, 255, 255, 0.84);
+      background:
+        radial-gradient(120% 150% at 24% 0%, rgba(255, 255, 255, 0.66) 0%, rgba(255, 255, 255, 0) 52%),
+        radial-gradient(110% 145% at 88% 100%, rgba(169, 141, 224, 0.5) 0%, rgba(169, 141, 224, 0) 68%),
+        rgba(91, 46, 166, 0.7);
+      box-shadow:
+        0 10px 22px rgba(var(--glass-shadow-rgb), 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7),
+        inset 0 -1px 0 rgba(64, 31, 125, 0.18);
     }
 
     .mobile-careers-panel {
       display: grid;
       max-height: min(62vh, 34rem);
       overflow-y: auto;
-      padding-right: 0.25rem;
+      padding: 0.25rem 0.6rem 0.6rem;
       scrollbar-width: none;
       -ms-overflow-style: none;
     }
@@ -177,6 +185,7 @@ const CareersSectionStyled = styled.section`
 
     .careers-group.active {
       display: grid;
+      animation: mobile-careers-panel-in 320ms cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .careers-group-header h2 {
@@ -185,6 +194,17 @@ const CareersSectionStyled = styled.section`
 
     .careers-group-grid {
       grid-template-columns: minmax(0, 1fr);
+    }
+
+    @keyframes mobile-careers-panel-in {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   }
 `;
