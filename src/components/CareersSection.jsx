@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import CareersButtons from './CareersButtons';
 import { catalogCareersByCategory } from '../data/careersCatalog';
+import useSlidingPill from '../hooks/useSlidingPill';
 
 function renderCareerCategory(categoryKey, isMobileView = false, isActive = true) {
   const category = catalogCareersByCategory(categoryKey);
@@ -11,7 +12,17 @@ function renderCareerCategory(categoryKey, isMobileView = false, isActive = true
   }
 
   return (
-    <article className={`careers-group${isMobileView ? (isActive ? ' active' : ' hidden') : ''}`} key={categoryKey}>
+    <article
+      className={`careers-group${isMobileView ? (isActive ? ' active' : ' hidden') : ''}`}
+      key={categoryKey}
+      {...(isMobileView
+        ? {
+            id: `careers-panel-${categoryKey}`,
+            role: 'tabpanel',
+            'aria-labelledby': `careers-tab-${categoryKey}`,
+          }
+        : {})}
+    >
       <header className="careers-group-header">
         <h2>{category.title}</h2>
       </header>
@@ -36,25 +47,59 @@ function CareersSection({ category }) {
   const [activeCategory, setActiveCategory] = useState(categoriesToRender[0] ?? 'profesorado');
   const isMobileSelector = !category && categoriesToRender.length > 1;
   const selectedCategory = category || activeCategory;
+  const { itemRef, pillStyle, selectorRef } = useSlidingPill(selectedCategory);
+
+  const handleTabKeyDown = (event, currentIndex) => {
+    const keyActions = {
+      ArrowRight: 1,
+      ArrowDown: 1,
+      ArrowLeft: -1,
+      ArrowUp: -1,
+      Home: -currentIndex,
+      End: categoriesToRender.length - 1 - currentIndex,
+    };
+    const offset = keyActions[event.key];
+
+    if (offset === undefined) return;
+
+    event.preventDefault();
+    const nextIndex = (currentIndex + offset + categoriesToRender.length) % categoriesToRender.length;
+    const nextCategory = categoriesToRender[nextIndex];
+    setActiveCategory(nextCategory);
+    document.getElementById(`careers-tab-${nextCategory}`)?.focus();
+  };
 
   return (
     <CareersSectionStyled>
       {isMobileSelector && (
         <div className="mobile-selector-shell">
-          <div className="careers-mobile-selector" role="tablist" aria-label="Seleccionar oferta académica">
+          <div ref={selectorRef} className="careers-mobile-selector liquid-glass-effect" role="tablist" aria-label="Seleccionar oferta académica">
+            <span className="selector-active-pill" aria-hidden="true" style={pillStyle} />
             <button
+              ref={itemRef('profesorado')}
               type="button"
-              className={`selector-pill${selectedCategory === 'profesorado' ? ' active' : ''}`}
+              className="selector-pill"
+              id="careers-tab-profesorado"
+              role="tab"
               onClick={() => setActiveCategory('profesorado')}
-              aria-pressed={selectedCategory === 'profesorado'}
+              onKeyDown={(event) => handleTabKeyDown(event, 0)}
+              aria-selected={selectedCategory === 'profesorado'}
+              aria-controls="careers-panel-profesorado"
+              tabIndex={selectedCategory === 'profesorado' ? 0 : -1}
             >
               Profesorados
             </button>
             <button
+              ref={itemRef('tecnicatura')}
               type="button"
-              className={`selector-pill${selectedCategory === 'tecnicatura' ? ' active' : ''}`}
+              className="selector-pill"
+              id="careers-tab-tecnicatura"
+              role="tab"
               onClick={() => setActiveCategory('tecnicatura')}
-              aria-pressed={selectedCategory === 'tecnicatura'}
+              onKeyDown={(event) => handleTabKeyDown(event, 1)}
+              aria-selected={selectedCategory === 'tecnicatura'}
+              aria-controls="careers-panel-tecnicatura"
+              tabIndex={selectedCategory === 'tecnicatura' ? 0 : -1}
             >
               Tecnicaturas
             </button>
@@ -128,17 +173,38 @@ const CareersSectionStyled = styled.section`
     }
 
     .careers-mobile-selector {
+      position: relative;
+      isolation: isolate;
       display: flex;
       gap: 0.55rem;
       padding: 0.35rem;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.3);
+      /* background: rgba(255, 255, 255, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.68);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72); */
+    }
+
+    .selector-active-pill {
+      position: absolute;
+      z-index: 0;
+      box-sizing: border-box;
+      pointer-events: none;
+      border: 1px solid rgba(255, 255, 255, 0.98);
+      border-radius: 999px;
+      background: var(--color-white);
+      box-shadow: 0 5px 12px rgba(var(--glass-shadow-rgb), 0.2);
+      transition:
+        left 0.36s cubic-bezier(0.34, 1.2, 0.64, 1),
+        top 0.36s cubic-bezier(0.34, 1.2, 0.64, 1),
+        width 0.36s cubic-bezier(0.34, 1.2, 0.64, 1),
+        height 0.36s cubic-bezier(0.34, 1.2, 0.64, 1),
+        opacity 0.18s ease;
     }
 
     .selector-pill {
       flex: 1;
+      position: relative;
+      z-index: 1;
       border: 1px solid transparent;
       border-radius: 999px;
       padding: 0.75rem 0.8rem;
@@ -148,20 +214,13 @@ const CareersSectionStyled = styled.section`
       color: var(--color-dark-purple);
       background: transparent;
       cursor: pointer;
-      transition: transform 180ms ease, background 220ms ease, border-color 220ms ease, color 180ms ease, box-shadow 220ms ease;
+      transition: color 180ms ease;
     }
 
-    .selector-pill.active {
-      color: #ffffff;
-      border-color: rgba(255, 255, 255, 0.84);
-      background:
-        radial-gradient(120% 150% at 24% 0%, rgba(255, 255, 255, 0.66) 0%, rgba(255, 255, 255, 0) 52%),
-        radial-gradient(110% 145% at 88% 100%, rgba(169, 141, 224, 0.5) 0%, rgba(169, 141, 224, 0) 68%),
-        rgba(91, 46, 166, 0.7);
-      box-shadow:
-        0 10px 22px rgba(var(--glass-shadow-rgb), 0.16),
-        inset 0 1px 0 rgba(255, 255, 255, 0.7),
-        inset 0 -1px 0 rgba(64, 31, 125, 0.18);
+    .selector-pill[aria-selected='true'],
+    .selector-pill:hover,
+    .selector-pill:focus-visible {
+      color: var(--color-institutional-purple);
     }
 
     .mobile-careers-panel {

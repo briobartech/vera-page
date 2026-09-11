@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays, faCircleCheck, faClock, faIdCard, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import Banner from '../../components/Banner';
 import adornoImage from '../../assets/img/adorno.png';
+import useSlidingPill from '../../hooks/useSlidingPill';
 
 const infoCardIconByName = {
   clock: faClock,
@@ -82,20 +83,24 @@ function getExtraDetails(card) {
 function InfoCardsSection({ section }) {
   const cards = Array.isArray(section?.content) ? section.content : [];
   const [activeIndex, setActiveIndex] = useState(0);
+  const { itemRef, pillStyle, selectorRef } = useSlidingPill(activeIndex);
 
   return (
     <SectionStyled>
       <section className="career-block liquid-glass-effect">
         <h3>Informacion general</h3>
 
-        <div className="info-cards-mobile-selector" role="tablist" aria-label="Seleccionar informacion">
+        <div ref={selectorRef} className="info-cards-mobile-selector liquid-glass" role="tablist" aria-label="Seleccionar informacion">
+          <span className="info-selector-active-pill" aria-hidden="true" style={pillStyle} />
           {cards.map((card, index) => (
             <button
+              ref={itemRef(index)}
               type="button"
               key={`selector-${card?.title ?? 'item'}-${index}`}
-              className={`info-selector-pill${index === activeIndex ? ' active' : ''}`}
+              className="info-selector-pill"
+              role="tab"
               onClick={() => setActiveIndex(index)}
-              aria-pressed={index === activeIndex}
+              aria-selected={index === activeIndex}
             >
               <FontAwesomeIcon icon={infoCardIconByName[card?.icon] ?? faInfoCircle} />
               {index === activeIndex ? <span>{card?.title ?? '-'}</span> : null}
@@ -120,7 +125,7 @@ function InfoCardsSection({ section }) {
                 </div>
 
                 <div className="info-card-content">
-                  <p className="info-title">{card?.title ?? '-'}</p>
+                  <p className="info-title ">{card?.title ?? '-'}</p>
                   <div className={`info-description-wrap${contactLink ? ' has-contact' : ''}`}>
                     <p className="info-description">
                       <span className="info-description-text">{card?.description ?? '-'}</span>
@@ -184,20 +189,24 @@ function ContentsSection({ section }) {
   const content = section?.content ?? {};
   const groups = Array.isArray(content?.description) ? content.description : [];
   const [activeIndex, setActiveIndex] = useState(0);
+  const { itemRef, pillStyle, selectorRef } = useSlidingPill(activeIndex);
 
   return (
     <SectionStyled>
       <section className="career-block liquid-glass-effect">
         <h3>{content?.title ?? 'Contenidos'}</h3>
 
-        <div className="contents-mobile-selector" role="tablist" aria-label="Seleccionar año">
+        <div ref={selectorRef} className="contents-mobile-selector liquid-glass-effect" role="tablist" aria-label="Seleccionar año">
+          <span className="contents-selector-active-pill" aria-hidden="true" style={pillStyle} />
           {groups.map((group, index) => (
             <button
+              ref={itemRef(index)}
               type="button"
               key={`year-selector-${index}`}
-              className={`contents-selector-pill${index === activeIndex ? ' active' : ''}`}
+              className="contents-selector-pill"
+              role="tab"
               onClick={() => setActiveIndex(index)}
-              aria-pressed={index === activeIndex}
+              aria-selected={index === activeIndex}
             >
               {index === activeIndex ? <span>{`Año ${index + 1}`}</span> : <span>{index + 1}</span>}
             </button>
@@ -751,6 +760,8 @@ const SectionStyled = styled.div`
     }
 
     .info-cards-mobile-selector {
+      position: relative;
+      isolation: isolate;
       display: flex;
       gap: 0.5rem;
       margin: 0.8rem -1.25rem 0;
@@ -764,8 +775,28 @@ const SectionStyled = styled.div`
       display: none;
     }
 
+    .info-selector-active-pill {
+      position: absolute;
+      z-index: 0;
+      box-sizing: border-box;
+      pointer-events: none;
+      border: 1px solid rgba(255, 255, 255, 0.98);
+      border-radius: 999px;
+      background: var(--color-white);
+      box-shadow: 0 5px 12px rgba(var(--glass-shadow-rgb), 0.2);
+      will-change: left, top, width, height;
+      transition:
+        left 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+        top 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+        width 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+        height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.2s ease;
+    }
+
     .info-selector-pill {
       flex: 0 0 auto;
+      position: relative;
+      z-index: 1;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -773,21 +804,17 @@ const SectionStyled = styled.div`
       width: 48px;
       height: 48px;
       padding: 0;
-      border: 1px solid rgba(255, 255, 255, 0.72);
+      border: 1px solid transparent;
       border-radius: 999px;
-      background:
-        radial-gradient(130% 160% at 28% 0%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0) 50%),
-        rgba(245, 242, 255, 0.42);
+      background: transparent;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      appearance: none;
       color: var(--color-institutional-purple);
       cursor: pointer;
       white-space: nowrap;
-      backdrop-filter: blur(14px) saturate(140%);
-      -webkit-backdrop-filter: blur(14px) saturate(140%);
-      box-shadow:
-        0 8px 18px rgba(var(--glass-shadow-rgb), 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.82),
-        inset 0 -1px 0 rgba(107, 76, 163, 0.1);
-      transition: flex-basis 280ms cubic-bezier(0.22, 1, 0.36, 1), width 280ms cubic-bezier(0.22, 1, 0.36, 1), transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease, padding 280ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 180ms ease;
+      transition: color 180ms ease;
     }
 
     .info-selector-pill svg {
@@ -807,21 +834,12 @@ const SectionStyled = styled.div`
       min-width: 0;
     }
 
-    .info-selector-pill.active {
+    .info-selector-pill[aria-selected='true'] {
       width: clamp(120px, 42vw, 200px);
       flex: 0 0 clamp(120px, 42vw, 200px);
       min-width: 0;
       padding: 0 1rem;
-      border-color: rgba(255, 255, 255, 0.9);
-      background:
-        radial-gradient(120% 150% at 24% 0%, rgba(255, 255, 255, 0.74) 0%, rgba(255, 255, 255, 0) 52%),
-        radial-gradient(110% 145% at 88% 100%, rgba(169, 141, 224, 0.5) 0%, rgba(169, 141, 224, 0) 68%),
-        rgba(91, 46, 166, 0.7);
-      color: #fff;
-      box-shadow:
-        0 12px 24px rgba(var(--glass-shadow-rgb), 0.18),
-        inset 0 1px 0 rgba(255, 255, 255, 0.72),
-        inset 0 -1px 0 rgba(64, 31, 125, 0.2);
+      color: var(--color-institutional-purple);
     }
 
     .cards-grid {
@@ -841,6 +859,8 @@ const SectionStyled = styled.div`
     }
 
     .contents-mobile-selector {
+      position: relative;
+      isolation: isolate;
       display: flex;
       gap: 0.5rem;
       margin: 0.8rem -1.25rem 0;
@@ -854,8 +874,28 @@ const SectionStyled = styled.div`
       display: none;
     }
 
+    .contents-selector-active-pill {
+      position: absolute;
+      z-index: 0;
+      box-sizing: border-box;
+      pointer-events: none;
+      border: 1px solid rgba(255, 255, 255, 0.98);
+      border-radius: 999px;
+      background: var(--color-white);
+      box-shadow: 0 5px 12px rgba(var(--glass-shadow-rgb), 0.2);
+      will-change: left, top, width, height;
+      transition:
+        left 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+        top 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+        width 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+        height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.2s ease;
+    }
+
     .contents-selector-pill {
       flex: 0 0 auto;
+      position: relative;
+      z-index: 1;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -863,21 +903,17 @@ const SectionStyled = styled.div`
       width: 48px;
       height: 48px;
       padding: 0;
-      border: 1px solid rgba(255, 255, 255, 0.72);
+      border: 1px solid transparent;
       border-radius: 999px;
-      background:
-        radial-gradient(130% 160% at 28% 0%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0) 50%),
-        rgba(245, 242, 255, 0.42);
+      background: transparent;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      appearance: none;
       color: var(--color-institutional-purple);
       cursor: pointer;
       white-space: nowrap;
-      backdrop-filter: blur(14px) saturate(140%);
-      -webkit-backdrop-filter: blur(14px) saturate(140%);
-      transition: flex-basis 280ms cubic-bezier(0.22, 1, 0.36, 1), width 280ms cubic-bezier(0.22, 1, 0.36, 1), transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease, padding 280ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 180ms ease;
-      box-shadow:
-        0 8px 18px rgba(var(--glass-shadow-rgb), 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.82),
-        inset 0 -1px 0 rgba(107, 76, 163, 0.1);
+      transition: color 180ms ease;
     }
 
     .contents-selector-pill span {
@@ -893,21 +929,12 @@ const SectionStyled = styled.div`
       min-width: 0;
     }
 
-    .contents-selector-pill.active {
+    .contents-selector-pill[aria-selected='true'] {
       width: clamp(120px, 42vw, 200px);
       flex: 0 0 clamp(120px, 42vw, 200px);
       min-width: 0;
       padding: 0 1rem;
-      border-color: rgba(255, 255, 255, 0.9);
-      background:
-        radial-gradient(120% 150% at 24% 0%, rgba(255, 255, 255, 0.74) 0%, rgba(255, 255, 255, 0) 52%),
-        radial-gradient(110% 145% at 88% 100%, rgba(169, 141, 224, 0.5) 0%, rgba(169, 141, 224, 0) 68%),
-        rgba(91, 46, 166, 0.7);
-      color: #fff;
-      box-shadow:
-        0 12px 24px rgba(var(--glass-shadow-rgb), 0.18),
-        inset 0 1px 0 rgba(255, 255, 255, 0.72),
-        inset 0 -1px 0 rgba(64, 31, 125, 0.2);
+      color: var(--color-institutional-purple);
     }
 
     .contents-grid {
