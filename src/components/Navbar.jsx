@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
@@ -64,6 +64,35 @@ const menuItems = [
 
 function NavBar() {
     const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const navLinksRef = useRef(null);
+    const menuShellRef = useRef(null);
+  const [activePill, setActivePill] = useState({ left: 0, top: 0, width: 0, height: 0, visible: false });
+
+    const moveActivePill = (linkElement) => {
+      const menuShellElement = menuShellRef.current;
+
+      if (!menuShellElement || !linkElement) {
+      return;
+    }
+
+      const menuRect = menuShellElement.getBoundingClientRect();
+    const linkRect = linkElement.getBoundingClientRect();
+
+    setActivePill({
+        left: linkRect.left - menuRect.left,
+        top: linkRect.top - menuRect.top,
+      width: linkRect.width,
+        height: linkRect.height,
+      visible: true,
+    });
+  };
+
+  useEffect(() => {
+    const handleResize = () => setActivePill((currentPill) => ({ ...currentPill, visible: false }));
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
     return (
         <NavBarStyled>
@@ -77,14 +106,39 @@ function NavBar() {
                 <FontAwesomeIcon icon={byPrefixAndName.fas['bars']} />
             </button>
 
-            <a href="/" className="logo-card" aria-label="Inicio Vera">
+            <a href="/" className="logo-card liquid-glass-effect" aria-label="Inicio Vera">
                 <img src={images.logoVera} alt="Rosario Vera Peñaloza" className="logo-image" />
             </a>
 
-            <div className="menu-shell" role="navigation" aria-label="Menu principal">
-                <ul className="nav-links">
-                    {menuItems.map((item) => (
-                        <li key={item.label} className="nav-item">
+            <div
+              ref={menuShellRef}
+              className="menu-shell liquid-glass-effect"
+              role="navigation"
+              aria-label="Menu principal"
+              onMouseLeave={() => setActivePill((currentPill) => ({ ...currentPill, visible: false }))}
+            >
+                <span
+                  className="nav-active-pill"
+                  aria-hidden="true"
+                  style={{
+                      left: `${activePill.left}px`,
+                      top: `${activePill.top}px`,
+                      width: `${activePill.width}px`,
+                      height: `${activePill.height}px`,
+                      opacity: activePill.visible ? 1 : 0,
+                  }}
+                />
+                <ul
+                  ref={navLinksRef}
+                  className="nav-links"
+                >
+                  {menuItems.map((item) => (
+                    <li
+                      key={item.label}
+                      className="nav-item"
+                            onMouseEnter={(event) => moveActivePill(event.currentTarget.querySelector('.nav-link'))}
+                            onFocus={(event) => moveActivePill(event.currentTarget.querySelector('.nav-link'))}
+                    >
                             <a href="#" className="nav-link">
                                 {item.label}
                                 <span className="chevron" aria-hidden="true">
@@ -94,7 +148,13 @@ function NavBar() {
                             <ul className="submenu">
                                 {item.links.map((link) => (
                                     <li key={link.text}>
-                                        <a href={link.href}>{link.text}</a>
+                                        <a
+                                          href={link.href}
+                                          onMouseEnter={(event) => moveActivePill(event.currentTarget)}
+                                          onFocus={(event) => moveActivePill(event.currentTarget)}
+                                        >
+                                          {link.text}
+                                        </a>
                                     </li>
                                 ))}
                             </ul>
@@ -103,7 +163,7 @@ function NavBar() {
                 </ul>
             </div>
 
-            <div className={`mobile-panel ${isMobileOpen ? 'open' : ''}`}>
+            <div className={`mobile-panel liquid-glass-effect ${isMobileOpen ? 'open' : ''}`}>
                 <ul className="mobile-list">
                     {menuItems.map((item) => (
                         <li key={item.label} className="mobile-group">
@@ -130,6 +190,9 @@ function NavBar() {
 export default NavBar;
 
 const NavBarStyled = styled.nav`
+  --nav-pill-bounce: 1.2;
+  --nav-pill-speed: 0.36s;
+
   display: flex;
   align-items: center;
   gap: 1.25rem;
@@ -181,35 +244,9 @@ const NavBarStyled = styled.nav`
     isolation: isolate;
     overflow: hidden;
     border-radius: 1.35rem;
-    background:
-      radial-gradient(125% 160% at 18% 0%, rgba(255, 255, 255, 0.74) 0%, rgba(255, 255, 255, 0) 48%),
-      radial-gradient(110% 145% at 90% 100%, rgba(169, 141, 224, 0.34) 0%, rgba(169, 141, 224, 0) 64%),
-      rgba(245, 242, 255, 0.58);
     display: grid;
     place-items: center;
-    box-shadow:
-      0 18px 36px rgba(var(--glass-shadow-rgb), 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.9),
-      inset 0 -1px 0 rgba(107, 76, 163, 0.16);
-    border: 1px solid rgba(255, 255, 255, 0.76);
-    backdrop-filter: blur(18px) saturate(145%);
-    -webkit-backdrop-filter: blur(18px) saturate(145%);
     padding: 0.55rem;
-  }
-
-  .logo-card::before {
-    content: '';
-    position: absolute;
-    inset: 1px;
-    border-radius: inherit;
-    pointer-events: none;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.88) 0%,
-      rgba(255, 255, 255, 0.24) 28%,
-      rgba(255, 255, 255, 0) 62%
-    );
-    z-index: -1;
   }
 
   .logo-image {
@@ -230,37 +267,13 @@ const NavBarStyled = styled.nav`
     position: relative;
     isolation: isolate;
     border-radius: 1.2rem;
-    background:
-      radial-gradient(130% 180% at 18% 0%, rgba(255, 255, 255, 0.68) 0%, rgba(255, 255, 255, 0) 45%),
-      radial-gradient(110% 150% at 92% 100%, rgba(169, 141, 224, 0.32) 0%, rgba(169, 141, 224, 0) 62%),
-      rgba(245, 242, 255, 0.58);
-    border: 1px solid rgba(255, 255, 255, 0.72);
-    box-shadow:
-      0 18px 36px rgba(var(--glass-shadow-rgb), 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.88),
-      inset 0 -1px 0 rgba(107, 76, 163, 0.16);
-    backdrop-filter: blur(18px) saturate(145%);
-    -webkit-backdrop-filter: blur(18px) saturate(145%);
+    padding: 0;
     overflow: visible;
     width: auto;
   }
 
-  .menu-shell::before {
-    content: '';
-    position: absolute;
-    inset: 1px;
-    border-radius: inherit;
-    pointer-events: none;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.85) 0%,
-      rgba(255, 255, 255, 0.28) 26%,
-      rgba(255, 255, 255, 0) 58%
-    );
-    z-index: -1;
-  }
-
   .nav-links {
+    position: relative;
     display: flex;
     gap: 0.1rem;
     align-items: stretch;
@@ -269,6 +282,34 @@ const NavBarStyled = styled.nav`
     padding: 0 0.55rem;
   
     width: auto;
+  }
+
+  .nav-active-pill {
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    bottom: auto;
+    padding: 0;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.98);
+    background: var(--color-white);
+    background-image: none;
+    box-shadow: 0 5px 12px rgba(var(--glass-shadow-rgb), 0.2);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transition:
+      left var(--nav-pill-speed) cubic-bezier(0.34, var(--nav-pill-bounce), 0.64, 1),
+      top var(--nav-pill-speed) cubic-bezier(0.34, var(--nav-pill-bounce), 0.64, 1),
+      width var(--nav-pill-speed) cubic-bezier(0.34, var(--nav-pill-bounce), 0.64, 1),
+      height var(--nav-pill-speed) cubic-bezier(0.34, var(--nav-pill-bounce), 0.64, 1),
+      opacity 0.18s ease;
+  }
+
+  .nav-active-pill::before,
+  .nav-active-pill::after {
+    display: none;
   }
 
   .nav-item {
@@ -294,47 +335,16 @@ const NavBarStyled = styled.nav`
     border-radius: 0.85rem;
     background: transparent;
     border: 1px solid transparent;
-    transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+    z-index: 1;
+    transition: color 0.2s ease;
     white-space: nowrap;
-  }
-
-  .nav-link::before {
-    content: '';
-    position: absolute;
-    inset: 1px;
-    border-radius: inherit;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.9) 0%,
-      rgba(255, 255, 255, 0.26) 30%,
-      rgba(255, 255, 255, 0) 68%
-    );
   }
 
   .nav-item:hover .nav-link,
   .nav-item:focus-within .nav-link,
   .nav-link:hover,
   .nav-link:focus-visible {
-    background:
-      radial-gradient(120% 150% at 22% 0%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 52%),
-      radial-gradient(110% 145% at 88% 100%, rgba(169, 141, 224, 0.26) 0%, rgba(169, 141, 224, 0) 68%),
-      rgba(255, 255, 255, 0.32);
-    border-color: rgba(255, 255, 255, 0.7);
     color: var(--color-institutional-purple);
-    box-shadow:
-      0 10px 20px rgba(var(--glass-shadow-rgb), 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.84),
-      inset 0 -1px 0 rgba(107, 76, 163, 0.12);
-  }
-
-  .nav-item:hover .nav-link::before,
-  .nav-item:focus-within .nav-link::before,
-  .nav-link:hover::before,
-  .nav-link:focus-visible::before {
-    opacity: 1;
   }
 
   .chevron {
@@ -419,20 +429,7 @@ const NavBarStyled = styled.nav`
   }
 
   .submenu a:hover {
-    background:
-      radial-gradient(120% 150% at 22% 0%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 52%),
-      radial-gradient(110% 145% at 88% 100%, rgba(169, 141, 224, 0.24) 0%, rgba(169, 141, 224, 0) 68%),
-      rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.68);
     color: var(--color-institutional-purple);
-    box-shadow:
-      0 8px 18px rgba(var(--glass-shadow-rgb), 0.09),
-      inset 0 1px 0 rgba(255, 255, 255, 0.82),
-      inset 0 -1px 0 rgba(107, 76, 163, 0.1);
-  }
-
-  .submenu a:hover::before {
-    opacity: 1;
   }
 
   .nav-item:hover .submenu,
@@ -475,15 +472,8 @@ const NavBarStyled = styled.nav`
       z-index: 45;
       border-radius: 1rem;
       padding: 0.65rem;
-      background:
-        radial-gradient(140% 180% at 50% 32%, rgba(169, 141, 224, 0.26) 0%, rgba(169, 141, 224, 0.1) 35%, rgba(255, 255, 255, 0.95) 82%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.86));
-      border: 1px solid rgba(230, 230, 239, 0.84);
-      box-shadow:
-        0 18px 34px rgba(var(--glass-shadow-rgb), 0.12),
-        inset 0 1px 0 rgba(255, 255, 255, 0.92),
-        inset 0 -1px 0 rgba(169, 141, 224, 0.15);
-      backdrop-filter: blur(10px) saturate(120%);
+      box-sizing: border-box;
+      padding: 0.65rem;
       opacity: 0;
       visibility: hidden;
       transform: translateY(-8px);
@@ -492,6 +482,25 @@ const NavBarStyled = styled.nav`
       overflow-y: auto;
       scrollbar-width: none;
       -ms-overflow-style: none;
+
+      /* El filtro SVG de liquid-glass-effect desplaza el fondo y vuelve
+         ilegibles las opciones sobre contenido con mucho contraste. */
+      background: rgba(250, 248, 255, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow:
+        0 16px 32px rgba(var(--glass-shadow-rgb), 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(18px) saturate(115%);
+      -webkit-backdrop-filter: blur(18px) saturate(115%);
+    }
+
+    .mobile-panel::before {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.42), transparent 36%);
+      opacity: 1;
+    }
+
+    .mobile-panel::after {
+      display: none;
     }
 
     .mobile-panel::-webkit-scrollbar {

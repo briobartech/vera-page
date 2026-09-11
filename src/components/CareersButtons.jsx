@@ -16,7 +16,7 @@ function CareersButtons({
     return (
         <CareersButtonsStyled className="careers-buttons" $reflectionColor={reflectionColor} $intensity={intensity} $backgroundOpacity={backgroundOpacity} $backdropBlur={backdropBlur}>
             <Link to={to} className="careers-button">
-                <span className="careers-icon-shell" aria-hidden="true">
+                <span className="careers-icon-shell liquid-glass-effect" aria-hidden="true">
                     {isFontAwesomeIcon ? (
                         <FontAwesomeIcon icon={icon} className="careers-icon" />
                     ) : (
@@ -24,7 +24,7 @@ function CareersButtons({
                     )}
                 </span>
 
-                <span className="careers-label-shell">
+                <span className="careers-label-shell liquid-glass-effect">
                     <span>{name}</span>
                 </span>
             </Link>
@@ -34,9 +34,14 @@ function CareersButtons({
 export default CareersButtons;
 
 const CareersButtonsStyled = styled.div`
-   .careers-buttons{
+   &.careers-buttons{
 
     max-width: 100%;
+    --liquid-glass-shadow-y: 7px;
+    --liquid-glass-shadow-blur: 16px;
+    --liquid-glass-shadow-color: rgba(0, 0, 0, 0.1);
+    position: relative;
+    isolation: isolate;
 }
 
 .careers-button{
@@ -47,6 +52,8 @@ const CareersButtonsStyled = styled.div`
     width:100%;
     min-width:0;
     text-decoration:none;
+    position: relative;
+    z-index: 1;
 }
     .careers-icon-shell{
     width:64px;
@@ -58,68 +65,11 @@ const CareersButtonsStyled = styled.div`
     align-items:center;
     justify-content:center;
 
-    background:color-mix(in srgb, color-mix(in srgb, ${(props) => props.$reflectionColor} 50%, white) ${(props) => props.$backgroundOpacity * 100}%, transparent);
-
-    backdrop-filter:blur(${(props) => props.$backdropBlur}px);
-    -webkit-backdrop-filter:blur(${(props) => props.$backdropBlur}px);
-
-    border-radius:20px;
-     border:1px solid rgba(255,255,255,0.72);
-
     position:relative;
     isolation:isolate;
     overflow:hidden;
-
-    box-shadow:
-         0 14px 28px rgba(var(--glass-shadow-rgb),0.12),
-         inset 0 1px 0 rgba(255,255,255,0.88),
-         inset 0 -1px 0 rgba(107,76,163,0.14);
+    background-color: color-mix(in srgb, ${(props) => props.$reflectionColor} 34%, transparent);
      transition:transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, filter 0.18s ease;
-}
-
-    .careers-icon-shell::before{
-    content:"";
-
-    position:absolute;
-    inset:0;
-    z-index:0;
-    pointer-events:none;
-
-    background:linear-gradient(
-        90deg,
-        transparent 0%,
-        transparent 22%,
-        color-mix(in srgb, ${(props) => props.$reflectionColor} 60%, transparent) 55%,
-        ${(props) => props.$reflectionColor} 100%
-    );
-
-    opacity:${(props) => props.$intensity};
-    filter:blur(9px) saturate(1.15);
-}
-
-    .careers-icon-shell::after,
-    .careers-label-shell::after{
-    content:"";
-
-    position:absolute;
-    inset:0;
-    z-index:2;
-    padding:1.5px;
-    border-radius:inherit;
-    pointer-events:none;
-
-    background:linear-gradient(
-        135deg,
-        rgba(255,255,255,.9) 0%,
-        ${(props) => props.$reflectionColor} 48%,
-        rgba(255,255,255,.2) 100%
-    );
-
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite:xor;
-    mask-composite:exclude;
 }
         .careers-label-shell{
     position:relative;
@@ -136,20 +86,8 @@ const CareersButtonsStyled = styled.div`
 
     padding:0.7rem 0.85rem;
 
-    background:color-mix(in srgb, color-mix(in srgb, ${(props) => props.$reflectionColor} 50%, white) ${(props) => props.$backgroundOpacity * 100}%, transparent);
-
-    backdrop-filter:blur(${(props) => props.$backdropBlur}px);
-    -webkit-backdrop-filter:blur(${(props) => props.$backdropBlur}px);
-
-    border-radius:20px;
-    border:1px solid rgba(255,255,255,0.72);
-
     overflow:hidden;
-
-    box-shadow:
-        0 14px 28px rgba(var(--glass-shadow-rgb),0.12),
-        inset 0 1px 0 rgba(255,255,255,0.88),
-        inset 0 -1px 0 rgba(107,76,163,0.14);
+    background-color: color-mix(in srgb, ${(props) => props.$reflectionColor} 34%, transparent);
     transition:transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, filter 0.18s ease;
 }
 
@@ -161,34 +99,11 @@ const CareersButtonsStyled = styled.div`
     border-color:rgba(255,255,255,0.9);
     filter:saturate(1.12) brightness(1.05);
     box-shadow:
-        0 18px 34px rgba(var(--glass-shadow-rgb),0.16),
+        0 9px 16px rgba(var(--glass-shadow-rgb),0.14),
         inset 0 1px 0 rgba(255,255,255,0.96),
         inset 0 -1px 0 rgba(107,76,163,0.16);
 }
 
-    .careers-label-shell::before{
-    content:"";
-
-    position:absolute;
-    inset:0;
-    z-index:0;
-    pointer-events:none;
-
-    background:linear-gradient(
-        90deg,
-        transparent 0%,
-        transparent 18%,
-        color-mix(in srgb, ${(props) => props.$reflectionColor} 60%, transparent) 34%,
-        ${(props) => props.$reflectionColor} 42%,
-        ${(props) => props.$reflectionColor} 58%,
-        color-mix(in srgb, ${(props) => props.$reflectionColor} 60%, transparent) 66%,
-        transparent 82%,
-        transparent 100%
-    );
-
-    opacity:${(props) => props.$intensity};
-    filter:blur(9px) saturate(1.15);
-}
     .careers-label-shell span{
     position:relative;
     z-index:1;

@@ -85,7 +85,7 @@ function InfoCardsSection({ section }) {
 
   return (
     <SectionStyled>
-      <section className="career-block">
+      <section className="career-block liquid-glass-effect">
         <h3>Informacion general</h3>
 
         <div className="info-cards-mobile-selector" role="tablist" aria-label="Seleccionar informacion">
@@ -110,10 +110,10 @@ function InfoCardsSection({ section }) {
 
             return (
               <article
-                className={`info-card${index === activeIndex ? ' active' : ' inactive'}`}
+                className={`info-card liquid-glass-effect${index === activeIndex ? ' active' : ' inactive'}`}
                 key={`${card?.title ?? 'item'}-${index}`}
               >
-                <img src={adornoImage} alt="" className="info-card-adorno" aria-hidden="true" />
+                {/* <img src={adornoImage} alt="" className="info-card-adorno" aria-hidden="true" /> */}
 
                 <div className="icon-card" aria-hidden="true">
                   <FontAwesomeIcon icon={infoCardIconByName[card?.icon] ?? faInfoCircle} />
@@ -154,7 +154,7 @@ function AboutSection({ section }) {
 
   return (
     <SectionStyled>
-      <section className="career-block career-split">
+      <section className="career-block career-split liquid-glass-effect">
         <div className="about-copy">
           <h3>{content?.title ?? 'Detalle'}</h3>
           <p>{content?.description ?? ''}</p>
@@ -170,7 +170,7 @@ function ProfileSection({ section }) {
 
   return (
     <SectionStyled>
-      <section className="career-block">
+      <section className="career-block liquid-glass-effect">
         <div className="profile-copy">
           <h3>{content?.title ?? 'Perfil'}</h3>
           <p>{content?.description ?? ''}</p>
@@ -187,7 +187,7 @@ function ContentsSection({ section }) {
 
   return (
     <SectionStyled>
-      <section className="career-block">
+      <section className="career-block liquid-glass-effect">
         <h3>{content?.title ?? 'Contenidos'}</h3>
 
         <div className="contents-mobile-selector" role="tablist" aria-label="Seleccionar año">
@@ -207,7 +207,7 @@ function ContentsSection({ section }) {
         <div className="contents-grid">
           {groups.map((group, index) => (
             <div
-              className={`content-group${index === activeIndex ? ' active' : ' inactive'}`}
+              className={`content-group liquid-glass-effect${index === activeIndex ? ' active' : ' inactive'}`}
               key={`group-${index}`}
             >
               <p className="content-group-year">Año {index + 1}</p>
@@ -234,12 +234,12 @@ function GallerySection({ section }) {
 
   return (
     <SectionStyled>
-      <section className="career-block">
+      <section className="career-block liquid-glass-effect">
         <h3>{content?.title ?? 'Galeria'}</h3>
         {images.length > 0 ? (
           <div className="gallery-grid">
             {images.map((imagePath, index) => (
-              <figure className="gallery-item" key={`gallery-${index}`}>
+              <figure className="gallery-item liquid-glass-effect" key={`gallery-${index}`}>
                 <img
                   src={String(imagePath ?? '')}
                   alt={`${content?.title ?? 'Galeria'} ${index + 1}`}
@@ -262,11 +262,11 @@ function FaqSection({ section }) {
 
   return (
     <SectionStyled>
-      <section className="career-block">
+      <section className="career-block liquid-glass-effect">
         <h3>Preguntas frecuentes</h3>
         <div className="faq-list">
           {questions.map((question, index) => (
-            <article className="faq-item" key={`faq-${index}`}>
+            <article className="faq-item liquid-glass-effect" key={`faq-${index}`}>
               <h4>{question}</h4>
               <p>{answers[index] ?? 'Respuesta pendiente'}</p>
             </article>
@@ -280,7 +280,7 @@ function FaqSection({ section }) {
 function FallbackSection({ section }) {
   return (
     <SectionStyled>
-      <section className="career-block">
+      <section className="career-block liquid-glass-effect">
         <h3>Seccion no mapeada</h3>
         <p>Type: {section?.type ?? 'desconocido'}</p>
       </section>
@@ -305,6 +305,11 @@ export function getSectionComponentByType(type) {
 }
 
 const SectionStyled = styled.div`
+  --career-title-size: clamp(1.65rem, 1.35rem + 0.8vw, 2.35rem);
+  --career-card-title-size: clamp(1.05rem, 0.95rem + 0.32vw, 1.35rem);
+  --career-subtitle-size: clamp(0.86rem, 0.82rem + 0.16vw, 1rem);
+  --career-body-size: clamp(0.95rem, 0.9rem + 0.15vw, 1.05rem);
+
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
@@ -316,34 +321,7 @@ const SectionStyled = styled.div`
     overflow: hidden;
     margin: 0.8rem auto;
     width: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.76);
-    border-radius: 1.5rem;
     padding: 1.45rem 1.55rem;
-    background:
-      radial-gradient(125% 160% at 16% 0%, rgba(255, 255, 255, 0.68) 0%, rgba(255, 255, 255, 0) 48%),
-      radial-gradient(110% 145% at 90% 100%, rgba(169, 141, 224, 0.3) 0%, rgba(169, 141, 224, 0) 64%),
-      rgba(245, 242, 255, 0.48);
-    backdrop-filter: blur(18px) saturate(145%);
-    -webkit-backdrop-filter: blur(18px) saturate(145%);
-    box-shadow:
-      0 20px 42px rgba(var(--glass-shadow-rgb), 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.88),
-      inset 0 -1px 0 rgba(107, 76, 163, 0.16);
-  }
-      
-  .career-block::before {
-    content: '';
-    position: absolute;
-    inset: 1px;
-    border-radius: inherit;
-    pointer-events: none;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.5) 0%,
-      rgba(255, 255, 255, 0.14) 30%,
-      rgba(255, 255, 255, 0) 66%
-    );
-    z-index: 0;
   }
 
   .career-banner h2,
@@ -353,10 +331,10 @@ const SectionStyled = styled.div`
     margin: 0;
     color: var(--color-dark-purple);
     font-family: var(--font-heading);
-    font-size: clamp(1.65rem, 1.35rem + 0.8vw, 2.35rem);
+    font-size: var(--career-title-size);
     font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: 0;
+    line-height: 1.08;
+    letter-spacing: 0.01em;
   }
 
   .career-banner-host {
@@ -374,7 +352,8 @@ const SectionStyled = styled.div`
     color: var(--color-dark-purple);
     font-family: var(--font-body);
     line-height: 1.45;
-    font-size: clamp(0.95rem, 0.9rem + 0.15vw, 1.05rem);
+    font-size: var(--career-body-size);
+    font-weight: 400;
   }
 
   button {
@@ -454,43 +433,14 @@ const SectionStyled = styled.div`
     min-width: 0;
     min-height: 205px;
     position: relative;
-    border-radius: 2.1rem;
     padding: 0.5rem 0.5rem 1rem;
-    background:
-      radial-gradient(125% 160% at 16% 0%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 48%),
-      radial-gradient(110% 145% at 90% 100%, rgba(169, 141, 224, 0.3) 0%, rgba(169, 141, 224, 0) 64%),
-      rgba(255, 255, 255, 0.38);
-    border: 1px solid rgba(255, 255, 255, 0.72);
-    box-shadow:
-      0 18px 36px rgba(var(--glass-shadow-rgb), 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.88),
-      inset 0 -1px 0 rgba(107, 76, 163, 0.14);
     overflow: hidden;
     isolation: isolate;
-    backdrop-filter: blur(16px) saturate(140%);
-    -webkit-backdrop-filter: blur(16px) saturate(140%);
     transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
   }
 
   .info-card:hover {
     transform: translateY(-3px);
-    border-color: rgba(255, 255, 255, 0.92);
-    box-shadow: 0 22px 42px rgba(var(--glass-shadow-rgb), 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.94);
-  }
-
-  .info-card::before {
-    content: '';
-    position: absolute;
-    inset: 1px;
-    border-radius: inherit;
-    pointer-events: none;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.88) 0%,
-      rgba(255, 255, 255, 0.2) 26%,
-      rgba(255, 255, 255, 0) 58%
-    );
-    z-index: -1;
   }
 
   .info-card-adorno {
@@ -514,11 +464,11 @@ const SectionStyled = styled.div`
     margin: 0;
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: clamp(1.05rem, 0.95rem + 0.32vw, 1.35rem);
-    line-height: 1.1;
+    font-size: var(--career-card-title-size);
+    line-height: 1.12;
     color: var(--color-dark-purple);
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.02em;
     overflow-wrap: break-word;
     word-break: break-word;
     hyphens: auto;
@@ -527,9 +477,10 @@ const SectionStyled = styled.div`
   .info-detail {
     margin: 0.3rem 0 0;
     font-family: var(--font-body);
-    font-size: 0.85rem;
+    font-size: var(--career-subtitle-size);
     font-weight: 500;
-    line-height: 1.3;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
     color: var(--color-institutional-purple);
   }
 
@@ -647,25 +598,18 @@ const SectionStyled = styled.div`
   .content-group {
     box-sizing: border-box;
     min-width: 0;
-    border: 1px solid rgba(255, 255, 255, 0.72);
-    border-radius: 0.8rem;
     padding: 0.6rem 0.7rem;
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(14px) saturate(135%);
-    box-shadow:
-      0 12px 24px rgba(var(--glass-shadow-rgb), 0.09),
-      inset 0 1px 0 rgba(255, 255, 255, 0.8);
   }
 
   .content-group-year {
     margin: 0;
     color: var(--color-institutional-purple);
     font-family: var(--font-heading);
-    font-size: 0.86rem;
+    font-size: var(--career-subtitle-size);
     font-weight: 700;
     line-height: 1.2;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
   }
 
   .gallery-grid {
@@ -677,20 +621,12 @@ const SectionStyled = styled.div`
 
   .gallery-item {
     margin: 0;
-    border-radius: 1rem;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.72);
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(14px) saturate(135%);
-    box-shadow:
-      0 12px 24px rgba(var(--glass-shadow-rgb), 0.09),
-      inset 0 1px 0 rgba(255, 255, 255, 0.8);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .gallery-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 18px 32px rgba(var(--glass-shadow-rgb), 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.9);
   }
 
   .gallery-item img {
@@ -715,7 +651,7 @@ const SectionStyled = styled.div`
     margin-bottom: 0.3rem;
     color: var(--color-dark-purple);
     font-family: var(--font-body);
-    font-size: 0.94rem;
+    font-size: var(--career-body-size);
     line-height: 1.4;
     overflow-wrap: break-word;
     word-break: break-word;
@@ -732,29 +668,22 @@ const SectionStyled = styled.div`
   }
 
   .faq-item {
-    border: 1px solid rgba(255, 255, 255, 0.72);
-    border-radius: 0.8rem;
     padding: 0.7rem 0.8rem;
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(14px) saturate(135%);
-    box-shadow:
-      0 12px 24px rgba(var(--glass-shadow-rgb), 0.09),
-      inset 0 1px 0 rgba(255, 255, 255, 0.8);
     transition: transform 0.18s ease, box-shadow 0.18s ease;
   }
 
   .faq-item:hover {
     transform: translateY(-2px);
-    box-shadow: 0 16px 30px rgba(var(--glass-shadow-rgb), 0.13), inset 0 1px 0 rgba(255, 255, 255, 0.88);
   }
 
   .faq-item h4 {
     margin: 0;
     font-family: var(--font-heading);
     color: var(--color-dark-purple);
-    font-size: clamp(1rem, 0.95rem + 0.2vw, 1.18rem);
+    font-size: var(--career-card-title-size);
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
   }
 
   .info-cards-mobile-selector {

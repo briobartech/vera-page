@@ -8,7 +8,7 @@ function Administrators() {
                 <img src={directivosImage} alt="Equipo directivo" className="directivos-image" />
             </div>
 
-            <div className="directivos-card">
+            <div className="directivos-card liquid-glass-effect">
                 <h2>"Aprender es un proceso que se hace en comunidad"</h2>
                 <p>Equipo Directivo</p>
             </div>
@@ -58,7 +58,7 @@ const AdministratorsStyled = styled.section`
 
     .directivos-card {
         width: min(100%, 760px);
-        margin-top: -72px;
+        margin-top: -26px;
         position: relative;
         z-index: 3;
         display: flex;
@@ -66,34 +66,8 @@ const AdministratorsStyled = styled.section`
         align-items: center;
         justify-content: space-around;
         height: 92px;
-        border-radius: 1.35rem;
         padding: 1rem 1.15rem 0.9rem;
         text-align: center;
-        border: 1px solid rgba(255, 255, 255, 0.76);
-        background:
-            radial-gradient(125% 160% at 16% 0%, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0) 48%),
-            radial-gradient(110% 145% at 90% 100%, rgba(169, 141, 224, 0.22) 0%, rgba(169, 141, 224, 0) 64%),
-            rgba(245, 242, 255, 0.28);
-        backdrop-filter: blur(18px) saturate(145%);
-        -webkit-backdrop-filter: blur(18px) saturate(145%);
-        box-shadow:
-            0 18px 38px rgba(var(--glass-shadow-rgb), 0.12),
-            inset 0 1px 0 rgba(255, 255, 255, 0.9),
-            inset 0 -1px 0 rgba(107, 76, 163, 0.16);
-    }
-
-    .directivos-card::before {
-        content: '';
-        position: absolute;
-        inset: 1px;
-        border-radius: inherit;
-        pointer-events: none;
-        background: linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.3) 0%,
-            rgba(255, 255, 255, 0.08) 24%,
-            rgba(255, 255, 255, 0) 62%
-        );
     }
 
     h2 {
@@ -132,12 +106,12 @@ const AdministratorsStyled = styled.section`
         }
 
         .directivos-image {
-            width: min(100%, 335px);
+            width: min(100%, 225px);
         }
 
         .directivos-card {
             width: min(100%, 94%);
-            margin-top: -44px;
+            margin-top: -14px;
             border-radius: 1.1rem;
             padding: 0.88rem 0.85rem 0.74rem;
         }

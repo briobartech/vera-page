@@ -1,18 +1,18 @@
 import { useAppContext } from '../context/AppContext';
 import styled from 'styled-components';
-import NewsBanner from '../components/NewsBanner';
-import Banner from '../components/Banner';
-import NavBar from '../components/Navbar';
-import HomeCardSection from '../components/HomeCardSection';
-import CareersSection from '../components/CareersSection';
-import Stats from '../components/Stats';
-import Carousel from '../components/Carousel';
-import Faq from '../components/Faq';
-import Administrators from '../components/Administrators';
-import Recommendations from '../components/Recommendations';
-import Footer from '../components/Footer';
+import NewsBanner from '../components/NewsBanner.jsx';
+import Banner from '../components/Banner.jsx';
+import NavBar from '../components/Navbar.jsx';
+import HomeCardSection from '../components/HomeCardSection.jsx';
+import CareersSection from '../components/CareersSection.jsx';
+import Stats from '../components/Stats.jsx';
+import Carousel from '../components/Carousel.jsx';
+import Faq from '../components/Faq.jsx';
+import Administrators from '../components/Administrators.jsx';
+import Recommendations from '../components/Recommendations.jsx';
+import Footer from '../components/Footer.jsx';
 import icons from '../data/icons.js';
-import newsBannerBackground from '../assets/img/banner/banner.png';
+import newsBannerBackground from '../assets/img/banner/video_muestra.webm';
 function Home() {
     const { theme } = useAppContext();
 

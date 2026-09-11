@@ -18,6 +18,25 @@ function ScrollToTop() {
 function App() {
   return (
     <>
+      <svg className="liquid-glass-filter-definition" aria-hidden="true" focusable="false">
+        <filter id="liquid-glass-frosted" x="-10%" y="-10%" width="120%" height="120%">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.025"
+            numOctaves="2"
+            seed="8"
+            result="glassNoise"
+          />
+          <feGaussianBlur in="SourceGraphic" stdDeviation="0.02" result="glassBlur" />
+          <feDisplacementMap
+            in="glassBlur"
+            in2="glassNoise"
+            scale="18"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+      </svg>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />

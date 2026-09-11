@@ -120,7 +120,7 @@ function Recommendations() {
 
             <div className={`recommendations-grid${isMobileView ? ' is-mobile-carousel' : ''}`}>
                 {isMobileView ? (
-                    <article className="recommendation-card active" key={activeTestimonial.name}>
+                    <article className="recommendation-card liquid-glass-effect active" key={activeTestimonial.name}>
                         <p className="quote">{activeTestimonial.quote}</p>
 
                         <div className="author-row">
@@ -137,7 +137,7 @@ function Recommendations() {
                     </article>
                 ) : (
                     testimonials.map((testimonial) => (
-                        <article className="recommendation-card" key={testimonial.name}>
+                        <article className="recommendation-card liquid-glass-effect" key={testimonial.name}>
                             <p className="quote">{testimonial.quote}</p>
 
                             <div className="author-row">
@@ -204,46 +204,15 @@ const RecommendationsStyled = styled.section`
         flex-direction: column;
         justify-content: space-between;
         gap: 1.25rem;
-        border-radius: 1.35rem;
         padding: 1.35rem 1.25rem 1.15rem;
-        border: 1px solid rgba(255, 255, 255, 0.76);
-        background:
-            radial-gradient(125% 160% at 16% 0%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0) 48%),
-            radial-gradient(110% 145% at 90% 100%, rgba(169, 141, 224, 0.34) 0%, rgba(169, 141, 224, 0) 64%),
-            rgba(245, 242, 255, 0.58);
-        backdrop-filter: blur(18px) saturate(145%);
-        -webkit-backdrop-filter: blur(18px) saturate(145%);
-        box-shadow:
-            0 18px 38px rgba(var(--glass-shadow-rgb), 0.12),
-            inset 0 1px 0 rgba(255, 255, 255, 0.9),
-            inset 0 -1px 0 rgba(107, 76, 163, 0.16);
         position: relative;
         overflow: hidden;
         transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
     }
 
-    .recommendation-card::before {
-        content: '';
-        position: absolute;
-        inset: 1px;
-        border-radius: inherit;
-        pointer-events: none;
-        background: linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.4) 0%,
-            rgba(255, 255, 255, 0.12) 24%,
-            rgba(255, 255, 255, 0) 62%
-        );
-    }
-
     .recommendation-card:hover {
         transform: translateY(-3px);
-        border-color: rgba(255, 255, 255, 0.92);
         filter: saturate(1.08) brightness(1.03);
-        box-shadow:
-            0 22px 42px rgba(var(--glass-shadow-rgb), 0.16),
-            inset 0 1px 0 rgba(255, 255, 255, 0.96),
-            inset 0 -1px 0 rgba(107, 76, 163, 0.18);
     }
 
     .carousel-dots {

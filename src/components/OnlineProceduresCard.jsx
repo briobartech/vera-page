@@ -11,7 +11,7 @@ function OnlineProceduresCard({
 }) {
   return (
     <OnlineProceduresCardStyled>
-      <div className="card-shell">
+      <div className="card-shell liquid-glass-effect">
         <FontAwesomeIcon icon={icon} className="background-icon" aria-hidden="true" />
 
         <div className="calendar-visual" aria-hidden="true">
@@ -24,7 +24,7 @@ function OnlineProceduresCard({
             <p>{period}</p>
           </div>
 
-          <button type="button" className="action-button" aria-label={buttonLabel}>
+          <button type="button" className="action-button liquid-glass-effect" aria-label={buttonLabel}>
             <span className="action-icon"><FontAwesomeIcon icon={faAnglesDown} /></span>
             <span className="action-text">{buttonLabel}</span>
           </button>
@@ -43,35 +43,15 @@ const OnlineProceduresCardStyled = styled.article`
   .card-shell {
     position: relative;
     display: flex;
-    align-items: stretch;
+    align-items: center;
     justify-content: space-between;
     gap: 1.4rem;
     width: 100%;
-    max-height: 300px;
+    height: 300px;
     padding: 1rem;
-    border-radius: 2.3rem;
-    border: 1px solid rgba(255, 255, 255, 0.78);
-    background:
-      radial-gradient(120% 160% at 20% 0%, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.12) 45%, rgba(255, 255, 255, 0) 100%),
-      rgba(255, 255, 255, 0.68);
-    box-shadow:
-      0 24px 44px rgba(133, 118, 166, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.9),
-      inset 0 -1px 0 rgba(112, 94, 146, 0.08);
-    backdrop-filter: blur(18px) saturate(150%);
-    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    box-sizing: border-box;
     overflow: hidden;
     isolation: isolate;
-  }
-
-  .card-shell::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.52) 30%, rgba(255, 255, 255, 0.18) 66%, rgba(255, 255, 255, 0));
-    pointer-events: none;
-    z-index: 0;
   }
 
   .background-icon {
@@ -100,11 +80,9 @@ const OnlineProceduresCardStyled = styled.article`
 
   .procedure-icon {
     position: relative;
-    width: 100%;
-    height: 100%;
-    max-width: 150px;
-    max-height: 170px;
-    color: rgba(103, 82, 145, 0.85);
+    width: 150px;
+    height: 150px;
+    color: var(--color-text-dark);
     filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.65));
   }
 
@@ -115,9 +93,9 @@ const OnlineProceduresCardStyled = styled.article`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: start;
+    justify-content: space-around;
     min-width: 0;
-    min-height: 100%;
+    height: 100%;
     padding: 0.2rem 0 0;
     top: 0;
   }
@@ -132,44 +110,39 @@ const OnlineProceduresCardStyled = styled.article`
 
   .card-content h2 {
     margin: 0;
+    min-height: 2.2rem;
     color: rgb(49, 43, 54);
     font-family: var(--font-heading, 'Poppins', sans-serif);
-    font-size: clamp(1rem, 1.8vw, 2rem);
-    line-height: 0.98;
-    letter-spacing: -0.06em;
+    font-size: clamp(1.15rem, 1rem + 0.8vw, 1.85rem);
+    line-height: 1.08;
+    letter-spacing: 0.01em;
     font-weight: 700;
     text-transform: none;
   }
 
   .card-content p {
     margin: 0.3rem 0 0;
+    min-height: 2.2rem;
     color: rgba(49, 43, 54, 0.82);
     font-family: var(--font-heading, 'Poppins', sans-serif);
-    font-size: clamp(1.2rem, 1.7vw, 1.9rem);
-    line-height: 1.05;
-    letter-spacing: -0.05em;
+    font-size: clamp(1rem, 0.92rem + 0.55vw, 1.35rem);
+    line-height: 1.2;
+    letter-spacing: 0.01em;
     font-weight: 600;
   }
 
   .action-button {
-    position: absolute;
-    bottom: 20px;
+    
+    
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0;
     width: min(100%, 310px);
+    height: 54px;
     padding: 0;
-    border: 1px solid rgba(255, 255, 255, 0.82);
+    border: 0;
     border-radius: 999px;
-    background:
-      radial-gradient(120% 160% at 24% 0%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0) 54%),
-      rgba(174, 154, 216, 0.42);
-    box-shadow:
-      0 16px 32px rgba(122, 97, 162, 0.16),
-      inset 0 1px 0 rgba(255, 255, 255, 0.82),
-      inset 0 -1px 0 rgba(108, 80, 151, 0.1);
-    backdrop-filter: blur(14px) saturate(145%);
     -webkit-backdrop-filter: blur(14px) saturate(145%);
     cursor: pointer;
     transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
@@ -178,11 +151,6 @@ const OnlineProceduresCardStyled = styled.article`
   .action-button:hover,
   .action-button:focus-visible {
     transform: translateY(-1px);
-    border-color: rgba(255, 255, 255, 0.96);
-    box-shadow:
-      0 18px 36px rgba(122, 97, 162, 0.18),
-      inset 0 1px 0 rgba(255, 255, 255, 0.9),
-      inset 0 -1px 0 rgba(108, 80, 151, 0.14);
   }
 
   .action-icon {
@@ -215,22 +183,20 @@ const OnlineProceduresCardStyled = styled.article`
 
   @media (max-width: 900px) {
     .card-shell {
-      flex-direction: column;
-      align-items: stretch;
-      padding: 1.2rem 1rem 1.35rem;
+      min-height: 190px;
+      height: 190px;
+      padding: 1rem;
     }
 
     .calendar-visual {
-      width: 100%;
-      max-width: 100%;
-      flex-basis: auto;
-      height: 260px;
+      flex: 0 0 120px;
+      width: 120px;
+      height: 150px;
     }
 
-    .calendar-window {
-      left: 12%;
-      width: 68%;
-      height: 82%;
+    .procedure-icon {
+      width: 92px;
+      height: 92px;
     }
 
     .card-content {
@@ -241,37 +207,49 @@ const OnlineProceduresCardStyled = styled.article`
     }
 
     .action-button {
-      width: 100%;
+      width: min(100%, 260px);
       min-width: 0;
-      margin-top: 1rem;
+      height: 46px;
+      bottom: 14px;
     }
   }
 
   @media (max-width: 560px) {
     .card-shell {
-      min-height: 0;
+      min-height: 180px;
+      height: 180px;
       gap: 1rem;
     }
 
     .calendar-visual {
-      height: 220px;
+      flex-basis: 100px;
+      width: 100px;
+      height: 135px;
+    }
+
+    .procedure-icon {
+      width: 76px;
+      height: 76px;
     }
 
     .card-content h2 {
-      font-size: 2.2rem;
+      min-height: 2.8rem;
+      font-size: 1.35rem;
     }
 
     .card-content p {
-      font-size: 1.7rem;
+      min-height: 2.2rem;
+      font-size: 1rem;
     }
 
     .action-icon {
-      width: 62px;
-      min-width: 62px;
-      height: 62px;
+      width: 44px;
+      min-width: 44px;
+      height: 44px;
     }
 
     .action-text {
+      font-size: 0.67rem;
       padding-left: 1rem;
       padding-right: 1rem;
       letter-spacing: 0.05em;

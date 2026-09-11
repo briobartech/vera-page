@@ -6,17 +6,32 @@ function Banner({ titulo = '',
     subititile,
     textoBoton = 'Inscribite ahora',
     imagenFondoPath = '', }) {
+    const isVideoBackground = /\.(mp4|webm|ogg)(\?.*)?$/i.test(imagenFondoPath);
+
     return (
         <BannerStyled>
             <section className="banner-section">
-                <div className="banner-content">
-                    <h1 className="banner-title">
-                       {titulo}
+                {isVideoBackground ? (
+                    <video
+                        className="banner-background-video"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        poster={bannerImage}
+                        aria-hidden="true"
+                    >
+                        <source src={imagenFondoPath} />
+                    </video>
+                ) : null}
+                <div className="banner-content liquid-glass">
+                    <h1 className="banner-title ">
+                        {titulo}
                     </h1>
-                    <h2 className="banner-subtitle">
+                    <h2 className="banner-subtitle liquid-glass">
                         {subtitulo}
                     </h2>
-                    <button className="banner-button">{textoBoton}</button>
+                    <button className="banner-button liquid-glass">{textoBoton}</button>
                 </div>
             </section>
         </BannerStyled>
@@ -32,6 +47,8 @@ const BannerStyled = styled.section`
     box-sizing: border-box;
 
     .banner-section {
+        box-sizing: border-box;
+        padding: 1rem;
         position: relative;
         min-height: 440px;
         width: 100%;
@@ -44,8 +61,8 @@ const BannerStyled = styled.section`
         align-items: stretch;
         justify-content: space-between;
         background:
-            linear-gradient(102deg, rgba(247, 244, 255, 0.78) 0%, rgba(247, 244, 255, 0.6) 42%, rgba(247, 244, 255, 0.22) 62%, rgba(255, 255, 255, 0.06) 78%, rgba(255, 255, 255, 0) 100%),
-            radial-gradient(120% 190% at 34% -36%, rgba(169, 141, 224, 0.32) 0%, rgba(169, 141, 224, 0.1) 34%, rgba(255, 255, 255, 0.04) 74%),
+            linear-gradient(90deg, rgba(78, 36, 150, 0.98) 0%, rgba(91, 46, 166, 0.9) 36%, rgba(123, 78, 190, 0.68) 66%, rgba(169, 141, 224, 0.22) 100%),
+            radial-gradient(120% 190% at 34% -36%, rgba(169, 141, 224, 0.46) 0%, rgba(169, 141, 224, 0.16) 34%, rgba(255, 255, 255, 0.04) 74%),
             url(${bannerImage});
         background-repeat: no-repeat;
         background-position: left top, left top, right -2% bottom 70%;
@@ -59,17 +76,34 @@ const BannerStyled = styled.section`
         -webkit-backdrop-filter: blur(18px) saturate(145%);
     }
 
+    .banner-background-video {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
     .banner-section::before {
         content: '';
         position: absolute;
         inset: 1px;
         border-radius: inherit;
         pointer-events: none;
-        z-index: 4;
+        z-index: 2;
         background:
-            linear-gradient(165deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.16) 30%, rgba(255, 255, 255, 0) 60%),
-            radial-gradient(80% 46% at 24% 110%, rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0) 70%);
-        mix-blend-mode: screen;
+            linear-gradient(90deg, rgba(78, 36, 150, 0.98) 0%, rgba(91, 46, 166, 0.9) 36%, rgba(123, 78, 190, 0.68) 66%, rgba(169, 141, 224, 0.22) 100%),
+            linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.22) 0%,
+                rgba(255, 255, 255, 0.06) 42%,
+                rgba(255, 255, 255, 0) 78%
+            );
+        opacity: 0.9;
+        -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 48%, rgba(0, 0, 0, 0.82) 72%, rgba(0, 0, 0, 0.38) 100%);
+        mask-image: linear-gradient(90deg, #000 0%, #000 48%, rgba(0, 0, 0, 0.82) 72%, rgba(0, 0, 0, 0.38) 100%);
     }
 
     .banner-section::after {
@@ -89,6 +123,7 @@ const BannerStyled = styled.section`
     }
 
     .banner-content {
+        box-sizing: border-box;
         position: relative;
         z-index: 5;
         width: min(58%, 760px);
@@ -98,9 +133,14 @@ const BannerStyled = styled.section`
         gap: 1.4rem;
     }
 
+    .banner-content > * {
+        position: relative;
+        z-index: 1;
+    }
+
     .banner-title {
         margin: 0;
-        color: var(--color-institutional-purple);
+        color: var(--color-white);
         font-family: var(--font-heading);
         font-weight: 200;
         line-height: 1.08;
@@ -110,7 +150,7 @@ const BannerStyled = styled.section`
     .banner-subtitle {
         margin: 0;
         max-width: 640px;
-        color: var(--color-dark-purple);
+        color: var(--color-white);
         font-family: var(--font-body);
         font-weight: 500;
         line-height: 1.25;

@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@600;700&family=Poppins:wght@600;700&display=swap');
 
 :root {
-	--color-institutional-purple: #5b2ea6;
+	--color-institutional-purple: #7f46db;
 	--color-dark-purple: #3b1f66;
 	--color-lavender: #a98de0;
   --color-lavender-light: #d6c7f5;
 	--color-white: #ffffff;
 	--color-text: #6b6b7a;
+	--color-text-dark: #312B36;
 	--color-border: #e6e6ef;
 	--glass-shadow-rgb: 129, 91, 181;
 	--color-gradient: linear-gradient(135deg, #5b2ea6, #a98de0);
@@ -52,4 +53,86 @@ input:focus:not(:focus-visible),
 textarea:focus:not(:focus-visible),
 select:focus:not(:focus-visible) {
 	outline: none;
+}
+
+.liquid-glass {
+	padding: 1rem 1.5rem;
+	position: relative;
+	border: 1px solid rgba(255, 255, 255, 0.46);
+	border-radius: 2rem;
+	background: linear-gradient(
+		135deg,
+		rgba(255, 255, 255, 0.16) 0%,
+		rgba(255, 255, 255, 0.07) 48%,
+		rgba(255, 255, 255, 0.025) 100%
+	);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.62),
+		inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+		0 12px 30px rgba(59, 31, 102, 0.1);
+	backdrop-filter: blur(18px) saturate(110%);
+	-webkit-backdrop-filter: blur(18px) saturate(110%);
+}
+
+.liquid-glass::before {
+	position: absolute;
+	inset: 0;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: inherit;
+	background: linear-gradient(
+		135deg,
+		rgba(255, 255, 255, 0.1),
+		transparent 42%
+	);
+	content: '';
+	pointer-events: none;
+}
+
+.liquid-glass-filter-definition {
+	position: absolute;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+	overflow: hidden;
+}
+
+.liquid-glass-effect {
+	position: relative;
+	border: 2px solid transparent;
+	border-radius: 2rem;
+	background:
+		radial-gradient(120% 80% at 12% 4%, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0) 58%),
+		radial-gradient(95% 70% at 88% 18%, rgba(157, 126, 226, 0.2) 0%, rgba(157, 126, 226, 0) 68%),
+		radial-gradient(85% 65% at 78% 88%, rgba(255, 174, 158, 0.13) 0%, rgba(255, 174, 158, 0) 64%),
+		radial-gradient(90% 70% at 8% 78%, rgba(177, 210, 244, 0.1) 0%, rgba(177, 210, 244, 0) 66%),
+		rgba(255, 255, 255, 0.08);
+	box-shadow:
+		0 0 0 2px rgba(255, 255, 255, 0.6),
+		0 var(--liquid-glass-shadow-y, 16px) var(--liquid-glass-shadow-blur, 32px) var(--liquid-glass-shadow-color, rgba(0, 0, 0, 0.12)),
+		inset 0 1px 0 rgba(255, 255, 255, 0.82),
+		inset 0 -1px 0 rgba(91, 46, 166, 0.18);
+	backdrop-filter: url(#liquid-glass-frosted);
+	-webkit-backdrop-filter: url(#liquid-glass-frosted);
+}
+
+.liquid-glass-effect::before {
+	content: '';
+	position: absolute;
+	inset: 1px;
+	border-radius: inherit;
+	pointer-events: none;
+	background:
+		linear-gradient(135deg, rgba(255, 255, 255, 0.62), transparent 28%, transparent 66%, rgba(145, 113, 220, 0.16)),
+		radial-gradient(60% 42% at 88% 4%, rgba(255, 192, 178, 0.12), transparent 72%),
+		radial-gradient(70% 45% at 4% 92%, rgba(173, 207, 242, 0.08), transparent 74%);
+	opacity: 0.72;
+}
+
+.liquid-glass-effect::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	pointer-events: none;
+	box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.28);
 }

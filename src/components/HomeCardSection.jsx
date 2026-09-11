@@ -1,9 +1,9 @@
-import HomeCard from './HomeCard';
+import HomeCard from './HomeCard.jsx';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import icons from '../data/icons.js';
-import bannerImage from '../assets/img/banner/banner.png';
 import images from '../data/images.js';
+import campusVirtualBackground from '../assets/img/Campus-Virtual.webp';
 const defaultCards = [
     {
         icon: icons.faNewspaper,
@@ -58,11 +58,17 @@ const HomeCardSectionStyled = styled.section`
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    position: relative;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     align-items: start;
     gap: 1.5rem;
     padding: 2rem 0;
+    /* border-radius: 2rem;
+    background:
+        linear-gradient(90deg, rgba(245, 242, 255, 0.9), rgba(245, 242, 255, 0.58)),
+        url(${campusVirtualBackground}) center / cover no-repeat; */
+    overflow: hidden;
 
     @media (max-width: 700px) {
       grid-template-columns: minmax(0, 1fr);

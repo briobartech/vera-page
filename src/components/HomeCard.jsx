@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import adornoImage from '../assets/img/adorno.png';
 
 function HomeCard({
     icon = null,
@@ -21,9 +20,7 @@ function HomeCard({
 
     return (
         <HomeCardStyled className={className}>
-            <section className="home-card">
-                <img src={adornoImage} alt="" className="home-card-adorno" aria-hidden="true" />
-
+            <section className="home-card liquid-glass-effect">
                 {hasIcon && (
                     <div className="icon-card" aria-hidden="true">
                         <FontAwesomeIcon icon={icon} />
@@ -42,7 +39,7 @@ function HomeCard({
 
                     {hasButton && (
                         <div className="home-card-actions">
-                            <button className="home-card-button" type={buttonType} onClick={onClick}>
+                            <button className="home-card-button liquid-glass-effect" type={buttonType} onClick={onClick}>
                                 {buttonLabel}
                             </button>
                         </div>
@@ -72,31 +69,8 @@ const HomeCardStyled = styled.section`
         position: relative;
         border-radius: 2.1rem;
         padding: 0.5rem 0.5rem 1rem;
-        background:
-            radial-gradient(125% 160% at 16% 0%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0) 48%),
-            radial-gradient(110% 145% at 90% 100%, rgba(169, 141, 224, 0.34) 0%, rgba(169, 141, 224, 0) 64%),
-            rgba(245, 242, 255, 0.58);
-        border: 1px solid rgba(255, 255, 255, 0.76);
-        box-shadow:
-            0 20px 40px rgba(var(--glass-shadow-rgb), 0.12),
-            inset 0 1px 0 rgba(255, 255, 255, 0.9),
-            inset 0 -1px 0 rgba(107, 76, 163, 0.16);
         overflow: hidden;
         isolation: isolate;
-        backdrop-filter: blur(18px) saturate(145%);
-        -webkit-backdrop-filter: blur(18px) saturate(145%);
-    }
-
-    .home-card-adorno {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: auto;
-        opacity: 0.92;
-        pointer-events: none;
-        z-index: -1;
-        transform: scale(1.2) translateY(-8%);
     }
 
     .top-accent {
@@ -108,21 +82,6 @@ const HomeCardStyled = styled.section`
         border-radius: 0 0 1.6rem 1.6rem;
         background: linear-gradient(90deg, #5b2ea6, #a98de0);
         z-index: 2;
-    }
-
-    .home-card::before {
-        content: '';
-        position: absolute;
-        inset: 1px;
-        border-radius: inherit;
-        pointer-events: none;
-        background: linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.88) 0%,
-            rgba(255, 255, 255, 0.2) 26%,
-            rgba(255, 255, 255, 0) 58%
-        );
-        z-index: -1;
     }
 
     .icon-card {
@@ -219,7 +178,7 @@ const HomeCardStyled = styled.section`
         border-radius: 0.9rem;
         padding: 0.95rem 0.9rem;
         color: var(--color-white);
-        background: var(--color-gradient);
+        background: var(--color-institutional-purple);
         font-family: var(--font-heading);
         font-size: 1.95rem;
         font-size: clamp(1rem, 0.9rem + 0.25vw, 1.12rem);
