@@ -106,7 +106,7 @@ function NavBar() {
                 <FontAwesomeIcon icon={byPrefixAndName.fas['bars']} />
             </button>
 
-            <a href="/" className="logo-card liquid-glass-effect" aria-label="Inicio Vera">
+            <a href="/vera-page" className="logo-card liquid-glass-effect" aria-label="Inicio Vera">
                 <img src={images.logoVera} alt="Rosario Vera Peñaloza" className="logo-image" />
             </a>
 
