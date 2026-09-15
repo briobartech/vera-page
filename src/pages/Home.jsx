@@ -12,12 +12,14 @@ import Administrators from '../components/Administrators.jsx';
 import Recommendations from '../components/Recommendations.jsx';
 import Footer from '../components/Footer.jsx';
 import icons from '../data/icons.js';
-import newsBannerBackground from '../assets/img/banner/video_muestra.webm';
+import newsBannerBackground from '/images/banner/video_muestra.webm';
+import VirtualAccess from '../components/VirtualAccess.jsx'
 function Home() {
     const { theme } = useAppContext();
 
     return (
         <HomeStyled className={`app ${theme}`}>
+            <VirtualAccess/>
             <NavBar />
             <Banner
                 titulo="Instituto de Educación Superior Rosario Vera Peñaloza"

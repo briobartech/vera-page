@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import directivosImage from '../assets/img/directivos.png';
+const directivosImage = '/images/directivos.png';
 
 function Administrators() {
     return (

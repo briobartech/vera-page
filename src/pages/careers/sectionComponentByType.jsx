@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays, faCircleCheck, faClock, faIdCard, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import Banner from '../../components/Banner';
-import adornoImage from '../../assets/img/adorno.png';
+
 import useSlidingPill from '../../hooks/useSlidingPill';
 
 const infoCardIconByName = {
@@ -42,7 +42,7 @@ function BannerSection({ section }) {
           titulo={bannerItem.title ?? 'Carrera'}
           subtitulo={bannerItem.subtitle ?? ''}
           textoBoton={bannerItem.buttonText ?? 'Inscribite ahora'}
-          imagenFondoPath={bannerItem.image ?? ''}
+          imagenFondoPath={`/images/banner/careers/${bannerItem.image ?? ''}`}
         />
       </div>
     </SectionStyled>

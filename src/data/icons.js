@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import fingerPrintIcon from '../assets/img/icons/finger-print.svg';
-import tramaIcon from '../assets/img/icons/trama-icon.svg';
+
+
 import {
     faArrowUpRightFromSquare,
     faBookOpen,
@@ -15,21 +15,11 @@ import {
     faPenToSquare,
     faRobot, faFilePen
 } from '@fortawesome/free-solid-svg-icons';
-import profesoradoArtesVisuales from '../assets/img/icons/profesorado-de-arte.svg';
-import educacionPrimaria from '../assets/img/icons/educación-primaria.svg';
-import educacionInicial from '../assets/img/icons/educacion-inicial.svg';
-import lengua from '../assets/img/icons/lengua.svg';
-import musica from '../assets/img/icons/musica.svg';
-import ingles from '../assets/img/icons/ingles.svg';
-import desarrolloSoftware from '../assets/img/icons/desarrollo-software.svg';
-import redesCiberseguridad from '../assets/img/icons/redes-y-ciberseguridad.svg';
-import agronomia from '../assets/img/icons/agronomia.svg';
-import recursosHumanos from '../assets/img/icons/recursos-humanos.svg';
-import personPlusIcon from '../assets/img/icons/person-plus.svg';
+
 const icons = {
     faFilePen,
-    fingerPrintIcon,
-    tramaIcon,
+    fingerPrintIcon: '/images/icons/finger-print.svg',
+    tramaIcon: '/images/icons/trama-icon.svg',
     faArrowUpRightFromSquare,
     faBookOpen,
     faBus,
@@ -42,16 +32,17 @@ const icons = {
     faNewspaper,
     faPenToSquare,
     faRobot,
-    profesoradoArtesVisuales,
-    educacionPrimaria,
-    educacionInicial,
-    lengua,
-    musica,
-    ingles,
-    desarrolloSoftware,
-    redesCiberseguridad,
-    agronomia,
-    recursosHumanos, personPlusIcon
+    profesoradoArtesVisuales : '/images/icons/profesorado-de-arte.svg',
+    educacionPrimaria: '/images/icons/educación-primaria.svg',
+    educacionInicial: '/images/icons/educacion-inicial.svg',
+    lengua: '/images/icons/lengua.svg',
+    musica: '/images/icons/musica.svg',
+    ingles: '/images/icons/ingles.svg',
+    desarrolloSoftware: '/images/icons/desarrollo-software.svg',
+    redesCiberseguridad: '/images/icons/redes-y-ciberseguridad.svg',
+    agronomia: '/images/icons/agronomia.svg',
+    recursosHumanos: '/images/icons/recursos-humanos.svg',
+    personPlusIcon: '/images/icons/person-plus.svg'
 };
 
 export default icons;

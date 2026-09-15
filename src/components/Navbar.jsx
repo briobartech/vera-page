@@ -64,6 +64,8 @@ const menuItems = [
 
 function NavBar() {
     const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isFloatingToggle, setIsFloatingToggle] = useState(false);
+  const navRef = useRef(null);
   const navLinksRef = useRef(null);
     const menuShellRef = useRef(null);
   const [activePill, setActivePill] = useState({ left: 0, top: 0, width: 0, height: 0, visible: false });
@@ -94,8 +96,34 @@ function NavBar() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    let frameId;
+
+    const updateTogglePosition = () => {
+      frameId = undefined;
+      const navbarBottom = navRef.current?.getBoundingClientRect().bottom;
+      setIsFloatingToggle(typeof navbarBottom === 'number' && navbarBottom <= 0);
+    };
+
+    const requestPositionUpdate = () => {
+      if (frameId === undefined) {
+        frameId = window.requestAnimationFrame(updateTogglePosition);
+      }
+    };
+
+    updateTogglePosition();
+    window.addEventListener('scroll', requestPositionUpdate, { passive: true });
+    window.addEventListener('resize', requestPositionUpdate);
+
+    return () => {
+      window.removeEventListener('scroll', requestPositionUpdate);
+      window.removeEventListener('resize', requestPositionUpdate);
+      if (frameId !== undefined) window.cancelAnimationFrame(frameId);
+    };
+  }, []);
+
     return (
-        <NavBarStyled>
+        <NavBarStyled ref={navRef} className={isFloatingToggle ? 'is-floating' : ''}>
             <button
                 type="button"
                 className="mobile-toggle"
@@ -446,10 +474,19 @@ const NavBarStyled = styled.nav`
     .mobile-toggle {
       display: inline-flex;
       position: absolute;
-      left: 1rem;
+      right: 1rem;
       top: 50%;
       transform: translateY(-50%);
       z-index: 40;
+    }
+
+    &.is-floating .mobile-toggle {
+      position: fixed;
+      top: auto;
+      bottom: 1rem;
+      right: 1rem;
+      transform: none;
+      z-index: 100;
     }
 
     .logo-card {
@@ -511,6 +548,15 @@ const NavBarStyled = styled.nav`
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
+    }
+
+    &.is-floating .mobile-panel {
+      position: fixed;
+      top: 4.75rem;
+      right: 1rem;
+      left: auto;
+      width: min(25rem, calc(100vw - 2rem));
+      z-index: 95;
     }
 
     .mobile-list,
@@ -575,6 +621,18 @@ const NavBarStyled = styled.nav`
     .mobile-panel {
       left: 0.75rem;
       right: 0.75rem;
+    }
+
+    &.is-floating .mobile-toggle {
+      top: auto;
+      bottom: 0.75rem;
+      right: 0.75rem;
+    }
+
+    &.is-floating .mobile-panel {
+      top: 4.5rem;
+      right: 0.75rem;
+      width: calc(100vw - 1.5rem);
     }
   }
 `;

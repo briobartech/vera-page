@@ -4,7 +4,7 @@
             "title": "Profesorado de Artes visuales",
             "resolution": "056-DGE-2025.",
             "description": "Formate en el Profesorado de Artes Visuales para ejercer la docencia en el área de las artes visuales, con validez nacional.",
-            "image": "https://example.com/images/artes-visuales.jpg",
+            "image": "../assets/img/banner/careers/PAV.png",
             "sections": [
                 {
                     "type": "banner",
@@ -13,7 +13,7 @@
                             "title": "Profesorado de Artes visuales",
                             "subtitle": "Formate para ejercer la docencia en el área de las artes visuales",
                             "buttonText": "Inscribite ahora",
-                            "image": "https://example.com/images/artes-visuales-banner.jpg"
+                            "image": "PAV.png"
                         }
                     ]
                 },
@@ -155,7 +155,7 @@
                             "title": "Profesora de Educación Inicial",
                             "subtitle": "Formación docente para el nivel inicial",
                             "buttonText": "Inscribite ahora",
-                            "image": "https://example.com/images/eduacion-inicial-banner.jpg"
+                            "image": "PEI.png"
                         }
                     ]
                 },
@@ -298,7 +298,7 @@
                             "title": "Profesorado de Educación Primaria",
                             "subtitle": "Formate en el Profesorad de Eduación Primaria para trabajar con niños y niñas en la etapa de la educación primaria.",
                             "buttonText": "Inscribite ahora",
-                            "image": "https://example.com/images/educacion-primaria-banner.jpg"
+                            "image": "PEP.png"
                         }
                     ]
                 },
@@ -442,7 +442,7 @@
                             "title": "Profesorado de Inglés",
                             "subtitle": "Formación docente en el idioma inglés",
                             "buttonText": "Inscribite ahora",
-                            "image": "https://example.com/images/ingles-banner.jpg"
+                            "image": "PI.png"
                         }
                     ]
                 },
@@ -585,7 +585,7 @@
                             "title": "Profesorado de Educación Secundaria en Lengua y Literatura",
                             "subtitle": "",
                             "buttonText": "Inscribite ahora",
-                            "image": "https://example.com/images/educacion-secundaria-banner.jpg"
+                            "image": "PESLL.png"
                         }
                     ]
                 },
@@ -728,7 +728,7 @@
                             "title": "Profesorado de Música",
                             "subtitle": "Formación integral en música",
                             "buttonText": "Inscribite ahora",
-                            "image": "https://example.com/images/musica-banner.jpg"
+                            "image": "PM.png"
                         }
                     ]
                 },
@@ -873,7 +873,7 @@
                             "title": "Tecnicatura Superior en Agronomía",
                             "subtitle": "Formate para gestionar cultivos y recursos agrícolas de manera eficiente",
                             "buttonText": "Inscribite ahora",
-                            "image": "https://example.com/images/agronomia-banner.jpg"
+                            "image": "TSA.png"
                         }
                     ]
                 },
@@ -1002,7 +1002,7 @@
                             "title": "Tecnicatura Superior en Redes y Ciberseguridad",
                             "subtitle": "Formate para gestionar redes y proteger la información de manera eficiente",
                             "buttonText": "Inscribite ahora",
-                            "image": "https://example.com/images/ciberseguridad-banner.jpg"
+                            "image": "TSRYC.png"
                         }
                     ]
                 },
@@ -1139,7 +1139,7 @@
                             "title": "Tecnicatura Superior en Gestión de Recursos Humanos",
                             "subtitle": "Formate para gestionar recursos humanos de manera eficiente",
                             "buttonText": "Inscribite ahora",
-                            "image": "https://example.com/images/rrhh-banner.jpg"
+                            "image": "TSRH.png"
                         }
                     ]
                 },
@@ -1276,7 +1276,7 @@
                             "title": "Tecnicatura superior en Desarrollo de software",
                             "subtitle": "Formate para crear aplicaciones, sistemas y soluciones digitales",
                             "buttonText": "Inscribite ahora",
-                            "image": "https://example.com/images/software-banner.jpg"
+                            "image": "TSDS.png"
                         }
                     ]
                 },

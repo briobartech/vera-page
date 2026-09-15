@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import icons from '../data/icons.js';
 import images from '../data/images.js';
-import campusVirtualBackground from '../assets/img/Campus-Virtual.webp';
+const campusVirtualBackground = '/images/Campus-Virtual.webp';
 const defaultCards = [
     {
         icon: icons.faNewspaper,

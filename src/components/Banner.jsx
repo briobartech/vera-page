@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import bannerImage from '../assets/img/banner/banner.png';
+const bannerImage = '/images/banner/banner.png';
 
 function Banner({ titulo = '',
     subtitulo = '',
@@ -7,9 +7,10 @@ function Banner({ titulo = '',
     textoBoton = 'Inscribite ahora',
     imagenFondoPath = '', }) {
     const isVideoBackground = /\.(mp4|webm|ogg)(\?.*)?$/i.test(imagenFondoPath);
+    const backgroundImage = !isVideoBackground && imagenFondoPath ? imagenFondoPath : bannerImage;
 
     return (
-        <BannerStyled>
+        <BannerStyled $backgroundImage={backgroundImage}>
             <section className="banner-section">
                 {isVideoBackground ? (
                     <video
@@ -63,7 +64,7 @@ const BannerStyled = styled.section`
         background:
             linear-gradient(90deg, rgba(78, 36, 150, 0.98) 0%, rgba(91, 46, 166, 0.9) 36%, rgba(123, 78, 190, 0.68) 66%, rgba(169, 141, 224, 0.22) 100%),
             radial-gradient(120% 190% at 34% -36%, rgba(169, 141, 224, 0.46) 0%, rgba(169, 141, 224, 0.16) 34%, rgba(255, 255, 255, 0.04) 74%),
-            url(${bannerImage});
+            url(${props => props.$backgroundImage});
         background-repeat: no-repeat;
         background-position: left top, left top, right -2% bottom 70%;
         background-size: 100% 100%, 100% 100%, 90% auto;

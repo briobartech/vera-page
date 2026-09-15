@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import fingerPrintIcon from '../assets/img/icons/finger-print.svg';
-import newsBannerBackground from '../assets/img/news-banner.jpg';
+import icons from '../data/icons.js';
+const newsBannerBackground = '/images/news-banner.jpg';
 
 const localBackgroundImages = import.meta.glob('../assets/img/**/*.{png,jpg,jpeg,webp,avif,svg}', {
   eager: true,
@@ -22,7 +22,7 @@ function resolveBackgroundImagePath(imagePath) {
 }
 
 function NewsBanner({
-  icono = fingerPrintIcon,
+  icono = icons.fingerPrintIcon,
   titulo = 'Tecnicatura Superior en Redes y Ciberseguridad',
   subtitulo = '',
   subititile,

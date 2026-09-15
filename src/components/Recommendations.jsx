@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
-import dulce from '../assets/img/testimonials/Dulce.png';
-import jaquelina from '../assets/img/testimonials/Jaquelina.png';
-import lihuen from '../assets/img/testimonials/Lihuen.png';
-import fernando from '../assets/img/testimonials/Fernando.png';
+const dulce = '/images/testimonials/Dulce.png';
+const jaquelina = '/images/testimonials/Jaquelina.png';
+const lihuen = '/images/testimonials/Lihuen.png';
+const fernando = '/images/testimonials/Fernando.png';
 
 const localImages = import.meta.glob('../assets/img/**/*.{png,jpg,jpeg,webp,avif,svg}', {
     eager: true,
@@ -20,7 +20,7 @@ function resolveImagePath(imagePath) {
     }
 
     const normalizedPath = imagePath.replace(/^\.?\/?/, '');
-    return localImages[`../assets/img/${normalizedPath}`] ?? null;
+    return localImages[`/images/${normalizedPath}`] ?? null;
 }
 
 function getInitialsFromName(name = '') {
