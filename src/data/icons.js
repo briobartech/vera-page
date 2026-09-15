@@ -1,6 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-
 import {
     faArrowUpRightFromSquare,
     faBookOpen,
@@ -18,8 +15,8 @@ import {
 
 const icons = {
     faFilePen,
-    fingerPrintIcon: '/images/icons/finger-print.svg',
-    tramaIcon: '/images/icons/trama-icon.svg',
+    fingerPrintIcon: `${import.meta.env.BASE_URL}images/icons/finger-print.svg`,
+    tramaIcon: `${import.meta.env.BASE_URL}images/icons/trama-icon.svg`,
     faArrowUpRightFromSquare,
     faBookOpen,
     faBus,
@@ -32,17 +29,17 @@ const icons = {
     faNewspaper,
     faPenToSquare,
     faRobot,
-    profesoradoArtesVisuales : '/images/icons/profesorado-de-arte.svg',
-    educacionPrimaria: '/images/icons/educación-primaria.svg',
-    educacionInicial: '/images/icons/educacion-inicial.svg',
-    lengua: '/images/icons/lengua.svg',
-    musica: '/images/icons/musica.svg',
-    ingles: '/images/icons/ingles.svg',
-    desarrolloSoftware: '/images/icons/desarrollo-software.svg',
-    redesCiberseguridad: '/images/icons/redes-y-ciberseguridad.svg',
-    agronomia: '/images/icons/agronomia.svg',
-    recursosHumanos: '/images/icons/recursos-humanos.svg',
-    personPlusIcon: '/images/icons/person-plus.svg'
+    profesoradoArtesVisuales : `${import.meta.env.BASE_URL}images/icons/profesorado-de-arte.svg`,
+    educacionPrimaria: `${import.meta.env.BASE_URL}images/icons/educación-primaria.svg`,
+    educacionInicial: `${import.meta.env.BASE_URL}images/icons/educacion-inicial.svg`,
+    lengua: `${import.meta.env.BASE_URL}images/icons/lengua.svg`,
+    musica: `${import.meta.env.BASE_URL}images/icons/musica.svg`,
+    ingles: `${import.meta.env.BASE_URL}images/icons/ingles.svg`,
+    desarrolloSoftware: `${import.meta.env.BASE_URL}images/icons/desarrollo-software.svg`,
+    redesCiberseguridad: `${import.meta.env.BASE_URL}images/icons/redes-y-ciberseguridad.svg`,
+    agronomia: `${import.meta.env.BASE_URL}images/icons/agronomia.svg`,
+    recursosHumanos: `${import.meta.env.BASE_URL}images/icons/recursos-humanos.svg`,
+    personPlusIcon: `${import.meta.env.BASE_URL}images/icons/person-plus.svg`
 };
 
 export default icons;

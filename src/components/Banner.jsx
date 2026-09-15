@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-const bannerImage = '/images/banner/banner.png';
+const bannerImage = `${import.meta.env.BASE_URL}images/testimonials/Fernando.png/images/banner/banner.png`;
 
 function Banner({ titulo = '',
     subtitulo = '',

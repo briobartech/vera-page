@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-const directivosImage = '/images/directivos.png';
+const directivosImage = `${import.meta.env.BASE_URL}images/directivos.png`;
 
 function Administrators() {
     return (

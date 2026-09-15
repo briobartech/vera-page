@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import icons from '../data/icons.js';
-const newsBannerBackground = '/images/news-banner.jpg';
+const newsBannerBackground = `${import.meta.env.BASE_URL}images/news-banner.jpg`;
 
-const localBackgroundImages = import.meta.glob('../assets/img/**/*.{png,jpg,jpeg,webp,avif,svg}', {
+const localBackgroundImages = import.meta.glob(`/images/**/*.{png,jpg,jpeg,webp,avif,svg}`, {
   eager: true,
   import: 'default',
 });
@@ -18,7 +18,7 @@ function resolveBackgroundImagePath(imagePath) {
   }
 
   const normalizedPath = imagePath.replace(/^\.?\/?/, '');
-  return localBackgroundImages[`../assets/img/${normalizedPath}`] ?? null;
+  return localBackgroundImages[`${import.meta.env.BASE_URL}images/${normalizedPath}`] ?? null;
 }
 
 function NewsBanner({

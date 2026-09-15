@@ -243,7 +243,7 @@ const NavBarStyled = styled.nav`
   .mobile-toggle {
     width: 46px;
     height: 46px;
-    border-radius: 0.85rem;
+    border-radius: 2rem;
     align-items: center;
     justify-content: center;
     gap: 4px;

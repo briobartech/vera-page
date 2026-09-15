@@ -42,7 +42,7 @@ function BannerSection({ section }) {
           titulo={bannerItem.title ?? 'Carrera'}
           subtitulo={bannerItem.subtitle ?? ''}
           textoBoton={bannerItem.buttonText ?? 'Inscribite ahora'}
-          imagenFondoPath={`/images/banner/careers/${bannerItem.image ?? ''}`}
+          imagenFondoPath={`${import.meta.env.BASE_URL}images/banner/careers/${bannerItem.image ?? ''}`}
         />
       </div>
     </SectionStyled>

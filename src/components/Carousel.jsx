@@ -2,9 +2,9 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-const carouselImageA = '/images/carousel/2.jpg';
-const carouselImageB = '/images/carousel/3.png';
-const carouselImageC = '/images/news-banner.jpg';
+const carouselImageA = `${import.meta.env.BASE_URL}images/carousel/2.jpg`;
+const carouselImageB = `${import.meta.env.BASE_URL}images/carousel/3.png`;
+const carouselImageC = `${import.meta.env.BASE_URL}images/news-banner.jpg`;
 
 const slides = [
         {

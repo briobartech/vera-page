@@ -158,14 +158,14 @@ function OnlineProcedures() {
                 icono={icons.personPlusIcon}
                 titulo="¿Querés estudiar y tenés más de 25 años?​"
                 subtitulo="Más info e inscripción acá​"
-                imagenFondoPath="old-man-studying.jpeg"
+                imagenFondoPath={`${import.meta.env.BASE_URL}images/old-man-studying.jpeg`}
                 textoBoton="Quiero más información"
             />
             <NewsBanner
                 icono={icons.tramaIcon}
                 titulo="Llamado a concurso abreviado"
                 subtitulo="Cargo de gestión directiva: Regencia"
-                imagenFondoPath="gestion-regencia.avif"
+                imagenFondoPath={`${import.meta.env.BASE_URL}images/gestion-regencia.avif`}
                 textoBoton="Quiero mas información"
                 dominantTone='249,157,69'
             />
