@@ -1444,7 +1444,7 @@ border-radius: inherit;
             padding: 0.85rem 1rem;
         }
     }
-`,cf={logoVera:`/images/logo-png.png`,ultimasNoticias:`/images/novedades.png`,inscripcion:`/images/inscripciones.jpg`,campusVirtual:`/images/campus-virtual.png`,tramite:`/images/tramite-online.jpg`,calendar:`/images/calendar.webp`,des:`/images/computer-screen.jpg`},lf={fas:{bars:Xd}},uf=[{label:`Sobre el Vera`,links:[{href:`#`,text:`Nuestra historia`},{href:`#`,text:`Autoridades`}]},{label:`Carreras`,links:[{href:`#`,text:`Ingreso 2026`},{href:`#`,text:`Carreras docentes`},{href:`#`,text:`Carreras técnicas`}]},{label:`Formación continua`,links:[{href:`#`,text:`Cursos`},{href:`#`,text:`Postítulos`}]},{label:`Comunidad Vera`,links:[{href:`#`,text:`TRAMA`},{href:`#`,text:`Políticas estudiantiles`},{href:`#`,text:`Biblioteca`},{href:`#`,text:`Becas de apoyo`},{href:`#`,text:`Beneficios Vera`},{href:`#`,text:`Actividades extracurriculares`}]},{label:`Investigación`,links:[{href:`#`,text:`Becas`},{href:`#`,text:`Convocatorias`},{href:`#`,text:`Proyectos`}]},{label:`Recurso docente`,links:[{href:`#`,text:`Formativas`},{href:`#`,text:`Actualización profesional`}]}];function df(){let[e,t]=(0,x.useState)(!1),[n,r]=(0,x.useState)(!1),i=(0,x.useRef)(null),a=(0,x.useRef)(null),o=(0,x.useRef)(null),[s,c]=(0,x.useState)({left:0,top:0,width:0,height:0,visible:!1}),l=e=>{let t=o.current;if(!t||!e)return;let n=t.getBoundingClientRect(),r=e.getBoundingClientRect();c({left:r.left-n.left,top:r.top-n.top,width:r.width,height:r.height,visible:!0})};return(0,x.useEffect)(()=>{let e=()=>c(e=>({...e,visible:!1}));return window.addEventListener(`resize`,e),()=>window.removeEventListener(`resize`,e)},[]),(0,x.useEffect)(()=>{let e,t=()=>{e=void 0;let t=i.current?.getBoundingClientRect().bottom;r(typeof t==`number`&&t<=0)},n=()=>{e===void 0&&(e=window.requestAnimationFrame(t))};return t(),window.addEventListener(`scroll`,n,{passive:!0}),window.addEventListener(`resize`,n),()=>{window.removeEventListener(`scroll`,n),window.removeEventListener(`resize`,n),e!==void 0&&window.cancelAnimationFrame(e)}},[]),(0,A.jsxs)(ff,{ref:i,className:n?`is-floating`:``,children:[(0,A.jsx)(`button`,{type:`button`,className:`mobile-toggle`,"aria-label":`Abrir menú`,"aria-expanded":e,onClick:()=>t(e=>!e),children:(0,A.jsx)(Md,{icon:lf.fas.bars})}),(0,A.jsx)(`a`,{href:`/vera-page`,className:`logo-card liquid-glass-effect`,"aria-label":`Inicio Vera`,children:(0,A.jsx)(`img`,{src:cf.logoVera,alt:`Rosario Vera Peñaloza`,className:`logo-image`})}),(0,A.jsxs)(`div`,{ref:o,className:`menu-shell liquid-glass-effect`,role:`navigation`,"aria-label":`Menu principal`,onMouseLeave:()=>c(e=>({...e,visible:!1})),children:[(0,A.jsx)(`span`,{className:`nav-active-pill`,"aria-hidden":`true`,style:{left:`${s.left}px`,top:`${s.top}px`,width:`${s.width}px`,height:`${s.height}px`,opacity:+!!s.visible}}),(0,A.jsx)(`ul`,{ref:a,className:`nav-links`,children:uf.map(e=>(0,A.jsxs)(`li`,{className:`nav-item`,onMouseEnter:e=>l(e.currentTarget.querySelector(`.nav-link`)),onFocus:e=>l(e.currentTarget.querySelector(`.nav-link`)),children:[(0,A.jsxs)(`a`,{href:`#`,className:`nav-link`,children:[e.label,(0,A.jsx)(`span`,{className:`chevron`,"aria-hidden":`true`,children:`▾`})]}),(0,A.jsx)(`ul`,{className:`submenu`,children:e.links.map(e=>(0,A.jsx)(`li`,{children:(0,A.jsx)(`a`,{href:e.href,onMouseEnter:e=>l(e.currentTarget),onFocus:e=>l(e.currentTarget),children:e.text})},e.text))})]},e.label))})]}),(0,A.jsx)(`div`,{className:`mobile-panel liquid-glass-effect ${e?`open`:``}`,children:(0,A.jsx)(`ul`,{className:`mobile-list`,children:uf.map(e=>(0,A.jsxs)(`li`,{className:`mobile-group`,children:[(0,A.jsx)(`a`,{href:`#`,className:`mobile-group-title`,onClick:()=>t(!1),children:e.label}),(0,A.jsx)(`ul`,{className:`mobile-sublist`,children:e.links.map(e=>(0,A.jsx)(`li`,{children:(0,A.jsx)(`a`,{href:e.href,onClick:()=>t(!1),children:e.text})},e.text))})]},e.label))})})]})}var ff=L.nav`
+`,cf={logoVera:`/images/logo-png.png`,ultimasNoticias:`/images/novedades.png`,inscripcion:`/images/inscripciones.jpg`,campusVirtual:`/images/campus-virtual.png`,tramite:`/images/tramite-online.jpg`,calendar:`/images/calendar.webp`,des:`/images/computer-screen.jpg`},lf={fas:{bars:Xd}},uf=[{label:`Sobre el Vera`,links:[{href:`#`,text:`Nuestra historia`},{href:`#`,text:`Autoridades`}]},{label:`Carreras`,links:[{href:`#`,text:`Ingreso 2026`},{href:`#`,text:`Carreras docentes`},{href:`#`,text:`Carreras técnicas`}]},{label:`Formación continua`,links:[{href:`#`,text:`Cursos`},{href:`#`,text:`Postítulos`}]},{label:`Comunidad Vera`,links:[{href:`#`,text:`TRAMA`},{href:`#`,text:`Políticas estudiantiles`},{href:`#`,text:`Biblioteca`},{href:`#`,text:`Becas de apoyo`},{href:`#`,text:`Beneficios Vera`},{href:`#`,text:`Actividades extracurriculares`}]},{label:`Investigación`,links:[{href:`#`,text:`Becas`},{href:`#`,text:`Convocatorias`},{href:`#`,text:`Proyectos`}]},{label:`Recurso docente`,links:[{href:`#`,text:`Formativas`},{href:`#`,text:`Actualización profesional`}]}];function df(){let[e,t]=(0,x.useState)(!1),[n,r]=(0,x.useState)(!1),i=(0,x.useRef)(null),a=(0,x.useRef)(null),o=(0,x.useRef)(null),[s,c]=(0,x.useState)({left:0,top:0,width:0,height:0,visible:!1}),l=e=>{let t=o.current;if(!t||!e)return;let n=t.getBoundingClientRect(),r=e.getBoundingClientRect();c({left:r.left-n.left,top:r.top-n.top,width:r.width,height:r.height,visible:!0})};return(0,x.useEffect)(()=>{let e=()=>c(e=>({...e,visible:!1}));return window.addEventListener(`resize`,e),()=>window.removeEventListener(`resize`,e)},[]),(0,x.useEffect)(()=>{let e,t=()=>{e=void 0;let t=i.current?.getBoundingClientRect().bottom;r(typeof t==`number`&&t<=0)},n=()=>{e===void 0&&(e=window.requestAnimationFrame(t))};return t(),window.addEventListener(`scroll`,n,{passive:!0}),window.addEventListener(`resize`,n),()=>{window.removeEventListener(`scroll`,n),window.removeEventListener(`resize`,n),e!==void 0&&window.cancelAnimationFrame(e)}},[]),(0,A.jsxs)(ff,{ref:i,className:n?`is-floating`:``,children:[(0,A.jsx)(`button`,{type:`button`,className:`mobile-toggle liquid-glass-effect`,"aria-label":`Abrir menú`,"aria-expanded":e,onClick:()=>t(e=>!e),children:(0,A.jsx)(Md,{icon:lf.fas.bars})}),(0,A.jsx)(`a`,{href:`/vera-page`,className:`logo-card liquid-glass-effect`,"aria-label":`Inicio Vera`,children:(0,A.jsx)(`img`,{src:cf.logoVera,alt:`Rosario Vera Peñaloza`,className:`logo-image`})}),(0,A.jsxs)(`div`,{ref:o,className:`menu-shell liquid-glass-effect`,role:`navigation`,"aria-label":`Menu principal`,onMouseLeave:()=>c(e=>({...e,visible:!1})),children:[(0,A.jsx)(`span`,{className:`nav-active-pill`,"aria-hidden":`true`,style:{left:`${s.left}px`,top:`${s.top}px`,width:`${s.width}px`,height:`${s.height}px`,opacity:+!!s.visible}}),(0,A.jsx)(`ul`,{ref:a,className:`nav-links`,children:uf.map(e=>(0,A.jsxs)(`li`,{className:`nav-item`,onMouseEnter:e=>l(e.currentTarget.querySelector(`.nav-link`)),onFocus:e=>l(e.currentTarget.querySelector(`.nav-link`)),children:[(0,A.jsxs)(`a`,{href:`#`,className:`nav-link`,children:[e.label,(0,A.jsx)(`span`,{className:`chevron`,"aria-hidden":`true`,children:`▾`})]}),(0,A.jsx)(`ul`,{className:`submenu`,children:e.links.map(e=>(0,A.jsx)(`li`,{children:(0,A.jsx)(`a`,{href:e.href,onMouseEnter:e=>l(e.currentTarget),onFocus:e=>l(e.currentTarget),children:e.text})},e.text))})]},e.label))})]}),(0,A.jsx)(`div`,{className:`mobile-panel liquid-glass-effect ${e?`open`:``}`,children:(0,A.jsx)(`ul`,{className:`mobile-list`,children:uf.map(e=>(0,A.jsxs)(`li`,{className:`mobile-group`,children:[(0,A.jsx)(`a`,{href:`#`,className:`mobile-group-title`,onClick:()=>t(!1),children:e.label}),(0,A.jsx)(`ul`,{className:`mobile-sublist`,children:e.links.map(e=>(0,A.jsx)(`li`,{children:(0,A.jsx)(`a`,{href:e.href,onClick:()=>t(!1),children:e.text})},e.text))})]},e.label))})})]})}var ff=L.nav`
   --nav-pill-bounce: 1.2;
   --nav-pill-speed: 0.36s;
 
@@ -1468,16 +1468,9 @@ border-radius: inherit;
   }
 
   .mobile-toggle {
-    border: 0;
     width: 46px;
     height: 46px;
     border-radius: 0.85rem;
-    background:
-      radial-gradient(130% 180% at 50% 36%, rgba(169, 141, 224, 0.3) 0%, rgba(169, 141, 224, 0.14) 48%, rgba(255, 255, 255, 0.9) 100%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.82));
-    box-shadow:
-      0 12px 24px rgba(var(--glass-shadow-rgb), 0.11),
-      inset 0 1px 0 rgba(255, 255, 255, 0.95);
     align-items: center;
     justify-content: center;
     gap: 4px;
@@ -1702,8 +1695,9 @@ border-radius: inherit;
       display: inline-flex;
       position: absolute;
       right: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
+      /* Se ubica debajo del botón "Acceso virtual" para que no se superpongan */
+      top: 68px;
+      transform: none;
       z-index: 40;
     }
 
@@ -3457,16 +3451,18 @@ border-radius: inherit;
     /* =========================================
        MOBILE
     ========================================= */
-    /* @media (max-width: 1600px) {
-    
-        left: 2%;
-    
-    } */
+    @media (max-width: 1600px) {
+        /* Se ubica arriba del botón hamburguesa flotante para que no se superpongan */
+        .virtual-access-float {
+            bottom: 4.75rem;
+        }
+    }
+
     @media (max-width: 768px) {
     
         .virtual-access-float {
             right: 0.75rem;
-            bottom: 0.75rem;
+            bottom: 4.5rem;
         }
     }
 }
@@ -4136,7 +4132,7 @@ border-radius: inherit;
       }
     }
   }
-`;function bp(){let{theme:e}=Wn(),{careerCode:t}=vt(),n=String(t??``).trim().toUpperCase(),r=rp?.careers??{},i=n?r?.[n]:null,a=Array.isArray(i?.sections)?i.sections:[],o=!!(n&&i&&a.length>0);return(0,A.jsxs)(xp,{className:`app ${e}`,children:[(0,A.jsx)(df,{}),(0,A.jsx)(`main`,{className:`oferta-main`,children:o?a.map((e,t)=>{let r=vp(e?.type);return(0,A.jsx)(r,{section:e,career:i,careerCode:n},`${e?.type??`section`}-${t}`)}):(0,A.jsxs)(`section`,{className:`not-found`,role:`status`,"aria-live":`polite`,children:[(0,A.jsx)(`p`,{className:`not-found-kicker`,children:`404 Not Found`}),(0,A.jsx)(`h1`,{children:`Carrera no disponible`}),(0,A.jsxs)(`p`,{children:[`No encontramos contenido para el codigo "`,t||`sin-codigo`,`".`]})]})}),(0,A.jsx)(Xf,{})]})}var xp=L.div`
+`;function bp(){let{theme:e}=Wn(),{careerCode:t}=vt(),n=String(t??``).trim().toUpperCase(),r=rp?.careers??{},i=n?r?.[n]:null,a=Array.isArray(i?.sections)?i.sections:[],o=!!(n&&i&&a.length>0);return(0,A.jsxs)(xp,{className:`app ${e}`,children:[(0,A.jsx)($f,{}),(0,A.jsx)(df,{}),(0,A.jsx)(`main`,{className:`oferta-main`,children:o?a.map((e,t)=>{let r=vp(e?.type);return(0,A.jsx)(r,{section:e,career:i,careerCode:n},`${e?.type??`section`}-${t}`)}):(0,A.jsxs)(`section`,{className:`not-found`,role:`status`,"aria-live":`polite`,children:[(0,A.jsx)(`p`,{className:`not-found-kicker`,children:`404 Not Found`}),(0,A.jsx)(`h1`,{children:`Carrera no disponible`}),(0,A.jsxs)(`p`,{children:[`No encontramos contenido para el codigo "`,t||`sin-codigo`,`".`]})]})}),(0,A.jsx)(Xf,{})]})}var xp=L.div`
   width: min(80%, 1440px);
   margin: 0 auto;
   box-sizing: border-box;
@@ -4286,8 +4282,6 @@ border-radius: inherit;
   }
 
   .action-button {
-    
-    
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -4364,7 +4358,7 @@ border-radius: inherit;
       width: min(100%, 260px);
       min-width: 0;
       height: 46px;
-      bottom: 14px;
+      
     }
   }
 
@@ -4411,7 +4405,7 @@ border-radius: inherit;
       line-height: 1.15;
     }
   }
-`;function wp(){let[e,t]=(0,x.useState)(`Planificaciones`),n=[{icon:$.faCalendarDays,title:`Planificaciones`,description:`2026 / 2027`,buttonLabel:`Ver y descargar`},{icon:$.faLaptop,title:`Sistema digital`,description:`de gestión académica de la DES`,buttonLabel:`Acceder`}],r={tecnicatura:{title:`Otros trámites`,items:[{code:`TSDS`,name:`MESAS DE EXÁMENES`,icon:$.faFilePen,reflectionColor:`rgba(142, 147, 186, 0.78)`,to:`#`},{code:`TSDS`,name:`CRONOGRAMA`,icon:$.faCalendarDays,reflectionColor:`rgba(142, 147, 186, 0.78)`,to:`#`},{code:`TSDS`,name:`PÓLIZA DE SEGURO PRÁCTICAS DOCENTES`,icon:$.faFileShield,reflectionColor:`rgba(142, 147, 186, 0.78)`,to:`#`},{code:`TSDS`,name:`HORARIOS TRANSPORTE`,icon:$.faBus,reflectionColor:`rgba(142, 147, 186, 0.78)`,to:`#`},{code:`TSDS`,name:`CERTIFICADO DE ANTECEDENTES PENALES`,icon:$.faIdCardClip,reflectionColor:`rgba(142, 147, 186, 0.78)`,to:`#`}]}};return(0,A.jsxs)(Tp,{children:[(0,A.jsx)(df,{}),(0,A.jsx)(`h1`,{children:`Trámites en Línea`}),(0,A.jsx)(Ep,{children:n.map(({title:e,buttonLabel:t,description:n,icon:r})=>(0,A.jsx)(Sp,{title:e,period:n,buttonLabel:t,icon:r},e))}),(0,A.jsxs)(Dp,{className:`liquid-glass-effect`,children:[(0,A.jsx)(`div`,{className:`procedure-selector`,role:`tablist`,"aria-label":`Seleccionar trámite en línea`,children:n.map(n=>(0,A.jsx)(`button`,{type:`button`,className:e===n.title?`active`:``,onClick:()=>t(n.title),"aria-pressed":e===n.title,children:n.title},n.title))}),(0,A.jsx)(`div`,{className:`procedure-panel`,children:n.filter(t=>t.title===e).map(e=>(0,A.jsx)(Sp,{title:e.title,period:e.description,buttonLabel:e.buttonLabel,icon:e.icon},e.title))})]}),(0,A.jsx)(Op,{children:(0,A.jsxs)(`article`,{className:`careers-group`,children:[(0,A.jsx)(`header`,{className:`careers-group-header`,children:(0,A.jsx)(`h2`,{children:r.tecnicatura.title})}),(0,A.jsx)(`div`,{className:`careers-group-grid`,children:r.tecnicatura.items.map(e=>(0,A.jsx)(yf,{name:e.name,icon:e.icon,to:e.to??`#`,reflectionColor:e.reflectionColor,backgroundOpacity:.72,backdropBlur:18},e.name))})]})}),(0,A.jsx)(nf,{icono:$.personPlusIcon,titulo:`¿Querés estudiar y tenés más de 25 años?​`,subtitulo:`Más info e inscripción acá​`,imagenFondoPath:`old-man-studying.jpeg`,textoBoton:`Quiero más información`}),(0,A.jsx)(nf,{icono:$.tramaIcon,titulo:`Llamado a concurso abreviado`,subtitulo:`Cargo de gestión directiva: Regencia`,imagenFondoPath:`gestion-regencia.avif`,textoBoton:`Quiero mas información`,dominantTone:`249,157,69`}),(0,A.jsx)(Xf,{})]})}var Tp=L.div`
+`;function wp(){let[e,t]=(0,x.useState)(`Planificaciones`),{itemRef:n,pillStyle:r,selectorRef:i}=wf(e),a=[{icon:$.faCalendarDays,title:`Planificaciones`,description:`2026 / 2027`,buttonLabel:`Ver y descargar`},{icon:$.faLaptop,title:`Sistema digital`,description:`de gestión académica de la DES`,buttonLabel:`Acceder`}],o={tecnicatura:{title:`Otros trámites`,items:[{code:`TSDS`,name:`MESAS DE EXÁMENES`,icon:$.faFilePen,reflectionColor:`rgba(142, 147, 186, 0.78)`,to:`#`},{code:`TSDS`,name:`CRONOGRAMA`,icon:$.faCalendarDays,reflectionColor:`rgba(142, 147, 186, 0.78)`,to:`#`},{code:`TSDS`,name:`PÓLIZA DE SEGURO PRÁCTICAS DOCENTES`,icon:$.faFileShield,reflectionColor:`rgba(142, 147, 186, 0.78)`,to:`#`},{code:`TSDS`,name:`HORARIOS TRANSPORTE`,icon:$.faBus,reflectionColor:`rgba(142, 147, 186, 0.78)`,to:`#`},{code:`TSDS`,name:`CERTIFICADO DE ANTECEDENTES PENALES`,icon:$.faIdCardClip,reflectionColor:`rgba(142, 147, 186, 0.78)`,to:`#`}]}};return(0,A.jsxs)(Tp,{children:[(0,A.jsx)($f,{}),(0,A.jsx)(df,{}),(0,A.jsx)(`h1`,{children:`Trámites en Línea`}),(0,A.jsx)(Ep,{children:a.map(({title:e,buttonLabel:t,description:n,icon:r})=>(0,A.jsx)(Sp,{title:e,period:n,buttonLabel:t,icon:r},e))}),(0,A.jsxs)(Dp,{children:[(0,A.jsxs)(`div`,{ref:i,className:`procedure-selector liquid-glass-effect`,role:`tablist`,"aria-label":`Seleccionar trámite en línea`,children:[(0,A.jsx)(`span`,{className:`selector-active-pill`,"aria-hidden":`true`,style:r}),a.map((r,i)=>(0,A.jsx)(`button`,{ref:n(r.title),type:`button`,className:`selector-pill`,id:`procedure-tab-${i}`,role:`tab`,onClick:()=>t(r.title),onKeyDown:e=>{let n={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[e.key];if(n===void 0)return;e.preventDefault();let r=(i+n+a.length)%a.length,o=a[r];t(o.title),document.getElementById(`procedure-tab-${r}`)?.focus()},"aria-selected":e===r.title,"aria-controls":`procedure-panel`,tabIndex:e===r.title?0:-1,children:r.title},r.title))]}),(0,A.jsx)(`div`,{className:`procedure-panel`,id:`procedure-panel`,role:`tabpanel`,children:a.filter(t=>t.title===e).map(e=>(0,A.jsx)(Sp,{title:e.title,period:e.description,buttonLabel:e.buttonLabel,icon:e.icon},e.title))})]}),(0,A.jsx)(Op,{children:(0,A.jsxs)(`article`,{className:`careers-group`,children:[(0,A.jsx)(`header`,{className:`careers-group-header`,children:(0,A.jsx)(`h2`,{children:o.tecnicatura.title})}),(0,A.jsx)(`div`,{className:`careers-group-grid`,children:o.tecnicatura.items.map(e=>(0,A.jsx)(yf,{name:e.name,icon:e.icon,to:e.to??`#`,reflectionColor:e.reflectionColor,backgroundOpacity:.72,backdropBlur:18},e.name))})]})}),(0,A.jsx)(nf,{icono:$.personPlusIcon,titulo:`¿Querés estudiar y tenés más de 25 años?​`,subtitulo:`Más info e inscripción acá​`,imagenFondoPath:`old-man-studying.jpeg`,textoBoton:`Quiero más información`}),(0,A.jsx)(nf,{icono:$.tramaIcon,titulo:`Llamado a concurso abreviado`,subtitulo:`Cargo de gestión directiva: Regencia`,imagenFondoPath:`gestion-regencia.avif`,textoBoton:`Quiero mas información`,dominantTone:`249,157,69`}),(0,A.jsx)(Xf,{})]})}var Tp=L.div`
   --procedures-title-size: clamp(1.65rem, 1.4rem + 0.8vw, 2.35rem);
   --procedures-section-title-size: clamp(1.25rem, 1.05rem + 0.7vw, 1.9rem);
   --procedures-body-size: clamp(0.95rem, 0.9rem + 0.15vw, 1.05rem);
@@ -4466,37 +4460,53 @@ border-radius: inherit;
   }
 
   .procedure-selector {
+    position: relative;
+    isolation: isolate;
     display: flex;
     gap: 0.55rem;
     padding: 0.35rem;
-    border: 1px solid rgba(255, 255, 255, 0.68);
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.3);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
   }
 
-  .procedure-selector button {
+  .selector-active-pill {
+    position: absolute;
+    z-index: 0;
+    box-sizing: border-box;
+    pointer-events: none;
+    border: 1px solid rgba(255, 255, 255, 0.98);
+    border-radius: 999px;
+    background: var(--color-white);
+    box-shadow: 0 5px 12px rgba(var(--glass-shadow-rgb), 0.2);
+    transition:
+      left 0.36s cubic-bezier(0.34, 1.2, 0.64, 1),
+      top 0.36s cubic-bezier(0.34, 1.2, 0.64, 1),
+      width 0.36s cubic-bezier(0.34, 1.2, 0.64, 1),
+      height 0.36s cubic-bezier(0.34, 1.2, 0.64, 1),
+      opacity 0.18s ease;
+  }
+
+  .selector-pill {
     flex: 1;
     min-width: 0;
-    padding: 0.75rem 0.55rem;
+    position: relative;
+    z-index: 1;
     border: 1px solid transparent;
     border-radius: 999px;
-    color: var(--color-dark-purple);
-    background: transparent;
+    padding: 0.75rem 0.55rem;
     font-family: var(--font-heading);
     font-size: 0.84rem;
     font-weight: 700;
     line-height: 1.1;
+    color: var(--color-dark-purple);
+    background: transparent;
     cursor: pointer;
+    transition: color 180ms ease;
   }
 
-  .procedure-selector button.active {
-    color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.84);
-    background:
-      radial-gradient(120% 150% at 24% 0%, rgba(255, 255, 255, 0.66) 0%, rgba(255, 255, 255, 0) 52%),
-      rgba(91, 46, 166, 0.7);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  .selector-pill[aria-selected='true'],
+  .selector-pill:hover,
+  .selector-pill:focus-visible {
+    color: var(--color-institutional-purple);
   }
 
   .procedure-panel > article {
