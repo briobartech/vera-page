@@ -126,7 +126,7 @@ function NavBar() {
         <NavBarStyled ref={navRef} className={isFloatingToggle ? 'is-floating' : ''}>
             <button
                 type="button"
-                className="mobile-toggle"
+                className="mobile-toggle liquid-glass-effect"
                 aria-label="Abrir menú"
                 aria-expanded={isMobileOpen}
                 onClick={() => setIsMobileOpen((prev) => !prev)}
@@ -241,16 +241,9 @@ const NavBarStyled = styled.nav`
   }
 
   .mobile-toggle {
-    border: 0;
     width: 46px;
     height: 46px;
     border-radius: 0.85rem;
-    background:
-      radial-gradient(130% 180% at 50% 36%, rgba(169, 141, 224, 0.3) 0%, rgba(169, 141, 224, 0.14) 48%, rgba(255, 255, 255, 0.9) 100%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.82));
-    box-shadow:
-      0 12px 24px rgba(var(--glass-shadow-rgb), 0.11),
-      inset 0 1px 0 rgba(255, 255, 255, 0.95);
     align-items: center;
     justify-content: center;
     gap: 4px;
@@ -475,8 +468,9 @@ const NavBarStyled = styled.nav`
       display: inline-flex;
       position: absolute;
       right: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
+      /* Se ubica debajo del botón "Acceso virtual" para que no se superpongan */
+      top: 68px;
+      transform: none;
       z-index: 40;
     }
 

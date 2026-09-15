@@ -132,8 +132,6 @@ const OnlineProceduresCardStyled = styled.article`
   }
 
   .action-button {
-    
-    
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -210,7 +208,7 @@ const OnlineProceduresCardStyled = styled.article`
       width: min(100%, 260px);
       min-width: 0;
       height: 46px;
-      bottom: 14px;
+      
     }
   }
 

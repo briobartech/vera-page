@@ -6,9 +6,11 @@ import NavBar from '../components/Navbar.jsx';
 import icons from '../data/icons.js';
 import Footer from '../components/Footer.jsx';
 import NewsBanner from '../components/NewsBanner';
-
+import VirtualAccess from '../components/VirtualAccess';
+import useSlidingPill from '../hooks/useSlidingPill';
 function OnlineProcedures() {
   const [activeProcedure, setActiveProcedure] = useState('Planificaciones');
+  const { itemRef, pillStyle, selectorRef } = useSlidingPill(activeProcedure);
     const defaultCards = [
         {
           icon: icons.faCalendarDays,
@@ -69,6 +71,7 @@ function OnlineProcedures() {
 
     return (
         <OnlineProceduresStyled>
+            <VirtualAccess />
             <NavBar />
             <h1>Trámites en Línea</h1>
 
@@ -84,22 +87,38 @@ function OnlineProcedures() {
                 ))}
             </CardsGrid>
 
-                <MobileProcedures className="liquid-glass-effect">
-                  <div className="procedure-selector" role="tablist" aria-label="Seleccionar trámite en línea">
-                    {defaultCards.map((card) => (
+                <MobileProcedures>
+                  <div ref={selectorRef} className="procedure-selector liquid-glass-effect" role="tablist" aria-label="Seleccionar trámite en línea">
+                    <span className="selector-active-pill" aria-hidden="true" style={pillStyle} />
+                    {defaultCards.map((card, index) => (
                       <button
+                        ref={itemRef(card.title)}
                         key={card.title}
                         type="button"
-                        className={activeProcedure === card.title ? 'active' : ''}
+                        className="selector-pill"
+                        id={`procedure-tab-${index}`}
+                        role="tab"
                         onClick={() => setActiveProcedure(card.title)}
-                        aria-pressed={activeProcedure === card.title}
+                        onKeyDown={(event) => {
+                          const keyActions = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
+                          const offset = keyActions[event.key];
+                          if (offset === undefined) return;
+                          event.preventDefault();
+                          const nextIndex = (index + offset + defaultCards.length) % defaultCards.length;
+                          const nextCard = defaultCards[nextIndex];
+                          setActiveProcedure(nextCard.title);
+                          document.getElementById(`procedure-tab-${nextIndex}`)?.focus();
+                        }}
+                        aria-selected={activeProcedure === card.title}
+                        aria-controls="procedure-panel"
+                        tabIndex={activeProcedure === card.title ? 0 : -1}
                       >
                         {card.title}
                       </button>
                     ))}
                   </div>
 
-                  <div className="procedure-panel">
+                  <div className="procedure-panel" id="procedure-panel" role="tabpanel">
                     {defaultCards
                       .filter((card) => card.title === activeProcedure)
                       .map((card) => (
@@ -216,37 +235,53 @@ const MobileProcedures = styled.section`
   }
 
   .procedure-selector {
+    position: relative;
+    isolation: isolate;
     display: flex;
     gap: 0.55rem;
     padding: 0.35rem;
-    border: 1px solid rgba(255, 255, 255, 0.68);
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.3);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
   }
 
-  .procedure-selector button {
+  .selector-active-pill {
+    position: absolute;
+    z-index: 0;
+    box-sizing: border-box;
+    pointer-events: none;
+    border: 1px solid rgba(255, 255, 255, 0.98);
+    border-radius: 999px;
+    background: var(--color-white);
+    box-shadow: 0 5px 12px rgba(var(--glass-shadow-rgb), 0.2);
+    transition:
+      left 0.36s cubic-bezier(0.34, 1.2, 0.64, 1),
+      top 0.36s cubic-bezier(0.34, 1.2, 0.64, 1),
+      width 0.36s cubic-bezier(0.34, 1.2, 0.64, 1),
+      height 0.36s cubic-bezier(0.34, 1.2, 0.64, 1),
+      opacity 0.18s ease;
+  }
+
+  .selector-pill {
     flex: 1;
     min-width: 0;
-    padding: 0.75rem 0.55rem;
+    position: relative;
+    z-index: 1;
     border: 1px solid transparent;
     border-radius: 999px;
-    color: var(--color-dark-purple);
-    background: transparent;
+    padding: 0.75rem 0.55rem;
     font-family: var(--font-heading);
     font-size: 0.84rem;
     font-weight: 700;
     line-height: 1.1;
+    color: var(--color-dark-purple);
+    background: transparent;
     cursor: pointer;
+    transition: color 180ms ease;
   }
 
-  .procedure-selector button.active {
-    color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.84);
-    background:
-      radial-gradient(120% 150% at 24% 0%, rgba(255, 255, 255, 0.66) 0%, rgba(255, 255, 255, 0) 52%),
-      rgba(91, 46, 166, 0.7);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  .selector-pill[aria-selected='true'],
+  .selector-pill:hover,
+  .selector-pill:focus-visible {
+    color: var(--color-institutional-purple);
   }
 
   .procedure-panel > article {

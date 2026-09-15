@@ -2,6 +2,7 @@ import { useAppContext } from '../context/AppContext';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import NavBar from '../components/Navbar';
+import VirtualAccess from '../components/VirtualAccess';
 import Footer from '../components/Footer';
 import careersData from '../assets/careers.json';
 import { getSectionComponentByType } from './careers/sectionComponentByType';
@@ -19,6 +20,7 @@ function OfertaEducativa() {
 
   return (
     <OfertaEducativaStyled className={`app ${theme}`}>
+      <VirtualAccess/>
       <NavBar />
 
       <main className="oferta-main">

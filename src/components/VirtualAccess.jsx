@@ -369,16 +369,18 @@ const VirtualAccessStyled = styled.section`
     /* =========================================
        MOBILE
     ========================================= */
-    /* @media (max-width: 1600px) {
-    
-        left: 2%;
-    
-    } */
+    @media (max-width: 1600px) {
+        /* Se ubica arriba del botón hamburguesa flotante para que no se superpongan */
+        .virtual-access-float {
+            bottom: 4.75rem;
+        }
+    }
+
     @media (max-width: 768px) {
     
         .virtual-access-float {
             right: 0.75rem;
-            bottom: 0.75rem;
+            bottom: 4.5rem;
         }
     }
 }
