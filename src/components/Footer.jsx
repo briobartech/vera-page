@@ -18,6 +18,10 @@ const FooterStyled = styled.footer`
 	width: 100%;
 	max-width: 100%;
 	box-sizing: border-box;
+	display: block;
+	position: relative;
+	z-index: 4;
+	scroll-margin-top: 1rem;
 	margin: 1.6rem 0 2rem;
 	padding: 1rem 1.2rem;
 	text-align: center;
@@ -37,7 +41,10 @@ const FooterStyled = styled.footer`
 	}
 
 	@media (max-width: 768px) {
-		margin: 1.2rem 0 1.4rem;
+		align-self: stretch;
+		width: 100%;
+		z-index: 101;
+		margin: 1.2rem 0 7rem;
 		padding: 0.95rem 0.9rem;
 
 		p {

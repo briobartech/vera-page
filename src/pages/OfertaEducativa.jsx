@@ -21,7 +21,7 @@ function OfertaEducativa() {
   return (
     <OfertaEducativaStyled className={`app ${theme}`}>
       <VirtualAccess/>
-      <NavBar />
+      <NavBar $flushTop />
 
       <main className="oferta-main">
         {shouldRenderSections ? (
@@ -59,6 +59,11 @@ const OfertaEducativaStyled = styled.div`
   width: min(80%, 1440px);
   margin: 0 auto;
   box-sizing: border-box;
+
+  @media (max-width: 1600px) {
+    /* Contiene el botón de acceso virtual para que se alinee con el botón hamburguesa */
+    position: relative;
+  }
 
   .oferta-main {
     display: grid;

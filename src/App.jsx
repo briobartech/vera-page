@@ -2,9 +2,17 @@ import { useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
+import News from './pages/News';
 import OfertaEducativa from './pages/OfertaEducativa';
+import Autoridades from './pages/Autoridades';
+import OfertaEducativaGeneral from './pages/OfertaEducativaGeneral';
 import OnlineProcedures from './pages/OnlineProcedures';
-
+import History from './pages/History';
+import FormacionContinua from './pages/FormacionContinua';
+import Trama from './pages/Trama';
+import ErrorPage from './pages/Error';
+import ErrorBoundary from './components/ErrorBoundary';
+import Ingreso from './pages/Ingreso';
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -38,13 +46,23 @@ function App() {
         </filter>
       </svg>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/tramites-online" element={<OnlineProcedures />} />
-        <Route path="/oferta-educativa" element={<OfertaEducativa />} />
-        <Route path="/oferta-educativa/:careerCode" element={<OfertaEducativa />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+      <ErrorBoundary>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/tramites-online" element={<OnlineProcedures />} />
+          <Route path="/oferta-educativa" element={<OfertaEducativa />} />
+                    <Route path="/oferta-educativa/general" element={<OfertaEducativaGeneral />} />
+          <Route path="/ingreso" element={<Ingreso />} />
+          <Route path="/autoridades" element={<Autoridades />} />
+          <Route path="/nuestra-historia" element={<History />} />
+          <Route path="/TRAMA" element={<Trama />} />
+          <Route path="/error" element={<ErrorPage />} />
+          <Route path="/oferta-educativa/:careerCode" element={<OfertaEducativa />} />
+          <Route path="/formacion-continua" element={<FormacionContinua />} />
+          <Route path="/novedades" element={<News />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </ErrorBoundary>
     </>
   );
 }

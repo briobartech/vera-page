@@ -1,13 +1,24 @@
 import styled from 'styled-components';
 const bannerImage = `${import.meta.env.BASE_URL}images/testimonials/Fernando.png/images/banner/banner.png`;
 
-function Banner({ titulo = '',
-    subtitulo = '',
-    subititile,
-    textoBoton = 'Inscribite ahora',
-    imagenFondoPath = '', }) {
+function Banner({
+    titulo,
+    to,
+    subtitulo,
+    textoBoton,
+    textoBoton2,
+    to2,
+    spanTexto,
+    imagenFondoPath = '',
+}) {
     const isVideoBackground = /\.(mp4|webm|ogg)(\?.*)?$/i.test(imagenFondoPath);
     const backgroundImage = !isVideoBackground && imagenFondoPath ? imagenFondoPath : bannerImage;
+
+    const handleRedirect = (target) => {
+        if (target) {
+            window.location.href = target;
+        }
+    };
 
     return (
         <BannerStyled $backgroundImage={backgroundImage}>
@@ -26,13 +37,42 @@ function Banner({ titulo = '',
                     </video>
                 ) : null}
                 <div className="banner-content liquid-glass">
-                    <h1 className="banner-title ">
-                        {titulo}
-                    </h1>
-                    <h2 className="banner-subtitle liquid-glass">
-                        {subtitulo}
-                    </h2>
-                    <button className="banner-button liquid-glass">{textoBoton}</button>
+                    {titulo ? (
+                        <h1 className="banner-title">
+                            {titulo}
+                        </h1>
+                    ) : null}
+                    {subtitulo ? (
+                        <h2 className="banner-subtitle liquid-glass">
+                            {subtitulo}
+                        </h2>
+                    ) : null}
+
+                    {spanTexto ? (
+                        <span className="banner-span liquid-glass-effect">{spanTexto}</span>
+                    ) : null}
+
+                    {(textoBoton || textoBoton2) ? (
+                        <div className="banner-actions">
+                            {textoBoton ? (
+                                <button
+                                    className="banner-button banner-button-primary liquid-glass"
+                                    onClick={() => handleRedirect(to)}
+                                >
+                                    {textoBoton}
+                                </button>
+                            ) : null}
+
+                            {textoBoton2 ? (
+                                <button
+                                    className="banner-button banner-button-secondary liquid-glass-effect"
+                                    onClick={() => handleRedirect(to2)}
+                                >
+                                    {textoBoton2}
+                                </button>
+                            ) : null}
+                        </div>
+                    ) : null}
                 </div>
             </section>
         </BannerStyled>
@@ -66,8 +106,8 @@ const BannerStyled = styled.section`
             radial-gradient(120% 190% at 34% -36%, rgba(169, 141, 224, 0.46) 0%, rgba(169, 141, 224, 0.16) 34%, rgba(255, 255, 255, 0.04) 74%),
             url(${props => props.$backgroundImage});
         background-repeat: no-repeat;
-        background-position: left top, left top, right -2% bottom 70%;
-        background-size: 100% 100%, 100% 100%, 90% auto;
+        background-position: left top, left top, right center;
+        background-size: cover, cover, cover;
         border: 1px solid rgba(255, 255, 255, 0.76);
         box-shadow:
             0 28px 46px rgba(var(--glass-shadow-rgb), 0.13),
@@ -118,9 +158,11 @@ const BannerStyled = styled.section`
         z-index: 3;
         border-radius: 50% 50% 0 0;
         background:
-            linear-gradient(162deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.07) 52%, rgba(169, 141, 224, 0.13) 100%),
-            radial-gradient(95% 120% at 0% 52%, rgba(169, 141, 224, 0.16), rgba(169, 141, 224, 0));
-        filter: blur(0.2px);
+            linear-gradient(220deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.04) 52%, rgba(169, 141, 224, 0.1) 100%),
+            radial-gradient(95% 120% at 0% 52%, rgba(169, 141, 224, 0.14), rgba(169, 141, 224, 0));
+        filter: blur(6px);
+        -webkit-mask-image: radial-gradient(ellipse at 52% 20%, #000 0%, rgba(0, 0, 0, 0.9) 58%, rgba(0, 0, 0, 0) 100%);
+        mask-image: radial-gradient(ellipse at 52% 20%, #000 0%, rgba(0, 0, 0, 0.9) 58%, rgba(0, 0, 0, 0) 100%);
     }
 
     .banner-content {
@@ -158,41 +200,74 @@ const BannerStyled = styled.section`
         font-size: clamp(1.05rem, 0.9rem + 0.45vw, 1.9rem);
     }
 
-    .banner-button {
+    .banner-span {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        padding: 0.5rem 0.9rem;
+        border-radius: 999px;
+        color: var(--color-white);
+        font-family: var(--font-body);
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.36);
+    }
+
+    .banner-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
         margin-top: auto;
-        width: min(100%, 320px);
+    }
+
+    .banner-button {
+        min-width: 170px;
+        width: fit-content;
         border: 0;
         border-radius: 0.9rem;
         padding: 1rem 1.25rem;
-        color: var(--color-white);
-        background: var(--color-gradient);
         font-family: var(--font-heading);
         font-weight: 600;
         font-size: clamp(1rem, 0.94rem + 0.2vw, 1.15rem);
         line-height: 1.1;
         cursor: pointer;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    }
+
+    .banner-button-primary {
+        color: var(--color-white);
+        background: var(--color-gradient);
         box-shadow:
             0 12px 22px rgba(var(--glass-shadow-rgb), 0.18),
             inset 0 1px 0 rgba(255, 255, 255, 0.42);
-        transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    }
+
+    .banner-button-secondary {
+        color: var(--color-white);
+        background: rgba(255, 255, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.6),
+            0 12px 22px rgba(59, 31, 102, 0.08);
+        backdrop-filter: blur(12px) saturate(1.1);
+        -webkit-backdrop-filter: blur(12px) saturate(1.1);
     }
 
     .banner-button:hover,
     .banner-button:focus-visible {
         transform: translateY(-2px);
         filter: saturate(1.12) brightness(1.06);
-        box-shadow:
-            0 16px 28px rgba(var(--glass-shadow-rgb), 0.2),
-            inset 0 1px 0 rgba(255, 255, 255, 0.6),
-            inset 0 -1px 0 rgba(64, 31, 125, 0.18);
     }
 
     
     @media (max-width: 1080px) {
         .banner-section {
             min-height: 390px;
-            background-size: 100% 100%, 100% 100%, 72% auto;
-            background-position: left top, left top, right -5% bottom -2%;
+            background-position: left top, left top, right center;
         }
 
         .banner-content {
@@ -212,8 +287,7 @@ const BannerStyled = styled.section`
         .banner-section {
             min-height: 320px;
             border-radius: 1.35rem;
-            background-size: cover, cover, 95% auto;
-            background-position: center, center , 100% 200%;
+            background-position: center, center, center;
         }
 
         .banner-content {
@@ -229,6 +303,11 @@ const BannerStyled = styled.section`
         .banner-subtitle {
             max-width: 100%;
             font-size: 0.98rem;
+        }
+
+        .banner-actions {
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .banner-button {

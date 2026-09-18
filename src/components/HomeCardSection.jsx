@@ -11,6 +11,7 @@ const defaultCards = [
         description: 'Mantente informado con las últimas novedades y eventos del instituto.',
         imageSrc: images.ultimasNoticias,
         buttonLabel: '➝ Leer más',
+        to: '/novedades',
     },
     {
         icon: icons.faPenToSquare,
@@ -18,6 +19,7 @@ const defaultCards = [
         description: '¡No perdás la oportunidad de formar parte de nuestra comunidad educativa!',
         imageSrc: images.inscripcion,
         buttonLabel: '➝ Inscribirse',
+        to: '/ingreso',
     },
     /* {
         icon: icons.faDisplay,

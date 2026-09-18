@@ -188,6 +188,11 @@ const OnlineProceduresStyled = styled.div`
   margin: 0 auto;
   box-sizing: border-box;
 
+  @media (max-width: 1600px) {
+    /* Contiene el botón de acceso virtual para que se alinee con el botón hamburguesa */
+    position: relative;
+  }
+
   @media (max-width: 900px) {
     width: min(100%, 1440px);
     padding: 0 0.8rem;

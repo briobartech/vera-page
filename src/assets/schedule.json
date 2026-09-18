@@ -1,0 +1,78 @@
+[
+  {
+    "dia": "Lunes",
+    "items": [
+      {
+        "horario": "13:00 a 15:00",
+        "actividad": "Políticas Estudiantiles",
+        "profesor": "Belén Álvarez"
+      },
+      {
+        "horario": "14:00 a 18:30",
+        "actividad": "Orientación General / Accesibilidad / Salud mental / Género y diversidad",
+        "profesor": "Lorena Lafuente"
+      },
+      {
+        "horario": "18:00 a 19:00",
+        "actividad": "Consejería Salud Sexual y Reproductiva",
+        "profesor": "Mónica Valle"
+      }
+    ]
+  },
+  {
+    "dia": "Martes",
+    "items": [
+      {
+        "horario": "8:00 a 10:30 y 20:40 a 22:40",
+        "actividad": "Orientación General / Accesibilidad / Salud mental / Género y diversidad",
+        "profesor": "Lorena Lafuente"
+      }
+    ]
+  },
+  {
+    "dia": "Miércoles",
+    "items": [
+      {
+        "horario": "10:30 a 12:00",
+        "actividad": "Orientación en los aprendizajes",
+        "profesor": "Shirley Somer y Jorgelina Lopez"
+      },
+      {
+        "horario": "16:10 a 16:50",
+        "actividad": "Consejería de la voz y el habla",
+        "profesor": "Liliana Cantalejos"
+      },
+      {
+        "horario": "17:00 a 18:30",
+        "actividad": "Consejería de ESI",
+        "profesor": "Ana Laura Granados"
+      },
+      {
+        "horario": "Itinerante",
+        "actividad": "Orientación General / Accesibilidad / Salud mental / Género y diversidad",
+        "profesor": "Lorena Lafuente",
+        "nota": "Una semana en cada turno. Informado en cartelera."
+      }
+    ]
+  },
+  {
+    "dia": "Jueves",
+    "items": [
+      {
+        "horario": "8:00 a 12:30",
+        "actividad": "Orientación General / Accesibilidad / Salud mental / Género y diversidad",
+        "profesor": "Lorena Lafuente"
+      }
+    ]
+  },
+  {
+    "dia": "Viernes",
+    "items": [
+      {
+        "horario": "15:00 a 19:30",
+        "actividad": "Orientación General / Accesibilidad / Salud mental / Género y diversidad",
+        "profesor": "Lorena Lafuente"
+      }
+    ]
+  }
+]

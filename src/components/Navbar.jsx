@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 import images from '../data/images.js';
+import careersData from '../assets/careers.json';
 
 const byPrefixAndName = {
   fas: {
@@ -10,81 +11,90 @@ const byPrefixAndName = {
   },
 };
 
-const menuItems = [
-    {
-        label: 'Sobre el Vera',
-        links: [
-            { href: '#', text: 'Nuestra historia' },
-            { href: '#', text: 'Autoridades' }
+const careerLinks = Object.entries(careersData.careers ?? {});
+const docenteLinks = careerLinks
+  .filter(([, career]) => /^profesor/.test(career.title.trim().toLowerCase()))
+  .map(([code, career]) => ({ href: `/oferta-educativa/${code}`, text: career.title }));
+const tecnicaLinks = careerLinks
+  .filter(([, career]) => career.title.toLowerCase().startsWith('tecnicatura'))
+  .map(([code, career]) => ({ href: `/oferta-educativa/${code}`, text: career.title }));
 
-        ],
-    },
-    {
-        label: 'Carreras',
-        links: [
-            { href: '#', text: 'Ingreso 2026' },
-            { href: '#', text: 'Carreras docentes' },
-            { href: '#', text: 'Carreras técnicas' },
-        ],
-    },
-    {
-        label: 'Formación continua',
-        links: [
-            { href: '#', text: 'Cursos' },
-            { href: '#', text: 'Postítulos' }
-        ],
-    },
-    {
-        label: 'Comunidad Vera',
-        links: [
-            { href: '#', text: 'TRAMA' },
-            { href: '#', text: 'Políticas estudiantiles' },
-            { href: '#', text: 'Biblioteca' },
-            { href: '#', text: 'Becas de apoyo' },
-            { href: '#', text: 'Beneficios Vera' },
-            { href: '#', text: 'Actividades extracurriculares' },
-        ],
-    },
-    {
-        label: 'Investigación',
-        links: [
-            { href: '#', text: 'Becas' },
-            { href: '#', text: 'Convocatorias' },
-            { href: '#', text: 'Proyectos' },
-        ],
-    },
-    {
-        label: 'Recurso docente',
-        links: [
-            { href: '#', text: 'Formativas' },
-            { href: '#', text: 'Actualización profesional' },
-        ],
-    },
+const careerGroups = [
+  { label: 'Carreras docentes', links: docenteLinks },
+  { label: 'Carreras técnicas', links: tecnicaLinks },
+];
+
+const menuItems = [
+  {
+    label: 'Sobre el Vera',
+    links: [
+      { href: '/nuestra-historia', text: 'Nuestra historia' },
+      { href: '/autoridades', text: 'Autoridades' }
+
+    ],
+  },
+  {
+    label: 'Carreras',
+    links: [
+      { href: '/ingreso', text: 'Ingreso 2026' },
+    ],
+    groups: careerGroups,
+  },
+  {
+    label: 'Formación continua',
+    href: '/formacion-continua',
+  },
+  {
+    label: 'Comunidad Vera',
+    links: [
+      { href: '/TRAMA', text: 'TRAMA' },
+      { href: '#', text: 'Políticas estudiantiles' },
+      { href: '#', text: 'Biblioteca' },
+      { href: '#', text: 'Becas de apoyo' },
+      { href: '#', text: 'Beneficios Vera' },
+      { href: '#', text: 'Actividades extracurriculares' },
+    ],
+  },
+  {
+    label: 'Investigación',
+    links: [
+      { href: '#', text: 'Becas' },
+      { href: '#', text: 'Convocatorias' },
+      { href: '#', text: 'Proyectos' },
+    ],
+  },
+  {
+    label: 'Recurso docente',
+    links: [
+      { href: '#', text: 'Formativas' },
+      { href: '#', text: 'Actualización profesional' },
+    ],
+  },
 ];
 
 function NavBar() {
-    const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isFloatingToggle, setIsFloatingToggle] = useState(false);
   const navRef = useRef(null);
   const navLinksRef = useRef(null);
-    const menuShellRef = useRef(null);
+  const menuShellRef = useRef(null);
   const [activePill, setActivePill] = useState({ left: 0, top: 0, width: 0, height: 0, visible: false });
 
-    const moveActivePill = (linkElement) => {
-      const menuShellElement = menuShellRef.current;
+  const moveActivePill = (linkElement) => {
+    const menuShellElement = menuShellRef.current;
 
-      if (!menuShellElement || !linkElement) {
+    if (!menuShellElement || !linkElement) {
       return;
     }
 
-      const menuRect = menuShellElement.getBoundingClientRect();
+    const menuRect = menuShellElement.getBoundingClientRect();
     const linkRect = linkElement.getBoundingClientRect();
 
     setActivePill({
-        left: linkRect.left - menuRect.left,
-        top: linkRect.top - menuRect.top,
+      left: linkRect.left - menuRect.left,
+      top: linkRect.top - menuRect.top,
       width: linkRect.width,
-        height: linkRect.height,
+      height: linkRect.height,
       visible: true,
     });
   };
@@ -122,97 +132,138 @@ function NavBar() {
     };
   }, []);
 
-    return (
-        <NavBarStyled ref={navRef} className={isFloatingToggle ? 'is-floating' : ''}>
-            <button
-                type="button"
-                className="mobile-toggle liquid-glass-effect"
-                aria-label="Abrir menú"
-                aria-expanded={isMobileOpen}
-                onClick={() => setIsMobileOpen((prev) => !prev)}
+  return (
+    <NavBarStyled ref={navRef} className={isFloatingToggle ? 'is-floating' : ''}>
+      <button
+        type="button"
+        className="mobile-toggle liquid-glass"
+        aria-label="Abrir menú"
+        aria-expanded={isMobileOpen}
+        onClick={() => setIsMobileOpen((prev) => !prev)}
+      >
+        <FontAwesomeIcon icon={byPrefixAndName.fas['bars']} />
+      </button>
+
+      <a href="/vera-page" className="logo-card liquid-glass-effect" aria-label="Inicio Vera">
+        <img src={images.logoVera} alt="Rosario Vera Peñaloza" className="logo-image" />
+      </a>
+
+      <div
+        ref={menuShellRef}
+        className="menu-shell liquid-glass-effect"
+        role="navigation"
+        aria-label="Menu principal"
+        onMouseLeave={() => setActivePill((currentPill) => ({ ...currentPill, visible: false }))}
+      >
+        <span
+          className="nav-active-pill"
+          aria-hidden="true"
+          style={{
+            left: `${activePill.left}px`,
+            top: `${activePill.top}px`,
+            width: `${activePill.width}px`,
+            height: `${activePill.height}px`,
+            opacity: activePill.visible ? 1 : 0,
+          }}
+        />
+        <ul
+          ref={navLinksRef}
+          className="nav-links"
+        >
+          {menuItems.map((item) => (
+            <li
+              key={item.label}
+              className="nav-item"
+              onMouseEnter={(event) => moveActivePill(event.currentTarget.querySelector('.nav-link'))}
+              onFocus={(event) => moveActivePill(event.currentTarget.querySelector('.nav-link'))}
             >
-                <FontAwesomeIcon icon={byPrefixAndName.fas['bars']} />
-            </button>
-
-            <a href="/vera-page" className="logo-card liquid-glass-effect" aria-label="Inicio Vera">
-                <img src={images.logoVera} alt="Rosario Vera Peñaloza" className="logo-image" />
-            </a>
-
-            <div
-              ref={menuShellRef}
-              className="menu-shell liquid-glass-effect"
-              role="navigation"
-              aria-label="Menu principal"
-              onMouseLeave={() => setActivePill((currentPill) => ({ ...currentPill, visible: false }))}
-            >
-                <span
-                  className="nav-active-pill"
-                  aria-hidden="true"
-                  style={{
-                      left: `${activePill.left}px`,
-                      top: `${activePill.top}px`,
-                      width: `${activePill.width}px`,
-                      height: `${activePill.height}px`,
-                      opacity: activePill.visible ? 1 : 0,
-                  }}
-                />
-                <ul
-                  ref={navLinksRef}
-                  className="nav-links"
-                >
-                  {menuItems.map((item) => (
-                    <li
-                      key={item.label}
-                      className="nav-item"
-                            onMouseEnter={(event) => moveActivePill(event.currentTarget.querySelector('.nav-link'))}
-                            onFocus={(event) => moveActivePill(event.currentTarget.querySelector('.nav-link'))}
-                    >
-                            <a href="#" className="nav-link">
-                                {item.label}
-                                <span className="chevron" aria-hidden="true">
-                                    ▾
-                                </span>
+              <a href={item.href || '#'} className="nav-link">
+                {item.label}
+                {(item.links || item.groups) && (
+                  <span className="chevron" aria-hidden="true">
+                    ▾
+                  </span>
+                )}
+              </a>
+              {(item.links || item.groups) && (
+                <ul className="submenu">
+                  {item.links?.map((link) => (
+                    <li key={link.text}>
+                      <a
+                        href={link.href}
+                        onMouseEnter={(event) => moveActivePill(event.currentTarget)}
+                        onFocus={(event) => moveActivePill(event.currentTarget)}
+                      >
+                        {link.text}
+                      </a>
+                    </li>
+                  ))}
+                  {item.groups?.map((group) => (
+                    <li className="submenu-group" key={group.label}>
+                      <button type="button" className="submenu-group-title">
+                        {group.label}
+                        <span aria-hidden="true">›</span>
+                      </button>
+                      <ul className="submenu-group-list">
+                        {group.links.map((link) => (
+                          <li key={link.text}>
+                            <a
+                              href={link.href}
+                              onMouseEnter={(event) => moveActivePill(event.currentTarget)}
+                              onFocus={(event) => moveActivePill(event.currentTarget)}
+                            >
+                              {link.text}
                             </a>
-                            <ul className="submenu">
-                                {item.links.map((link) => (
-                                    <li key={link.text}>
-                                        <a
-                                          href={link.href}
-                                          onMouseEnter={(event) => moveActivePill(event.currentTarget)}
-                                          onFocus={(event) => moveActivePill(event.currentTarget)}
-                                        >
-                                          {link.text}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </li>
-                    ))}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
                 </ul>
-            </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
 
-            <div className={`mobile-panel liquid-glass-effect ${isMobileOpen ? 'open' : ''}`}>
-                <ul className="mobile-list">
-                    {menuItems.map((item) => (
-                        <li key={item.label} className="mobile-group">
-                            <a href="#" className="mobile-group-title" onClick={() => setIsMobileOpen(false)}>
-                                {item.label}
+      <div className={`mobile-panel liquid-glass-effect ${isMobileOpen ? 'open' : ''}`}>
+        <ul className="mobile-list">
+          {menuItems.map((item) => (
+            <li key={item.label} className="mobile-group">
+              <a href={item.href || '#'} className="mobile-group-title" onClick={() => setIsMobileOpen(false)}>
+                {item.label}
+              </a>
+              {(item.links || item.groups) && (
+                <ul className="mobile-sublist">
+                  {item.links?.map((link) => (
+                    <li key={link.text}>
+                      <a href={link.href} onClick={() => setIsMobileOpen(false)}>
+                        {link.text}
+                      </a>
+                    </li>
+                  ))}
+                  {item.groups?.map((group) => (
+                    <li className="mobile-career-group" key={group.label}>
+                      <strong>{group.label}</strong>
+                      <ul>
+                        {group.links.map((link) => (
+                          <li key={link.text}>
+                            <a href={link.href} onClick={() => setIsMobileOpen(false)}>
+                              {link.text}
                             </a>
-                            <ul className="mobile-sublist">
-                                {item.links.map((link) => (
-                                    <li key={link.text}>
-                                        <a href={link.href} onClick={() => setIsMobileOpen(false)}>
-                                            {link.text}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </li>
-                    ))}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
                 </ul>
-            </div>
-        </NavBarStyled>
-    );
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </NavBarStyled>
+  );
 }
 
 export default NavBar;
@@ -222,6 +273,7 @@ const NavBarStyled = styled.nav`
   --nav-pill-speed: 0.36s;
 
   display: flex;
+  margin-top: ${({ $flushTop }) => ($flushTop ? 0 : '2rem')};
   align-items: center;
   gap: 1.25rem;
 
@@ -417,6 +469,63 @@ const NavBarStyled = styled.nav`
     position: relative;
   }
 
+  .submenu-group-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    padding: 0.82rem 1.3rem;
+    border: 1px solid transparent;
+    border-radius: 0.78rem;
+    color: var(--color-dark-purple);
+    background: transparent;
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 0.9rem + 0.25vw, 1.25rem);
+    font-weight: 700;
+    line-height: 1;
+    text-align: left;
+    cursor: default;
+  }
+
+  .submenu-group-title span {
+    color: var(--color-institutional-purple);
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  .submenu-group:hover > .submenu-group-title,
+  .submenu-group:focus-within > .submenu-group-title {
+    color: var(--color-institutional-purple);
+    background: rgba(255, 255, 255, 0.34);
+  }
+
+  .submenu-group-list {
+    position: absolute;
+    top: -0.55rem;
+    left: calc(100% - 0.55rem);
+    display: none;
+    min-width: 22rem;
+    margin: 0;
+    padding: 0.55rem;
+    list-style: none;
+    border: 1px solid rgba(255, 255, 255, 0.76);
+    border-radius: 1rem;
+    background:
+      radial-gradient(125% 145% at 14% 0%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0) 48%),
+      radial-gradient(110% 140% at 90% 100%, rgba(169, 141, 224, 0.32) 0%, rgba(169, 141, 224, 0) 66%),
+      rgba(245, 242, 255, 0.7);
+    box-shadow: 0 20px 40px rgba(var(--glass-shadow-rgb), 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    z-index: 21;
+  }
+
+  .submenu-group:hover > .submenu-group-list,
+  .submenu-group:focus-within > .submenu-group-list {
+    display: block;
+  }
+
   .submenu a {
     display: block;
     padding: 0.82rem 1.3rem;
@@ -590,6 +699,26 @@ const NavBarStyled = styled.nav`
       font-weight: 500;
       font-size: 0.9rem;
       color: var(--color-text);
+    }
+
+    .mobile-career-group {
+      margin-top: 0.55rem;
+      padding-top: 0.55rem;
+      border-top: 1px solid rgba(230, 230, 239, 0.8);
+    }
+
+    .mobile-career-group strong {
+      display: block;
+      padding: 0.45rem 0.8rem 0.2rem;
+      color: var(--color-dark-purple);
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+    }
+
+    .mobile-career-group ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
 
     .mobile-group-title:hover,

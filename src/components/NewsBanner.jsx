@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import icons from '../data/icons.js';
+import { Link } from 'react-router-dom';
 const newsBannerBackground = `${import.meta.env.BASE_URL}images/news-banner.jpg`;
 
 const localBackgroundImages = import.meta.glob(`/images/**/*.{png,jpg,jpeg,webp,avif,svg}`, {
@@ -18,15 +18,17 @@ function resolveBackgroundImagePath(imagePath) {
   }
 
   const normalizedPath = imagePath.replace(/^\.?\/?/, '');
-  return localBackgroundImages[`${import.meta.env.BASE_URL}images/${normalizedPath}`] ?? null;
+  return localBackgroundImages[`${import.meta.env.BASE_URL}images/${normalizedPath}`]
+    ?? `${import.meta.env.BASE_URL}images/${normalizedPath}`;
 }
 
 function NewsBanner({
-  icono = icons.fingerPrintIcon,
-  titulo = 'Tecnicatura Superior en Redes y Ciberseguridad',
+  icono,
+  titulo,
   subtitulo = '',
   subititile,
-  textoBoton = 'Nueva carrera ¡Conocela!',
+  textoBoton,
+  to,
   imagenFondoPath = '',
   dominantTone = '129, 37, 214',
 }) {
@@ -100,25 +102,42 @@ function NewsBanner({
   const subtitleText = `${subtitulo || subititile || ''}`.trim();
   const resolvedBackgroundImage = resolveBackgroundImagePath(imagenFondoPath) || newsBannerBackground;
 
-  return <NewsBannerStyled className="liquid-glass-effect" ref={bannerRef} style={{ '--news-banner-tone': dominantTone }}>
+  return <NewsBannerStyled ref={bannerRef} style={{ '--news-banner-tone': dominantTone }}>
     <div
       ref={backgroundRef}
-      className="news-banner-background"
-      style={{ '--banner-bg-y': '18%', '--news-banner-bg': `url(${resolvedBackgroundImage})` }}
+      className="news-banner-background liquid-glass-effect"
+      style={{ '--banner-bg-y': '18%' }}
       aria-hidden="true"
-    />
-    <div className="news-banner-container liquid-glass-effect"><div className="news-banner-icon-shell" aria-hidden="true">
-      <img src={icono} alt="" className="news-banner-icon" />
+    >
+      <img src={resolvedBackgroundImage} alt="" className="news-banner-background-image" />
+      <span className="news-banner-tone-overlay" aria-hidden="true" />
     </div>
-      <h2>{titulo}</h2>
+    <div className="news-banner-container">
+      {icono ? (
+        <div className="news-banner-icon-shell" aria-hidden="true">
+          <img src={icono} alt="" className="news-banner-icon" />
+        </div>
+      ) : null}
+      {titulo ? <h2>{titulo}</h2> : null}
       {subtitleText ? <p className="news-banner-subtitle">{subtitleText}</p> : null}
-      <button className="button-news  liquid-glass-effect" type="button">{textoBoton}</button></div>
+      {textoBoton ? (
+        to ? (
+          <Link className="button-news liquid-glass-effect" to={to}>{textoBoton}</Link>
+        ) : (
+          <button className="button-news liquid-glass-effect" type="button">{textoBoton}</button>
+        )
+      ) : null}
+    </div>
   </NewsBannerStyled>;
 }
 
 export default NewsBanner;
 
 const NewsBannerStyled = styled.section`
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+
 .news-banner-container{
 position: absolute;
 inset: 0;
@@ -131,6 +150,9 @@ justify-content: space-around;
 flex-direction: column;
 padding: 2.3rem 1.5rem;
 border-radius: inherit;
+background: rgba(37, 18, 78, 0.16);
+border: 1px solid rgba(255, 255, 255, 0.18);
+box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
 }
   position: relative;
   overflow: hidden;
@@ -157,18 +179,33 @@ border-radius: inherit;
     position: absolute;
     inset: 0;
     z-index: 0;
-    background-image:
-      linear-gradient(
-        180deg,
-        rgba(var(--news-banner-tone), 0.28),
-        rgba(var(--news-banner-tone), 0.14) 42%,
-        rgba(var(--news-banner-tone), 0.34) 100%
-      ),
-      var(--news-banner-bg);
-    background-size: cover;
-    background-position: center var(--banner-bg-y, 18%);
-    background-repeat: no-repeat;
+    overflow: hidden;
     will-change: background-position;
+  }
+
+  .news-banner-background-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center var(--banner-bg-y, 18%);
+    filter: saturate(0.96) contrast(1.02);
+  }
+
+  .news-banner-tone-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgba(var(--news-banner-tone), 0.28),
+      rgba(var(--news-banner-tone), 0.14) 42%,
+      rgba(var(--news-banner-tone), 0.34) 100%
+    );
   }
 
   .news-banner-icon-shell {

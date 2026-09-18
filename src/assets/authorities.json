@@ -1,0 +1,79 @@
+{
+    "directives": {
+        "rector": {
+            "name": "LIC. CARINA MORALES",
+            "title": "RECTORA",
+            "image": "rector.png"
+        },
+        "vicerrector": {
+            "name": "PROF. ANABEL COSTELLA",
+            "title": "VICERECTORA",
+            "image": "vicerrector.png"
+        },
+        "regente": {
+            "name": "PROF. GUSTAVO SANCHEZ",
+            "title": "REGENTE",
+            "image": "regente.png"
+        }
+    },
+    "council": {
+        "technical_formation_head": {
+            "name": "PROF. GUSTAVO SANCHEZ",
+            "title": "JEFE DE FORMACIÓN TÉCNICA"
+        },
+        "initial_formation_head": {
+            "name": "PROF. CECILIA RACHOCKI",
+            "title": "JEFA DE FORMACIÓN INICIAL"
+        },
+        "continuous_formation_head": {
+            "name": "PROF. NATALIA MERCADO",
+            "title": "JEFA DE FORMACIÓN CONTINUA"
+        },
+        "research_head": {
+            "name": "PROF. MAURICIO BICOCCA",
+            "title": "JEFE DE INVESTIGACIÓN"
+        }
+    },
+    "careers_coordinators": {
+        "networks_and_cybersecurity": {
+            "name": "PROF. MIGUEL GORRINDO",
+            "title": "TECNICATURA SUPERIOR EN REDES Y CIBERSEGURIDAD"
+        },
+        "software_development": {
+            "name": "PROF. MARTIN ARISTIARAN",
+            "title": "TECNICATURA SUPERIOR EN DESARROLLO DE SOFTWARE"
+        },
+        "agronomy": {
+            "name": "PROF. ROMANELA GIUSTI",
+            "title": "TECNICATURA SUPERIOR AGRONÓMICA"
+        },
+        "english": {
+            "name": "PROF . OLGA NEILA",
+            "title": "PROFESORADO DE INGLÉS"
+        },
+        "language_and_literature": {
+            "name": "PROF. VANESA SOSA",
+            "title": "PROFESORADO DE EDUCACIÓN SECUNDARIA EN LENGUA Y LITERATURA"
+        },
+        "music": {
+            "name": "PROF. CRISTIAN GOROSTIAGUE",
+            "title": "PROFESORADO DE MÚSICA"
+        },
+        "visual_arts": {
+            "name": "PROF. ANDREA MAZZINI",
+            "title": "PROFESORADO DE ARTES VISUALES"
+        },
+        "primary_education": {
+            "name": "PROF. KARINA DASCALAKY",
+            "title": "PROFESORADO DE EDUCACIÓN PRIMARIA"
+        },
+        "initial_education": {
+            "name": "PROF. JIMENA MOLINA",
+            "title": "PROFESORADO DE EDUCACIÓN INICIAL"
+        },
+        "human_resources_management": {
+            "name": "PROF. JANET SCAREL",
+            "title": "TECNICATURA SUPERIOR EN GESTIÓN DE RECURSOS HUMANOS"
+        }
+    }
+}

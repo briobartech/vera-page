@@ -60,7 +60,7 @@ function VirtualAccess() {
             >
                 <span className="button-content">
                     <FontAwesomeIcon icon={icons.faLaptop} />
-                    <span>Acceso virtual</span>
+                    <span className="label">Acceso al campus virtual</span>
                 </span>
             </button>
 
@@ -68,7 +68,7 @@ function VirtualAccess() {
             <button
                 className={`virtual-access-float ${
                     isFloating ? 'is-floating' : ''
-                } liquid-glass-effect`}
+                } liquid-glass`}
                 type="button"
             >
                 <span className="button-content">
@@ -78,7 +78,7 @@ function VirtualAccess() {
                     />
 
                     <span className="float-label">
-                        Acceso virtual
+                        Acceso al campus virtual
                     </span>
                 </span>
             </button>
@@ -91,7 +91,7 @@ export default VirtualAccess;
 const VirtualAccessStyled = styled.section`
     position: absolute;
     top: 15px;
-    right: 2%;
+    right: 5%;
     z-index: 100;
 
     /* =========================================
@@ -370,8 +370,12 @@ const VirtualAccessStyled = styled.section`
        MOBILE
     ========================================= */
     @media (max-width: 1600px) {
+        /* Se alinea con el botón hamburguesa para que queden en la misma línea vertical */
+        right: 1.9rem;
+
         /* Se ubica arriba del botón hamburguesa flotante para que no se superpongan */
         .virtual-access-float {
+            right: 1rem;
             bottom: 4.75rem;
         }
     }
@@ -381,6 +385,24 @@ const VirtualAccessStyled = styled.section`
         .virtual-access-float {
             right: 0.75rem;
             bottom: 4.5rem;
+        }
+
+        /* En móvil (no tablet) el botón superior termina mostrando solo el ícono */
+        .virtual-access .label {
+            display: block;
+            max-width: 200px;
+            overflow: hidden;
+            white-space: nowrap;
+            opacity: 1;
+            transition: max-width 0.5s ease, opacity 0.3s ease;
+            animation: collapseText 0.5s ease forwards 1.2s;
+        }
+
+        .virtual-access:hover .label,
+        .virtual-access:focus-visible .label {
+            max-width: 200px;
+            opacity: 1;
+            animation: none;
         }
     }
 }

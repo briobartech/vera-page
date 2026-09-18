@@ -18,14 +18,15 @@ function Home() {
     const { theme } = useAppContext();
 
     return (
-        <HomeStyled className={`app ${theme}`}>
+        <HomeStyled >
             <VirtualAccess/>
             <NavBar />
             <Banner
                 titulo="Instituto de Educación Superior Rosario Vera Peñaloza"
                 subtitulo="Comprometidos con la educación y el desarrollo profesional en nuestra comunidad"
-                textoBoton="Conocer las ofertas académicas"
+                textoBoton="Conocé nuestra oferta"
                 imagenFondoPath={newsBannerBackground}
+                to="/oferta-educativa/general"
             />
             <HomeCardSection />
             <CareersSection />
@@ -48,6 +49,8 @@ function Home() {
                 subtitulo="Espacio Interdisciplinario de Acompañamiento a las Trayectorias Estudiantiles"
                 imagenFondoPath="trama.jpg"
                 textoBoton="Quiero mas información"
+                to="/TRAMA"
+                
             />
             <Footer />
         </HomeStyled>
@@ -60,6 +63,11 @@ const HomeStyled = styled.div`
   width: min(80%, 1440px);
   margin: 0 auto;
   box-sizing: border-box;
+
+  @media (max-width: 1600px) {
+    /* Contiene el botón de acceso virtual para que se alinee con el botón hamburguesa */
+    position: relative;
+  }
 
   @media (max-width: 900px) {
     width: min(100%, 1440px);

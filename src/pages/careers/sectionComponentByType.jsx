@@ -103,7 +103,7 @@ function InfoCardsSection({ section }) {
               aria-selected={index === activeIndex}
             >
               <FontAwesomeIcon icon={infoCardIconByName[card?.icon] ?? faInfoCircle} />
-              {index === activeIndex ? <span>{card?.title ?? '-'}</span> : null}
+              <span className="info-selector-label">{card?.title ?? '-'}</span>
             </button>
           ))}
         </div>
@@ -804,6 +804,7 @@ const SectionStyled = styled.div`
       width: 48px;
       height: 48px;
       padding: 0;
+      overflow: hidden;
       border: 1px solid transparent;
       border-radius: 999px;
       background: transparent;
@@ -814,7 +815,11 @@ const SectionStyled = styled.div`
       color: var(--color-institutional-purple);
       cursor: pointer;
       white-space: nowrap;
-      transition: color 180ms ease;
+      transition:
+        color 180ms ease,
+        width 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+        flex-basis 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+        padding 0.42s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .info-selector-pill svg {
@@ -834,12 +839,25 @@ const SectionStyled = styled.div`
       min-width: 0;
     }
 
+    .info-selector-label {
+      max-width: 0;
+      opacity: 0;
+      transition:
+        max-width 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.2s ease;
+    }
+
     .info-selector-pill[aria-selected='true'] {
       width: clamp(120px, 42vw, 200px);
       flex: 0 0 clamp(120px, 42vw, 200px);
       min-width: 0;
       padding: 0 1rem;
       color: var(--color-institutional-purple);
+    }
+
+    .info-selector-pill[aria-selected='true'] .info-selector-label {
+      max-width: 160px;
+      opacity: 1;
     }
 
     .cards-grid {
