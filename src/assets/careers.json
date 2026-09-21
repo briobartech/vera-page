@@ -5,6 +5,7 @@
             "resolution": "056-DGE-2025.",
             "description": "Formate en el Profesorado de Artes Visuales para ejercer la docencia en el área de las artes visuales, con validez nacional.",
             "image": "../assets/img/banner/careers/PAV.png",
+            "state": true,
             "sections": [
                 {
                     "type": "banner",
@@ -143,16 +144,17 @@
             ]
         },
         "PEI": {
-            "title": "Profesora de Educación Inicial",
+            "title": "Profesorado de Educación Inicial",
             "resolution": "6867-DGE-2023.",
             "description": "Profesorado de Educación Inicial, con validez nacional, que forma profesionales docentes para desempeñarse en el nivel inicial de la educación, brindando conocimientos y habilidades pedagógicas y didácticas para trabajar con niños y niñas en sus primeros años de vida.",
             "image": "https://example.com/images/eduacion-inicial.jpg",
+            "state": false,
             "sections": [
                 {
                     "type": "banner",
                     "content": [
                         {
-                            "title": "Profesora de Educación Inicial",
+                            "title": "Profesorado de Educación Inicial",
                             "subtitle": "Formación docente para el nivel inicial",
                             "buttonText": "Inscribite ahora",
                             "image": "PEI.png"
@@ -174,7 +176,7 @@
                             "horario": "Presencial",
                             "content": {
                                 "days": "Lunes a viernes",
-                                "time": "desde las 18:30 hs" 
+                                "time": "desde las 8:00 hs." 
                                 
                             }
                         },
@@ -183,7 +185,7 @@
                             "title": "Título",
                             "description": "con validez nacional",
                             "content": {
-                                "name": "Profesor de Eduación Inicial"
+                                "name": "Profesor de Educación Inicial"
                             }
                         },
                         {
@@ -191,7 +193,7 @@
                             "title": "Coordinación",
                             "description": "Prof. Jimena Molina.",
                             "content": {
-                                "email": "mjmena_molina@elvera9010.edu.ar"
+                                "email": "mjimena_molina@elvera9010.edu.ar"
                             }
                         }
                     ]
@@ -288,15 +290,16 @@
         "PEP": {
             "title": "Profesorado de Educación Primaria",
             "resolution": "7969-DGE-2023.",
-            "description": "Formate en el Profesorad de Eduación Primaria para ejercer la docencia en el nivel primario, con validez nacional, brindando conocimientos y habilidades pedagógicas y didácticas para trabajar con niños y niñas en la etapa de la educación primaria.",
+            "description": "Formate en el Profesorad de Educación Primaria para ejercer la docencia en el nivel primario, con validez nacional, brindando conocimientos y habilidades pedagógicas y didácticas para trabajar con niños y niñas en la etapa de la educación primaria.",
             "image": "https://example.com/images/educacion-primaria.jpg",
+            "state": false,
             "sections": [
                 {
                     "type": "banner",
                     "content": [
                         {
                             "title": "Profesorado de Educación Primaria",
-                            "subtitle": "Formate en el Profesorad de Eduación Primaria para trabajar con niños y niñas en la etapa de la educación primaria.",
+                            "subtitle": "Formate en el Profesorad de Educación Primaria para trabajar con niños y niñas en la etapa de la educación primaria.",
                             "buttonText": "Inscribite ahora",
                             "image": "PEP.png"
                         }
@@ -325,7 +328,7 @@
                             "title": "Título",
                             "description": "con validez nacional",
                             "content": {
-                                "name": "Profesor de Eduación Primaria"
+                                "name": "Profesor de Educación Primaria"
                             }
                         },
                         {
@@ -434,6 +437,7 @@
             "resolution": "6871-DGE-2023.",
             "description": "El Profesorado de Inglés forma docentes capacitados para la enseñanza del idioma inglés en diversos niveles educativos, con un enfoque en la práctica pedagógica y el desarrollo de competencias lingüísticas.",
             "image": "https://example.com/images/ingles.jpg",
+            "state": false,
             "sections": [
                 {
                     "type": "banner",
@@ -577,6 +581,7 @@
             "resolution": "6869-DGE-2023.",
             "description": "El Profesorado de Educación Secundaria en Lengua y Literatura forma profesionales capaces de enseñar lengua y literatura en el nivel secundario, desarrollando competencias pedagógicas y literarias.",
             "image": "https://example.com/images/educacion-secundaria.jpg",
+            "state": false,
             "sections": [
                 {
                     "type": "banner",
@@ -720,6 +725,7 @@
             "resolution": "2026-45-E-GDEMZA-DGE.",
             "description": "El Profesorado de Música forma profesionales capaces de desempeñarse en la enseñanza musical en diversos contextos educativos, desarrollando competencias pedagógicas y artísticas.",
             "image": "https://example.com/images/musica.jpg",
+            "state": false,
             "sections": [
                 {
                     "type": "banner",
@@ -865,6 +871,7 @@
             "resolution": "2026-329-E-GDEMZA-DGE.",
             "description": "La Tecnicatura Superior en Agronomía es una carrera de nivel superior que te brinda los conocimientos y habilidades necesarios para gestionar cultivos y recursos agrícolas de manera eficiente. A lo largo de la carrera, aprenderás sobre agronomía, gestión de cultivos, protección de plantas y sostenibilidad agrícola.",
             "image": "https://example.com/images/agronomia.jpg",
+            "state": false,
             "sections": [
                 {
                     "type": "banner",
@@ -994,6 +1001,7 @@
             "resolution": "6076-DGE-2024.",
             "description": "La Tecnicatura Superior en Redes y Ciberseguridad es una carrera de nivel superior que te brinda los conocimientos y habilidades necesarios para gestionar redes y proteger la información en entornos digitales. A lo largo de la carrera, aprenderás sobre administración de redes, seguridad informática, ciberseguridad y gestión de sistemas.",
             "image": "https://example.com/images/ciberseguridad.jpg",
+            "state": false,
             "sections": [
                 {
                     "type": "banner",
@@ -1131,6 +1139,7 @@
             "resolution": "6787-DGE-2025.",
             "description": "La Tecnicatura Superior en Gestión de Recursos Humanos es una carrera de nivel superior que te brinda los conocimientos y habilidades necesarios para gestionar el capital humano en organizaciones. A lo largo de la carrera, aprenderás sobre administración de personal, legislación laboral, desarrollo organizacional y gestión del talento.",
             "image": "https://example.com/images/rrhh.jpg",
+            "state": false,
             "sections": [
                 {
                     "type": "banner",
@@ -1268,6 +1277,7 @@
             "resolution": "6079-DGE-2024",
             "description": "La Tecnicatura en Software es una carrera de nivel superior que te brinda los conocimientos y habilidades necesarios para desarrollar aplicaciones, sistemas y soluciones digitales. A lo largo de la carrera, aprenderás a programar, diseñar interfaces de usuario, gestionar bases de datos y trabajar en equipo para crear productos tecnológicos innovadores.",
             "image": "https://example.com/images/software.jpg",
+            "state": false,
             "sections": [
                 {
                     "type": "banner",
@@ -1292,7 +1302,7 @@
                             "icon": "sand-clock",
                             "title": "Turno",
                             "description": "Vespertino",
-                            "horario": "Presencial",
+                            "horario": "Presencial y a distancia",
                             "content": {
                                 "days": "Lunes a viernes",
                                 "time": "desde las 18:30 hs."

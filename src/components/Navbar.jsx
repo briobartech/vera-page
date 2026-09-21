@@ -274,6 +274,7 @@ const NavBarStyled = styled.nav`
 
   display: flex;
   margin-top: ${({ $flushTop }) => ($flushTop ? 0 : '2rem')};
+  margin-bottom: 2rem;
   align-items: center;
   gap: 1.25rem;
 
@@ -444,8 +445,8 @@ const NavBarStyled = styled.nav`
       0 20px 40px rgba(var(--glass-shadow-rgb), 0.14),
       inset 0 1px 0 rgba(255, 255, 255, 0.9),
       inset 0 -1px 0 rgba(107, 76, 163, 0.16);
-    backdrop-filter: blur(20px) saturate(150%);
-    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     display: none;
     z-index: 20;
   }
@@ -514,10 +515,10 @@ const NavBarStyled = styled.nav`
     background:
       radial-gradient(125% 145% at 14% 0%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0) 48%),
       radial-gradient(110% 140% at 90% 100%, rgba(169, 141, 224, 0.32) 0%, rgba(169, 141, 224, 0) 66%),
-      rgba(245, 242, 255, 0.7);
+      rgba(245, 242, 255, 0.96);
     box-shadow: 0 20px 40px rgba(var(--glass-shadow-rgb), 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(20px) saturate(150%);
-    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     z-index: 21;
   }
 

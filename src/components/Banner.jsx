@@ -9,13 +9,14 @@ function Banner({
     textoBoton2,
     to2,
     spanTexto,
+    botonDeshabilitado = false,
     imagenFondoPath = '',
 }) {
     const isVideoBackground = /\.(mp4|webm|ogg)(\?.*)?$/i.test(imagenFondoPath);
     const backgroundImage = !isVideoBackground && imagenFondoPath ? imagenFondoPath : bannerImage;
 
-    const handleRedirect = (target) => {
-        if (target) {
+    const handleRedirect = (target, isDisabled = false) => {
+        if (target && !isDisabled) {
             window.location.href = target;
         }
     };
@@ -57,7 +58,8 @@ function Banner({
                             {textoBoton ? (
                                 <button
                                     className="banner-button banner-button-primary liquid-glass"
-                                    onClick={() => handleRedirect(to)}
+                                    onClick={() => handleRedirect(to, botonDeshabilitado)}
+                                    disabled={botonDeshabilitado}
                                 >
                                     {textoBoton}
                                 </button>
@@ -261,6 +263,19 @@ const BannerStyled = styled.section`
     .banner-button:focus-visible {
         transform: translateY(-2px);
         filter: saturate(1.12) brightness(1.06);
+    }
+
+    .banner-button:disabled {
+        opacity: 0.52;
+        cursor: not-allowed;
+        filter: grayscale(0.35);
+        box-shadow: none;
+    }
+
+    .banner-button:disabled:hover,
+    .banner-button:disabled:focus-visible {
+        transform: none;
+        filter: grayscale(0.35);
     }
 
     

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesDown } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import icons from '../data/icons.js';
 
 function OnlineProceduresCard({
@@ -8,7 +9,14 @@ function OnlineProceduresCard({
   period = '2024 / 2025',
   buttonLabel = 'VER Y DESCARGAR',
   icon = icons.faCalendarDays,
+  to = '#',
 }) {
+  const isExternalUrl = /^https?:\/\//i.test(to);
+  const actionProps = {
+    className: 'action-button liquid-glass-effect',
+    'aria-label': buttonLabel,
+  };
+
   return (
     <OnlineProceduresCardStyled>
       <div className="card-shell liquid-glass-effect">
@@ -24,10 +32,17 @@ function OnlineProceduresCard({
             <p>{period}</p>
           </div>
 
-          <button type="button" className="action-button liquid-glass-effect" aria-label={buttonLabel}>
-            <span className="action-icon"><FontAwesomeIcon icon={faAnglesDown} /></span>
-            <span className="action-text">{buttonLabel}</span>
-          </button>
+          {isExternalUrl ? (
+            <a {...actionProps} href={to} target="_blank" rel="noopener noreferrer">
+              <span className="action-icon"><FontAwesomeIcon icon={faAnglesDown} /></span>
+              <span className="action-text">{buttonLabel}</span>
+            </a>
+          ) : (
+            <Link {...actionProps} to={to}>
+              <span className="action-icon"><FontAwesomeIcon icon={faAnglesDown} /></span>
+              <span className="action-text">{buttonLabel}</span>
+            </Link>
+          )}
         </div>
       </div>
     </OnlineProceduresCardStyled>

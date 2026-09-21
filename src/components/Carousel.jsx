@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
@@ -23,6 +23,7 @@ const slides = [
 
 const Carousel = () => {
         const [activeIndex, setActiveIndex] = useState(0);
+        const [isPaused, setIsPaused] = useState(false);
 
         const goPrev = () => {
                 setActiveIndex((prev) => (prev - 1 + slides.length) % slides.length);
@@ -32,14 +33,24 @@ const Carousel = () => {
                 setActiveIndex((prev) => (prev + 1) % slides.length);
         };
 
+        useEffect(() => {
+                if (isPaused || slides.length < 2) return undefined;
+                const timer = setInterval(goNext, 6000);
+                return () => clearInterval(timer);
+        }, [isPaused, activeIndex]);
+
         const activeSlide = slides[activeIndex];
 
         return (
-                <CarouselStyled style={{ '--carousel-bg': `url(${activeSlide.image})` }}>
+                <CarouselStyled
+                        style={{ '--carousel-bg': `url(${activeSlide.image})` }}
+                        onMouseEnter={() => setIsPaused(true)}
+                        onMouseLeave={() => setIsPaused(false)}
+                >
                 <div className="carousel-shell">
                     <button
                         type="button"
-                        className="carousel-nav nav-prev"
+                        className="carousel-nav nav-prev liquid-glass-effect"
                         onClick={goPrev}
                         aria-label="Imagen anterior"
                     >
@@ -48,7 +59,7 @@ const Carousel = () => {
 
                     <button
                         type="button"
-                        className="carousel-nav nav-next"
+                        className="carousel-nav nav-next liquid-glass-effect"
                         onClick={goNext}
                         aria-label="Siguiente imagen"
                     >
@@ -60,7 +71,7 @@ const Carousel = () => {
                             <button
                                 key={slide.id}
                                 type="button"
-                                className={`dot ${index === activeIndex ? 'is-active' : ''}`}
+                                className={`dot liquid-glass-effect ${index === activeIndex ? 'is-active' : ''}`}
                                 onClick={() => setActiveIndex(index)}
                                 aria-label={`Ver imagen ${index + 1}`}
                                 aria-current={index === activeIndex ? 'true' : 'false'}
@@ -161,41 +172,18 @@ const CarouselStyled = styled.section`
         width: 48px;
         height: 48px;
         isolation: isolate;
-        border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.64);
-        background:
-            radial-gradient(130% 180% at 50% 36%, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.16) 50%, rgba(255, 255, 255, 0.1) 100%),
-            linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.14));
+        border-radius: 999px !important;
         color: var(--color-white);
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        backdrop-filter: blur(8px) saturate(125%);
-        box-shadow:
-            0 14px 26px rgba(var(--glass-shadow-rgb), 0.16),
-            inset 0 1px 0 rgba(255, 255, 255, 0.65),
-            inset 0 -1px 0 rgba(255, 255, 255, 0.2);
-        transition: transform 0.18s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-
-    .carousel-nav::before {
-        content: '';
-        position: absolute;
-        inset: 1px;
-        border-radius: inherit;
-        pointer-events: none;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.36) 0%, rgba(255, 255, 255, 0) 58%);
-        z-index: -1;
+        transition: transform 0.18s ease, box-shadow 0.2s ease;
     }
 
     .carousel-nav:hover,
     .carousel-nav:focus-visible {
-        transform: translateY(-50%) scale(1.04);
-        box-shadow:
-            0 18px 30px rgba(var(--glass-shadow-rgb), 0.2),
-            inset 0 1px 0 rgba(255, 255, 255, 0.72),
-            inset 0 -1px 0 rgba(255, 255, 255, 0.24);
+        transform: translateY(-50%) scale(1.06);
     }
 
     .carousel-nav svg {
@@ -224,24 +212,13 @@ const CarouselStyled = styled.section`
     .dot {
         width: 10px;
         height: 10px;
-        border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 999px !important;
         cursor: pointer;
-        background: rgba(255, 255, 255, 0.28);
-        backdrop-filter: blur(4px) saturate(120%);
-        box-shadow:
-            0 3px 8px rgba(16, 10, 31, 0.22),
-            inset 0 1px 1px rgba(255, 255, 255, 0.55);
+        transition: width 0.22s ease;
     }
 
     .dot.is-active {
         width: 28px;
-        border-color: rgba(255, 255, 255, 0.82);
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.8));
-        box-shadow:
-            0 0 12px rgba(255, 255, 255, 0.5),
-            0 3px 10px rgba(16, 10, 31, 0.26),
-            inset 0 1px 1px rgba(255, 255, 255, 0.95);
     }
 
     @media (max-width: 860px) {

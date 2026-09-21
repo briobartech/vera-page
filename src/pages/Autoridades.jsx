@@ -88,13 +88,13 @@ function Autoridades() {
                 <div className="academic-council liquid-glass-effect">
                     <h1 className="section-title title-1">Consejo Académico</h1>
                     {Object.values(authorities.council).map(({ title, name }) => (
-                        <div key={title}><p>{title}</p> <b className="administrator-title">{name}</b></div>
+                        <div className='section-info-text' key={title}><p>{title}</p> <b className="administrator-title">{name}</b></div>
                     ))}
                 </div>
                 <div className="careers-coordinator liquid-glass-effect">
                     <h1 className="section-title title-1">Coordinadores de Carreras</h1>
                     {Object.values(authorities.careers_coordinators).map(({ title, name }) => (
-                        <div key={title} > <p>{title}</p> <b className="administrator-title">{name}</b></div>
+                        <div className='section-info-text' key={title} > <p>{title}</p> <b className="administrator-title">{name}</b></div>
                     ))}
                 </div>
             </section>
@@ -113,6 +113,9 @@ const AutoridadesStyle = styled.div`
     flex-direction: column;
     align-items: center;
 
+    .section-info-text p{
+        line-height: 1.5;
+    }
     .administrators-section{
     display: flex;
     align-items: center;
@@ -201,12 +204,13 @@ const AutoridadesStyle = styled.div`
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: space-between;
         text-decoration: none;
         color: inherit;
         padding: 1rem;
         border-radius: 2rem;
         transition: all 0.3s ease;
-        margin: 1rem;
+        margin: 0;
     }
     @media (hover: hover) and (pointer: fine) {
         .administrator-link:hover{

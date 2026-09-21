@@ -2,11 +2,14 @@ import { useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
+import Admin from './pages/Admin';
 import News from './pages/News';
+import NewsDetail from './pages/NewsDetail';
 import OfertaEducativa from './pages/OfertaEducativa';
 import Autoridades from './pages/Autoridades';
 import OfertaEducativaGeneral from './pages/OfertaEducativaGeneral';
 import OnlineProcedures from './pages/OnlineProcedures';
+import BecasVera from './pages/BecasVera';
 import History from './pages/History';
 import FormacionContinua from './pages/FormacionContinua';
 import Trama from './pages/Trama';
@@ -48,6 +51,7 @@ function App() {
       <ScrollToTop />
       <ErrorBoundary>
         <Routes>
+          <Route path="/admin" element={<Admin />} />
           <Route path="/" element={<Home />} />
           <Route path="/tramites-online" element={<OnlineProcedures />} />
           <Route path="/oferta-educativa" element={<OfertaEducativa />} />
@@ -60,6 +64,8 @@ function App() {
           <Route path="/oferta-educativa/:careerCode" element={<OfertaEducativa />} />
           <Route path="/formacion-continua" element={<FormacionContinua />} />
           <Route path="/novedades" element={<News />} />
+          <Route path="/novedades/:newsId" element={<NewsDetail />} />
+          <Route path="/becas-vera" element={<BecasVera />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </ErrorBoundary>

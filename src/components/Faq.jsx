@@ -2,6 +2,9 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faQuestion } from '@fortawesome/free-solid-svg-icons';
+import ContactFormModal from './ContactFormModal';
+
+const generalContactSubject = '[Consulta desde la web]';
 
 export const faqData = {
     title: 'Preguntas frecuentes',
@@ -10,6 +13,8 @@ export const faqData = {
         label: '¿No encontrás la respuesta?',
         action: 'Contactanos',
         href: '/contacto',
+        subject: generalContactSubject,
+        informationSubject: generalContactSubject,
     },
     questions: [
         { question: '¿El instituto es gratuito?', answer: 'Sí. El instituto es público y la formación es gratuita.' },
@@ -21,6 +26,7 @@ export const faqData = {
 
 function Faq({ data = faqData }) {
     const [openQuestion, setOpenQuestion] = useState(null);
+    const [contactModalSubject, setContactModalSubject] = useState(null);
     const { title, subtitle, contact, questions = [] } = data;
 
     const toggleQuestion = (index) => {
@@ -37,13 +43,19 @@ function Faq({ data = faqData }) {
                         <p>{subtitle}</p>
                     </div>
                 </div>
-                {contact && (
-                    <a className="faq-contact" href={contact.href || '#'}>
-                        <span>{contact.label}</span>
-                        <strong>{contact.action}</strong>
-                        <FontAwesomeIcon icon={faArrowRight} aria-hidden="true" />
-                    </a>
-                )}
+                {/* {contact && (
+                    <div className="faq-contact-group">
+                        <button
+                            type="button"
+                            className="faq-contact"
+                            onClick={() => setContactModalSubject(contact?.subject || generalContactSubject)}
+                        >
+                            <span>{contact.label}</span>
+                            <strong>{contact.action}</strong>
+                            <FontAwesomeIcon icon={faArrowRight} aria-hidden="true" />
+                        </button>
+                    </div>
+                )} */}
             </div>
 
             <div className="faq-list">
@@ -65,6 +77,20 @@ function Faq({ data = faqData }) {
                     );
                 })}
             </div>
+
+            {contact && (
+                <button
+                    type="button"
+                    className="faq-contact-fallback liquid-glass-effect"
+                    onClick={() => setContactModalSubject(contact?.informationSubject || generalContactSubject)}
+                >
+                    QUIERO RECIBIR MÁS INFORMACIÓN
+                </button>
+            )}
+
+            {contactModalSubject && (
+                <ContactFormModal subject={contactModalSubject} onClose={() => setContactModalSubject(null)} />
+            )}
         </FaqStyled>
     );
 }
@@ -121,19 +147,56 @@ const FaqStyled = styled.section`
         line-height: 1.25;
     }
 
+    .faq-contact-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.3rem;
+        padding-top: 0.55rem;
+    }
+
     .faq-contact {
         display: flex;
         align-items: center;
         gap: 0.85rem;
-        padding-top: 0.55rem;
+        border: 0;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
         color: var(--color-institutional-purple);
         font-family: var(--font-body);
         font-size: 0.78rem;
+        cursor: pointer;
         white-space: nowrap;
     }
 
     .faq-contact strong { font-weight: 700; }
     .faq-contact svg { font-size: 0.95rem; }
+
+    .faq-contact:hover,
+    .faq-contact:focus-visible { color: var(--color-dark-purple); }
+
+    .faq-contact-fallback {
+        display: block;
+        width: 320px;
+        height: 48px;
+        margin: 0.85rem auto;
+        border: 1px solid rgba(127, 70, 219, 0.1);
+        border-radius: 999px;
+        padding: 0.45rem 0.8rem;
+        background: rgba(127, 70, 219, 0.1);
+        color: var(--color-institutional-purple);
+        font-family: var(--font-body);
+        font-size: 0.72rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 180ms ease, transform 180ms ease;
+    }
+
+    .faq-contact-fallback:hover,
+    .faq-contact-fallback:focus-visible {
+        background: rgba(127, 70, 219, 0.2);
+    }
 
     .faq-list {
         display: grid;
@@ -196,11 +259,13 @@ const FaqStyled = styled.section`
 
     @media (max-width: 700px) {
         .faq-header { flex-direction: column; gap: 0.7rem; }
-        .faq-contact { align-self: flex-end; padding-top: 0; }
+        .faq-contact-group { align-self: flex-end; padding-top: 0; }
         .faq-list { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 420px) {
-        .faq-contact { align-self: flex-start; flex-wrap: wrap; gap: 0.5rem; }
+        .faq-contact-group { align-self: flex-start; align-items: flex-start; }
+        .faq-contact { flex-wrap: wrap; gap: 0.5rem; }
+        .faq-contact-fallback { margin-left: 0; }
     }
 `;

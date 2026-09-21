@@ -146,8 +146,10 @@ select:focus:not(:focus-visible) {
 		inset 0 1px 0 rgba(255, 255, 255, 0.62),
 		inset 0 -1px 0 rgba(255, 255, 255, 0.08),
 		0 12px 30px rgba(59, 31, 102, 0.1);
-	backdrop-filter: blur(18px) saturate(110%);
-	-webkit-backdrop-filter: blur(18px) saturate(110%);
+	backdrop-filter: blur(18px) saturate(125%);
+	-webkit-backdrop-filter: blur(18px) saturate(125%);
+	/* backdrop-filter: url(#liquid-glass-frosted);
+	-webkit-backdrop-filter: url(#liquid-glass-frosted); */
 }
 
 .liquid-glass::before {
@@ -187,8 +189,8 @@ select:focus:not(:focus-visible) {
 		0 var(--liquid-glass-shadow-y, 16px) var(--liquid-glass-shadow-blur, 32px) var(--liquid-glass-shadow-color, rgba(0, 0, 0, 0.12)),
 		inset 0 1px 0 rgba(255, 255, 255, 0.82),
 		inset 0 -1px 0 rgba(91, 46, 166, 0.18);
-	backdrop-filter: url(#liquid-glass-frosted);
-	-webkit-backdrop-filter: url(#liquid-glass-frosted);
+	/* backdrop-filter: url(#liquid-glass-frosted);
+	-webkit-backdrop-filter: url(#liquid-glass-frosted); */
 }
 
 .liquid-glass-effect::before {

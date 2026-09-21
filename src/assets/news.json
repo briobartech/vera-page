@@ -1,0 +1,48 @@
+{
+    "news": {
+        "00001": {
+            "categoria": "Novedades",
+            "date": "2026-09-21",
+            "author": "Barquesi Brian",
+            "rol": "Técnico",
+            "tags": [
+                "web",
+                "estreno",
+                "lanzamiento"
+            ],
+            "visible": true,
+            "title": "Lanzamiento de la página del Vera",
+            "subtitle": "El gran esperado lanzamiento de la nueva plataforma del Rosario Vera Peñaloza",
+            "thumbnail": null,
+            "content": {
+                "blocks": [
+                    {
+                        "type": "heading",
+                        "text": "Lanzamiento de la página del Vera",
+                        "image": null,
+                        "alt": null,
+                        "caption": null,
+                        "items": [],
+                        "url": null,
+                        "title": null,
+                        "description": null,
+                        "source": null
+                    },
+                    {
+                        "type": "text_image",
+                        "text": "Lorem ipsum dolor sit amet consectetur adipiscing elit fusce mus lectus inceptos, erat cursus porttitor urna vulputate habitant nunc venenatis eget semper. At est nulla placerat congue mattis dictum maecenas, pharetra proin vivamus nullam nec malesuada nisl, viverra lectus felis volutpat vulputate sed. Natoque scelerisque enim cras nibh fermentum mattis vitae velit ut, mauris purus orci suscipit quis massa tristique posuere, parturient blandit sapien bibendum libero praesent vel phasellus.\n\nMontes hendrerit ultricies sapien elementum tortor ornare pretium aptent tristique sodales blandit dapibus vel, praesent curae eros vestibulum potenti magna faucibus urna libero quisque nunc. Torquent conubia viverra iaculis eget penatibus lacinia blandit hac risus morbi hendrerit, primis class in euismod magnis malesuada fames habitasse netus odio dapibus, phasellus scelerisque imperdiet nec pharetra nascetur ligula neque vestibulum rhoncus. Conubia ullamcorper sociosqu venenatis gravida tincidunt faucibus velit bibendum, aenean ridiculus quis fames eros diam arcu rhoncus class, et integer varius molestie pharetra vitae penatibus.",
+                        "image": "https://res.cloudinary.com/xfkckwqx/image/upload/v1789955500/vera/news/file_iqrk9g.png",
+                        "alt": "",
+                        "caption": null,
+                        "items": [],
+                        "url": null,
+                        "title": null,
+                        "description": null,
+                        "source": null
+                    }
+                ]
+            },
+            "link": ""
+        }
+    }
+}

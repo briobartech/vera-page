@@ -132,6 +132,7 @@ function Ingreso() {
                 materials={admissionMaterials}
             />
             <CareersSection />
+             <Faq />
             <NewsBanner
                 icono={icons.personPlusIcon}
                 titulo="¿Querés estudiar y tenés más de 25 años?​"
@@ -139,7 +140,7 @@ function Ingreso() {
                 imagenFondoPath={`${import.meta.env.BASE_URL}images/old-man-studying.jpeg`}
                 textoBoton="Quiero más información"
             />
-            <Faq />
+           
             <Footer />
         </IngresoStyled>
     );

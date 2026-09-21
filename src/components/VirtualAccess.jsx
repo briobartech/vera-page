@@ -6,6 +6,11 @@ import icons from '../data/icons.js';
 function VirtualAccess() {
     const accessRef = useRef(null);
     const [isFloating, setIsFloating] = useState(false);
+    const campusUrl = 'https://ies9010-infd.mendoza.edu.ar/aula/acceso.cgi';
+
+    const handleCampusAccess = () => {
+        window.open(campusUrl, '_blank', 'noopener,noreferrer');
+    };
 
     useEffect(() => {
         let frameId;
@@ -57,6 +62,7 @@ function VirtualAccess() {
                     isFloating ? 'is-hidden' : ''
                 } liquid-glass-effect`}
                 type="button"
+                onClick={handleCampusAccess}
             >
                 <span className="button-content">
                     <FontAwesomeIcon icon={icons.faLaptop} />
@@ -70,6 +76,7 @@ function VirtualAccess() {
                     isFloating ? 'is-floating' : ''
                 } liquid-glass`}
                 type="button"
+                onClick={handleCampusAccess}
             >
                 <span className="button-content">
                     <FontAwesomeIcon
@@ -228,8 +235,28 @@ const VirtualAccessStyled = styled.section`
 
     transition:
         opacity 0.4s ease,
-        transform 0.4s ease;
+        transform 0.4s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
 }
+
+    .virtual-access:hover,
+    .virtual-access:focus-visible,
+    .virtual-access-float:hover,
+    .virtual-access-float:focus-visible {
+        background: var(--color-white);
+        border: 1px solid rgba(255, 255, 255, 0.98);
+        box-shadow:
+            0 5px 12px rgba(var(--glass-shadow-rgb), 0.2),
+            0 0 0 3px rgba(195, 173, 236, 0.22),
+            inset 0 1px 0 rgba(255, 255, 255, 0.95);
+        transform: translateY(-2px);
+    }
+
+    .virtual-access-float:hover,
+    .virtual-access-float:focus-visible {
+        transform: translateY(-2px) scale(1);
+    }
 
     .virtual-access.is-hidden {
         opacity: 0;
@@ -276,7 +303,9 @@ const VirtualAccessStyled = styled.section`
     transition:
         opacity 0.6s ease,
         transform 0.6s ease,
-        visibility 0s linear 0.6s;
+        visibility 0s linear 0.6s,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
     /* =========================================

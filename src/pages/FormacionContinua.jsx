@@ -4,12 +4,18 @@ import Navbar from "../components/Navbar";
 import VirtualAccess from "../components/VirtualAccess";
 import Title from "../components/Title";
 import Footer from "../components/Footer";
+import Banner from "../components/Banner";
 function FormacionContinua() {
     return (
         <FormacionContinuaStyled>
             <VirtualAccess />
             <Navbar />
-            <Title children="Formación Continua" />
+            
+            <Banner 
+                titulo="Formación Continua"
+                subtitulo="Mantente actualizado con nuestros cursos y postítulos"
+                imagenFondoPath={`${import.meta.env.BASE_URL}images/formacion-continua.png`}
+            />
             <Footer />
         </FormacionContinuaStyled>
     );

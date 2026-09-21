@@ -17,12 +17,28 @@ function OnlineProcedures() {
             title: 'Planificaciones',
             description: '2026 / 2027',
             buttonLabel: 'Ver y descargar',
+            to: 'https://sites.google.com/mendoza.edu.ar/sitiodeestudiantes2024-ies9-01/p%C3%A1gina-principal',
         },
         {
           icon: icons.faLaptop,
             title: 'Sistema digital',
             description: 'de gestión académica de la DES',
             buttonLabel: 'Acceder',
+            to: 'https://dti.mendoza.edu.ar/superior/'
+        },
+        {
+          icon: icons.faFile,
+            title: 'Certificado',
+            description: 'de Vías y medios de transporte',
+            buttonLabel: 'Pedir',
+            to: 'https://docs.google.com/forms/d/e/1FAIpQLSfP0qyy0Apg8AQujmx1mAgMLQXAg8DLNlMaQUN92yTs2LCtIw/viewform',
+        },
+        {
+          icon: icons.faEnvelope,
+            title: 'Programa',
+            description: 'Progresar superior',
+            buttonLabel: 'Tramitar',
+            to: '/becas-vera',
         }
     ];
 
@@ -76,13 +92,14 @@ function OnlineProcedures() {
             <h1>Trámites en Línea</h1>
 
             <CardsGrid>
-                {defaultCards.map(({ title, buttonLabel, description, icon }) => (
+                {defaultCards.map(({ title, buttonLabel, description, icon, to }) => (
                     <OnlineProceduresCard
                         key={title}
                         title={title}
                         period={description}
                         buttonLabel={buttonLabel}
-                    icon={icon}
+                        icon={icon}
+                        to={to}
                     />
                 ))}
             </CardsGrid>
@@ -128,6 +145,7 @@ function OnlineProcedures() {
                           period={card.description}
                           buttonLabel={card.buttonLabel}
                           icon={card.icon}
+                          to={card.to}
                         />
                       ))}
                   </div>
@@ -242,10 +260,11 @@ const MobileProcedures = styled.section`
   .procedure-selector {
     position: relative;
     isolation: isolate;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.55rem;
     padding: 0.35rem;
-    border-radius: 999px;
+    border-radius: 1.25rem;
   }
 
   .selector-active-pill {
@@ -271,8 +290,13 @@ const MobileProcedures = styled.section`
     position: relative;
     z-index: 1;
     border: 1px solid transparent;
-    border-radius: 999px;
+    border-radius: 0.9rem;
     padding: 0.75rem 0.55rem;
+    min-height: 3.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-wrap: anywhere;
     font-family: var(--font-heading);
     font-size: 0.84rem;
     font-weight: 700;
@@ -291,6 +315,18 @@ const MobileProcedures = styled.section`
 
   .procedure-panel > article {
     max-width: none;
+  }
+
+  @media (max-width: 420px) {
+    .procedure-selector {
+      gap: 0.4rem;
+      padding: 0.3rem;
+    }
+
+    .selector-pill {
+      padding: 0.65rem 0.4rem;
+      font-size: 0.76rem;
+    }
   }
 `;
 

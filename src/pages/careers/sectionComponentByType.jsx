@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays, faCircleCheck, faClock, faIdCard, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import Banner from '../../components/Banner';
+import Faq from '../../components/Faq';
 
 import useSlidingPill from '../../hooks/useSlidingPill';
 
@@ -32,8 +33,13 @@ function AboutMedia({ image, title }) {
   );
 }
 
-function BannerSection({ section }) {
+function BannerSection({ section, career }) {
   const bannerItem = section?.content?.[0] ?? {};
+  const infoCardsSection = career?.sections?.find((item) => item?.type === 'info-cards');
+  const scheduleCard = infoCardsSection?.content?.find((card) => card?.title === 'Turno');
+  const enrollmentStatus = career?.state === false ? 'Inscripciones cerradas' : 'Inscripciones abiertas';
+  const enrollmentModality = scheduleCard?.horario?.trim();
+  const enrollmentText = [enrollmentStatus, enrollmentModality].filter(Boolean).join(' - ');
 
   return (
     <SectionStyled>
@@ -42,6 +48,8 @@ function BannerSection({ section }) {
           titulo={bannerItem.title ?? 'Carrera'}
           subtitulo={bannerItem.subtitle ?? ''}
           textoBoton={bannerItem.buttonText ?? 'Inscribite ahora'}
+          spanTexto={enrollmentText}
+          botonDeshabilitado={career?.state === false}
           imagenFondoPath={`${import.meta.env.BASE_URL}images/banner/careers/${bannerItem.image ?? ''}`}
         />
       </div>
@@ -265,23 +273,30 @@ function GallerySection({ section }) {
   );
 }
 
-function FaqSection({ section }) {
+function FaqSection({ section, career }) {
   const questions = Array.isArray(section?.questions) ? section.questions : [];
   const answers = Array.isArray(section?.answers) ? section.answers : [];
+  const careerName = career?.title ?? 'la carrera';
+  const informationSubject = `[SOLICITO INFO] Quiero información de la carrera ${careerName}`;
+
+  const faqData = {
+    title: 'Preguntas frecuentes',
+    subtitle: `Resolvé las dudas más comunes sobre ${careerName}.`,
+    contact: {
+      label: '¿No encontrás la respuesta?',
+      action: 'Contactanos',
+      subject: '[Consulta desde la web]',
+      informationSubject,
+    },
+    questions: questions.map((question, index) => ({
+      question,
+      answer: answers[index] ?? 'Respuesta pendiente',
+    })),
+  };
 
   return (
     <SectionStyled>
-      <section className="career-block liquid-glass-effect">
-        <h3>Preguntas frecuentes</h3>
-        <div className="faq-list">
-          {questions.map((question, index) => (
-            <article className="faq-item liquid-glass-effect" key={`faq-${index}`}>
-              <h4>{question}</h4>
-              <p>{answers[index] ?? 'Respuesta pendiente'}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      <Faq data={faqData} />
     </SectionStyled>
   );
 }
@@ -530,12 +545,12 @@ const SectionStyled = styled.div`
   .contact-bubble {
     position: absolute;
     left: 0;
-    top: 100%;
+    bottom: 0;
     z-index: 3;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-top: 0.4rem;
+    margin-top: 0;
     padding: 0.4rem 0.9rem;
     max-width: 100%;
     border-radius: 999px;
