@@ -90,6 +90,7 @@ const StepCardsStyled = styled.div`
             right: 50%;
             bottom: -1.95rem;
             transform: translateX(50%) rotate(90deg);
+            display:none;
         }
     }
 `;

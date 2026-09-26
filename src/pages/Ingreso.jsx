@@ -101,7 +101,7 @@ function Ingreso() {
     return (
         <IngresoStyled>
             <VirtualAccess />
-            <Navbar $flushTop />
+            <Navbar />
             <Banner
                 titulo="Ingreso 2026"
                 subtitulo="Todo lo que necesitas para comenzar tu carrera en el Vera"
@@ -153,6 +153,9 @@ const IngresoStyled = styled.div`
     margin: 0 auto;
     box-sizing: border-box;
     padding: 2rem 1.5rem;
+
+    @media (max-width: 1100px) {
+       width: 100%;
 `;
 
 const CardsSection = styled.section`

@@ -86,7 +86,7 @@ const FooterStyled = styled.footer`
 	box-sizing: border-box;
 	display: block;
 	position: relative;
-	z-index: 4;
+	z-index: 1;
 	scroll-margin-top: 1rem;
 	margin: 1.6rem 0 2rem;
 	padding: 1.6rem 1.6rem 1.2rem;
@@ -195,7 +195,7 @@ const FooterStyled = styled.footer`
 	@media (max-width: 768px) {
 		align-self: stretch;
 		width: 100%;
-		z-index: 101;
+		z-index: 2;
 		margin: 1.2rem 0 7rem;
 		padding: 1.3rem 1rem 1rem;
 

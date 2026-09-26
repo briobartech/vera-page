@@ -12,7 +12,7 @@
 	--glass-shadow-rgb: 129, 91, 181;
 	--color-gradient: linear-gradient(135deg, #5b2ea6, #a98de0);
 	--font-heading: 'Montserrat', sans-serif;
-	--font-body: 'Montserrat', sans-serif;
+	--font-body: 'Montserrat', helvetica, sans-serif;
 }
 
 body {

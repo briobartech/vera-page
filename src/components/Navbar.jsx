@@ -64,15 +64,15 @@ const menuItems = [
     ],
   },
   {
-    label: 'Recurso docente',
+    label: 'Recursos docente',
     links: [
-      { href: '#', text: 'Formativas' },
-      { href: '#', text: 'Actualización profesional' },
+      { href: '#', text: 'Normativas' },
+      { href: '#', text: 'Actualización profesional' },{ href: '#', text: 'IdIES' },
     ],
   },
 ];
 
-function NavBar() {
+function NavBar({ mobileFirstItem = null }) {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isFloatingToggle, setIsFloatingToggle] = useState(false);
   const navRef = useRef(null);
@@ -228,6 +228,7 @@ function NavBar() {
 
       <div className={`mobile-panel liquid-glass-effect ${isMobileOpen ? 'open' : ''}`}>
         <ul className="mobile-list">
+          {mobileFirstItem && <li className="mobile-search-item">{mobileFirstItem}</li>}
           {menuItems.map((item) => (
             <li key={item.label} className="mobile-group">
               <a href={item.href || '#'} className="mobile-group-title" onClick={() => setIsMobileOpen(false)}>
@@ -668,6 +669,17 @@ const NavBarStyled = styled.nav`
       list-style: none;
       margin: 0;
       padding: 0;
+    }
+
+    .mobile-search-item {
+      padding: 0.1rem 0 0.75rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(230, 230, 239, 0.8);
+    }
+
+    .mobile-search-item > * {
+      width: 100%;
+      margin: 0;
     }
 
     .mobile-group + .mobile-group {

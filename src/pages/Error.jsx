@@ -1,11 +1,33 @@
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import NavBar from '../components/Navbar';
 import Footer from '../components/Footer';
 import VirtualAccess from '../components/VirtualAccess';
+import { fetchNewsList } from '../services/newsApi';
+import images from '../data/images';
+
+function resolveNewsImage(image) {
+  if (!image) return images.logoVera;
+  if (/^(https?:)?\//.test(image)) return image;
+  return `${import.meta.env.BASE_URL}images/${image}`;
+}
+
+function getLatestNewsEntry(newsMap) {
+  return Object.entries(newsMap ?? {})
+    .filter(([, news]) => news.visible !== false)
+    .sort(([, newsA], [, newsB]) => {
+      const dateA = Date.parse(newsA.date);
+      const dateB = Date.parse(newsB.date);
+      if (Number.isNaN(dateA)) return 1;
+      if (Number.isNaN(dateB)) return -1;
+      return dateB - dateA;
+    })[0] ?? null;
+}
 
 function ErrorPage({ error, onRetry }) {
   const navigate = useNavigate();
+  const [latestNews, setLatestNews] = useState(null);
   const message =
     error?.message ||
     'La página que intentás abrir no está disponible o se produjo un error inesperado.';
@@ -18,6 +40,22 @@ function ErrorPage({ error, onRetry }) {
 
     navigate('/');
   };
+
+  useEffect(() => {
+    let isActive = true;
+
+    fetchNewsList()
+      .then((newsMap) => {
+        if (isActive) setLatestNews(getLatestNewsEntry(newsMap));
+      })
+      .catch(() => {
+        if (isActive) setLatestNews(null);
+      });
+
+    return () => {
+      isActive = false;
+    };
+  }, []);
 
   return (
     <>
@@ -58,6 +96,21 @@ function ErrorPage({ error, onRetry }) {
                 <Link to="/" className="home-link">
                   Volver al inicio
                 </Link>
+                {latestNews && (
+                  <Link to={`/novedades/${latestNews[0]}`} className="news-suggestion">
+                    <img
+                      src={resolveNewsImage(latestNews[1].thumbnail)}
+                      alt=""
+                      onError={(event) => {
+                        event.currentTarget.src = images.logoVera;
+                      }}
+                    />
+                    <span className="news-suggestion-copy">
+                      <small>También te puede interesar</small>
+                      <strong>{latestNews[1].title}</strong>
+                    </span>
+                  </Link>
+                )}
               </div>
             </div>
 
@@ -270,9 +323,65 @@ const ErrorPageStyled = styled.main`
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
   }
 
+  .news-suggestion {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: min(100%, 260px);
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(127, 70, 219, 0.18);
+    border-radius: 1rem;
+    background: rgba(255,255,255,0.3);
+    color: #4d2d7d;
+    text-decoration: none;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .news-suggestion img {
+    flex: 0 0 52px;
+    width: 52px;
+    height: 52px;
+    border-radius: 0.7rem;
+    object-fit: cover;
+    background: rgba(255,255,255,0.7);
+  }
+
+  .news-suggestion-copy {
+    display: grid;
+    gap: 0.2rem;
+    min-width: 0;
+  }
+
+  .news-suggestion small {
+    color: var(--color-institutional-purple);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .news-suggestion strong {
+    overflow: hidden;
+    color: #4d2d7d;
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    line-height: 1.25;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
   button:hover,
-  .home-link:hover {
+  .home-link:hover,
+  .news-suggestion:hover {
     transform: translateY(-1px);
+  }
+
+  .news-suggestion:hover {
+    background: rgba(255,255,255,0.52);
   }
 
   .error-visual {
@@ -381,7 +490,8 @@ const ErrorPageStyled = styled.main`
     }
 
     button,
-    .home-link {
+    .home-link,
+    .news-suggestion {
       width: 100%;
     }
 

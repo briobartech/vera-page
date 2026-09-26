@@ -1,5 +1,6 @@
 import { useAppContext } from '../context/AppContext';
 import styled from 'styled-components';
+import SearchBar from '../components/SearchBar.jsx';
 import NewsBanner from '../components/NewsBanner.jsx';
 import Banner from '../components/Banner.jsx';
 import NavBar from '../components/Navbar.jsx';
@@ -22,7 +23,8 @@ function Home() {
     return (
         <HomeStyled >
             <VirtualAccess />
-            <NavBar $flushTop />
+          <div className="home-search-bar"><SearchBar /></div>
+          <NavBar $flushTop mobileFirstItem={<SearchBar />} />
             <Banner
                 titulo="Instituto de Educación Superior Rosario Vera Peñaloza"
                 subtitulo="Comprometidos con la educación y el desarrollo profesional en nuestra comunidad"
@@ -76,5 +78,9 @@ const HomeStyled = styled.div`
   @media (max-width: 900px) {
     width: min(100%, 1440px);
     padding: 0 0.8rem;
+
+    .home-search-bar {
+      display: none;
+    }
   }
 `;

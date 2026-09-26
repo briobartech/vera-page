@@ -168,7 +168,7 @@ function AboutSection({ section }) {
   return (
     <SectionStyled>
       <section className="career-block career-split liquid-glass-effect">
-        <div className="about-copy">
+        <div className="about-copy text-2">
           <h3>{content?.title ?? 'Detalle'}</h3>
           <p>{content?.description ?? ''}</p>
         </div>
@@ -417,6 +417,8 @@ const SectionStyled = styled.div`
   .about-copy p {
     max-width: 66ch;
     font-size: clamp(1rem, 0.95rem + 0.2vw, 1.12rem);
+    
+    
   }
 
   .about-media-wrap {
@@ -737,7 +739,8 @@ const SectionStyled = styled.div`
     .about-media {
       height: clamp(180px, 48vw, 260px);
     }
-
+  .about-copy p {
+  font-weight: 100;}
     .cards-grid,
     .contents-grid {
       grid-template-columns: minmax(0, 1fr);

@@ -68,6 +68,7 @@ const AdministratorsStyled = styled.section`
         height: 92px;
         padding: 1rem 1.15rem 0.9rem;
         text-align: center;
+        backdrop-filter: blur(10px) saturate(180%);
     }
 
     h2 {

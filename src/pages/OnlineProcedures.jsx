@@ -27,14 +27,14 @@ function OnlineProcedures() {
             to: 'https://dti.mendoza.edu.ar/superior/'
         },
         {
-          icon: icons.faFile,
+          icon: icons.faFileLines,
             title: 'Certificado',
             description: 'de Vías y medios de transporte',
             buttonLabel: 'Pedir',
             to: 'https://docs.google.com/forms/d/e/1FAIpQLSfP0qyy0Apg8AQujmx1mAgMLQXAg8DLNlMaQUN92yTs2LCtIw/viewform',
         },
         {
-          icon: icons.faEnvelope,
+          icon: icons.faChartSimple,
             title: 'Programa',
             description: 'Progresar superior',
             buttonLabel: 'Tramitar',

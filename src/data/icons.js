@@ -12,7 +12,7 @@ import {
     faMagnifyingGlass,
     faNewspaper,
     faPenToSquare,
-    faRobot, faFilePen, faUser, faBuildingColumns, faAward, faUsers, faUserGear, faUserCheck, faFolderOpen, faFileLines
+    faRobot, faFilePen, faUser, faBuildingColumns, faAward, faUsers, faUserGear, faUserCheck, faFolderOpen, faFileLines, faChartSimple
 } from '@fortawesome/free-solid-svg-icons';
 
 const icons = {
@@ -34,7 +34,7 @@ const icons = {
     faNewspaper,
     faPenToSquare,
     faRobot,
-    faUserCheck,faFileLines,faFolderOpen,
+    faUserCheck,faFileLines,faFolderOpen,faChartSimple,
     profesoradoArtesVisuales: `${import.meta.env.BASE_URL}images/icons/profesorado-de-arte.svg`,
     educacionPrimaria: `${import.meta.env.BASE_URL}images/icons/educación-primaria.svg`,
     educacionInicial: `${import.meta.env.BASE_URL}images/icons/educacion-inicial.svg`,

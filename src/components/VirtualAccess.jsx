@@ -222,9 +222,10 @@ const VirtualAccessStyled = styled.section`
     border: 0;
     border-radius: 2rem;
 
-    color: var(--color-dark-purple);
+    color: var(--color-white);
     font-family: var(--font-heading);
     font-weight: 700;
+    background: var(--color-institutional-purple);
 
     cursor: pointer;
 
@@ -246,6 +247,7 @@ const VirtualAccessStyled = styled.section`
     .virtual-access-float:focus-visible {
         background: var(--color-white);
         border: 1px solid rgba(255, 255, 255, 0.98);
+        color: var(--color-institutional-purple);
         box-shadow:
             0 5px 12px rgba(var(--glass-shadow-rgb), 0.2),
             0 0 0 3px rgba(195, 173, 236, 0.22),
@@ -270,6 +272,7 @@ const VirtualAccessStyled = styled.section`
 
     .virtual-access-float {
     position: fixed;
+    z-index: 110;
 
     right: 1.25rem;
     bottom: 1.25rem;
@@ -286,9 +289,10 @@ const VirtualAccessStyled = styled.section`
     border: 0;
     border-radius: 2rem;
 
-    color: var(--color-dark-purple);
+    color: var(--color-white);
     font-family: var(--font-heading);
     font-weight: 700;
+    background: var(--color-institutional-purple);
 
     cursor: pointer;
 
@@ -399,39 +403,28 @@ const VirtualAccessStyled = styled.section`
        MOBILE
     ========================================= */
     @media (max-width: 1600px) {
-        /* Se alinea con el botón hamburguesa para que queden en la misma línea vertical */
-        right: 1.9rem;
+        .virtual-access {
+            display: none;
+        }
 
-        /* Se ubica arriba del botón hamburguesa flotante para que no se superpongan */
         .virtual-access-float {
             right: 1rem;
-            bottom: 4.75rem;
+            bottom: 6rem;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
         }
     }
 
     @media (max-width: 768px) {
-    
         .virtual-access-float {
             right: 0.75rem;
-            bottom: 4.5rem;
+            bottom: 5.5rem;
         }
 
-        /* En móvil (no tablet) el botón superior termina mostrando solo el ícono */
-        .virtual-access .label {
-            display: block;
-            max-width: 200px;
-            overflow: hidden;
-            white-space: nowrap;
-            opacity: 1;
-            transition: max-width 0.5s ease, opacity 0.3s ease;
-            animation: collapseText 0.5s ease forwards 1.2s;
-        }
-
-        .virtual-access:hover .label,
-        .virtual-access:focus-visible .label {
-            max-width: 200px;
-            opacity: 1;
-            animation: none;
+        .virtual-access-float .float-label {
+            animation: collapseText 0.5s ease forwards 3s;
         }
     }
 }
